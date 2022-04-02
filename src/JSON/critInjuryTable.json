@@ -1,0 +1,32 @@
+{
+  "body": [
+    "none",
+    "",
+    "Dismembered Arm",
+    "Dismembered Hand",
+    "Collapsed Lung",
+    "Broken Ribs",
+    "Broken Arm",
+    "Foreign Object",
+    "Broken Leg",
+    "Torn Muscle",
+    "Spinal Injury",
+    "Crushed Fingers",
+    "Dismembered Leg"
+  ],
+  "head": [
+    "none",
+    "",
+    "Lost Eye",
+    "Brain Injury",
+    "Damaged Eye",
+    "Concussion",
+    "Broken Jaw",
+    "Foreign Object",
+    "Whiplash",
+    "Cracked Skull",
+    "Damaged Ear",
+    "Crushed Windpipe",
+    "Lost Ear"
+  ]
+}

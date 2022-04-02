@@ -1,0 +1,20 @@
+{
+  "name": "cyberpunk-bot",
+  "version": "1.0.0",
+  "description": "Discord bot for Cyberpubnk RED.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node src/index.js"
+  },
+  "author": "adamc",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/builders": "^0.12.0",
+    "@discordjs/rest": "^0.3.0",
+    "discord-api-types": "^0.27.3",
+    "dotenv": "^16.0.0",
+    "mongoose": "^6.2.4",
+    "nodemon": "^2.0.15",
+    "reconlx": "^2.5.2"
+  }
+}

@@ -1,0 +1,380 @@
+[
+    {
+        "ref" : "basic_arrow",
+        "ammoType" : "Arrow",
+        "name" : "Basic Arrow",
+        "dmg" : "4d6",
+        "effect" : "none",
+        "ablate" : 1,
+        "cost" : 10
+    },
+    {
+        "ref" : "ap_arrow",
+        "ammoType" : "Arrow",
+        "name" : "Armor Piercing Arrow",
+        "dmg" : "4d6",
+        "effect" : "Ablate armor by 2 instead of 1.",
+        "ablate" : 2,
+        "cost" : 100
+    },
+    {
+        "ref" : "biotoxin_arrow",
+        "ammoType" : "Arrow",
+        "name" : "Biotoxin Arrow",
+        "dmg" : "3d6",
+        "effect" : "Meat <Target> must attempt Resist Torture/Drugs DV15 or suffer 3d6 DMG direct to HP. Armor is not ablated.",
+        "ablate" : 0,
+        "cost" : 500
+    },
+    {
+        "ref" : "expansive_arrow",
+        "ammoType" : "Arrow",
+        "name" : "Expansive Arrow",
+        "dmg" : "4d6",
+        "effect" : "If Foreign Object Critical Injury occurs, <Target> rolls Critical Injury until they roll an injury that isn't Foreign Object. <Target> suffers injury without bonus DMG.",
+        "ablate" : 1,
+        "cost" : 100
+    },
+    {
+        "ref" : "incendiary_arrow",
+        "ammoType" : "Arrow",
+        "name" : "Incendiary Arrow",
+        "dmg" : "4d6",
+        "effect" : "If DMG passes through armor, <Target> is ignited. <Target> suffers 2 DMG directly to HP on their Turn until Action taken to put themselves out.",
+        "ablate" : 1,
+        "cost" : 100
+    },
+    {
+        "ref" : "poison_arrow",
+        "ammoType" : "Arrow",
+        "name" : "Poison Arrow",
+        "dmg" : "2d6",
+        "effect" : "Meat <Target> must attempt a Resist Torture/Drugs DV13 or <Target> suffers 2d6 DMG directly to HP. Armor is not ablated.",
+        "ablate" : 1,
+        "cost" : 100
+    },
+    {
+        "ref" : "sleep_arrow",
+        "ammoType" : "Arrow",
+        "name" : "Sleep Arrow",
+        "dmg" : 0,
+        "effect" : "Meat <Target> must attempt a Resist Torture/Drugs DV13 or become Prone and Unconscious for 1 minute or until awoken by taking DMG, or by someone else using an Action that touches them.",
+        "ablate" : 1,
+        "cost" : 500
+    },
+    {
+        "ref" : "basic_m_pistol",
+        "ammoType" : "M pistol",
+        "name" : "Basic M pistol",
+        "dmg" : "2d6",
+        "effect" : "none",
+        "ablate" : 1,
+        "cost" : 10
+    },
+    {
+        "ref" : "ap_m_pistol",
+        "ammoType" : "M pistol",
+        "name" : "Armor Piercing M pistol",
+        "dmg" : "2d6",
+        "effect" : "Ablate armor by 2 instead of 1.",
+        "ablate" : 2,
+        "cost" : 100
+    },
+    {
+        "ref" : "expansive_m_pistol",
+        "ammoType" : "M pistol",
+        "name" : "Expansive M pistol",
+        "dmg" : "2d6",
+        "effect" : "If Foreign Object Critical Injury occurs, <Target> rolls Critical Injury until they roll an injury that isn't Foreign Object. <Target> suffers injury without bonus DMG.",
+        "ablate" : 1,
+        "cost" : 100
+    },
+    {
+        "ref" : "incendiary_m_pistol",
+        "ammoType" : "M pistol",
+        "name" : "Incendiary M pistol",
+        "dmg" : "2d6",
+        "effect" : "If DMG passes through armor, <Target> is ignited. <Target> suffers 2 DMG directly to HP on their Turn until Action taken to put themselves out.",
+        "ablate" : 1,
+        "cost" : 100
+    },
+    {
+        "ref" : "rubber_m_pistol",
+        "ammoType" : "M pistol",
+        "name" : "Rubber M pistol",
+        "dmg" : 0,
+        "effect" : ",Deals 0 DMG, cannot cause Critical Injury, ablate armor, or Mortally Wound.",
+        "ablate" : 1,
+        "cost" : 10
+    },
+    {
+        "ref" : "basic_h_pistol",
+        "ammoType" : "H pistol",
+        "name" : "Basic H pistol",
+        "dmg" : "3d6",
+        "effect" : "none",
+        "ablate" : 1,
+        "cost" : 10
+    },
+    {
+        "ref" : "ap_H_pistol",
+        "ammoType" : "H pistol",
+        "name" : "Armor Piercing H pistol",
+        "dmg" : "3d6",
+        "effect" : "Ablate armor by 2 instead of 1.",
+        "ablate" : 2,
+        "cost" : 100
+    },
+    {
+        "ref" : "expansive_H_pistol",
+        "ammoType" : "H pistol",
+        "name" : "Expansive H pistol",
+        "dmg" : "3d6",
+        "effect" : "If Foreign Object Critical Injury occurs, <Target> rolls Critical Injury until they roll an injury that isn't Foreign Object. <Target> suffers injury without bonus DMG.",
+        "ablate" : 1,
+        "cost" : 100
+    },
+    {
+        "ref" : "incendiary_H_pistol",
+        "ammoType" : "H pistol",
+        "name" : "Incendiary H pistol",
+        "dmg" : "3d6",
+        "effect" : "If DMG passes through armor, <Target> is ignited. <Target> suffers 2 DMG directly to HP on their Turn until Action taken to put themselves out.",
+        "ablate" : 1,
+        "cost" : 100
+    },
+    {
+        "ref" : "rubber_H_pistol",
+        "ammoType" : "H pistol",
+        "name" : "Rubber H pistol",
+        "dmg" : 0,
+        "effect" : ",Deals 0 DMG, cannot cause Critical Injury, ablate armor, or Mortally Wound.",
+        "ablate" : 1,
+        "cost" : 10
+    },
+    {
+        "ref" : "basic_vh_pistol",
+        "ammoType" : "VH pistol",
+        "name" : "Basic VH pistol",
+        "dmg" : "4d6",
+        "effect" : "none",
+        "ablate" : 1,
+        "cost" : 10
+    },
+    {
+        "ref" : "ap_vh_pistol",
+        "ammoType" : "VH pistol",
+        "name" : "Armor Piercing VH pistol",
+        "dmg" : "4d6",
+        "effect" : "Ablate armor by 2 instead of 1.",
+        "ablate" : 2,
+        "cost" : 100
+    },
+    {
+        "ref" : "expansive_vh_pistol",
+        "ammoType" : "VH pistol",
+        "name" : "Expansive VH pistol",
+        "dmg" : "4d6",
+        "effect" : "If Foreign Object Critical Injury occurs, <Target> rolls Critical Injury until they roll an injury that isn't Foreign Object. <Target> suffers injury without bonus DMG.",
+        "ablate" : 1,
+        "cost" : 100
+    },
+    {
+        "ref" : "incendiary_vh_pistol",
+        "ammoType" : "VH pistol",
+        "name" : "Incendiary VH pistol",
+        "dmg" : "4d6",
+        "effect" : "If DMG passes through armor, <Target> is ignited. <Target> suffers 2 DMG directly to HP on their Turn until Action taken to put themselves out.",
+        "ablate" : 1,
+        "cost" : 100
+    },
+    {
+        "ref" : "rubber_vh_pistol",
+        "ammoType" : "VH pistol",
+        "name" : "Rubber VH pistol",
+        "dmg" : 0,
+        "effect" : ",Deals 0 DMG, cannot cause Critical Injury, ablate armor, or Mortally Wound.",
+        "ablate" : 1,
+        "cost" : 10
+    },
+    {
+        "ref" : "basic_rifle",
+        "ammoType" : "Rifle",
+        "name" : "Basic Rifle",
+        "dmg" : "5d6",
+        "effect" : "none",
+        "ablate" : 1,
+        "cost" : 10
+    },
+    {
+        "ref" : "ap_rifle",
+        "ammoType" : "Rifle",
+        "name" : "Armor Piercing Rifle",
+        "dmg" : "5d6",
+        "effect" : "Ablate armor by 2 instead of 1.",
+        "ablate" : 2,
+        "cost" : 100
+    },
+    {
+        "ref" : "expansive_rifle",
+        "ammoType" : "Rifle",
+        "name" : "Expansive Rifle",
+        "dmg" : "5d6",
+        "effect" : "If Foreign Object Critical Injury occurs, <Target> rolls Critical Injury until they roll an injury that isn't Foreign Object. <Target> suffers injury without bonus DMG.",
+        "ablate" : 1,
+        "cost" : 100
+    },
+    {
+        "ref" : "incendiary_rifle",
+        "ammoType" : "Rifle",
+        "name" : "Incendiary Rifle",
+        "dmg" : "5d6",
+        "effect" : "If DMG passes through armor, <Target> is ignited. <Target> suffers 2 DMG directly to HP on their Turn until Action taken to put themselves out.",
+        "ablate" : 1,
+        "cost" : 100
+    },
+    {
+        "ref" : "rubber_rifle",
+        "ammoType" : "Rifle",
+        "name" : "Rubber Rifle",
+        "dmg" : 0,
+        "effect" : "Deals 0 DMG, cannot cause Critical Injury, ablate armor, or Mortally Wound.",
+        "ablate" : 1,
+        "cost" : 10
+    },
+    {
+        "ref" : "basic_slug",
+        "ammoType" : "Slug",
+        "name" : "Basic Slug",
+        "dmg" : "5d6",
+        "effect" : "none",
+        "ablate" : 1,
+        "cost" : 10
+    },
+    {
+        "ref" : "expansive_slug",
+        "ammoType" : "Slug",
+        "name" : "Expansive Slug",
+        "dmg" : "5d6",
+        "effect" : "If Foreign Object Critical Injury occurs, <Target> rolls Critical Injury until they roll an injury that isn't Foreign Object. <Target> suffers injury without bonus DMG.",
+        "ablate" : 1,
+        "cost" : 100
+    },
+    {
+        "ref" : "rubber_slug",
+        "ammoType" : "Slug",
+        "name" : "Rubber Slug",
+        "dmg" : 0,
+        "effect" : "Deals 0 DMG, cannot cause Critical Injury, ablate armor, or Mortally Wound.",
+        "ablate" : 1,
+        "cost" : 10
+    },
+    {
+        "ref" : "basic_shell",
+        "ammoType" : "Shell",
+        "name" : "Basic Shell",
+        "dmg" : "5d6",
+        "effect" : "none",
+        "ablate" : 1,
+        "cost" : 10
+    },
+    {
+        "ref" : "incendiary_shell",
+        "ammoType" : "Shell",
+        "name" : "Incendiary Shell",
+        "dmg" : "5d6",
+        "effect" : "If DMG passes through armor, <Target> is ignited. <Target> suffers 2 DMG directly to HP on their Turn until Action taken to put themselves out.",
+        "ablate" : 1,
+        "cost" : 100
+    },
+    {
+        "ref" : "rocket",
+        "ammoType" : "Rocket",
+        "name" : "Rocket",
+        "dmg" : "8d6",
+        "effect" : "none",
+        "ablate" : 2,
+        "cost" : 100
+    },
+    {
+        "ref" : "ap_grenade",
+        "ammoType" : "Armor Piercing Grenade",
+        "name" : "Grenade",
+        "dmg" : "6d6",
+        "effect" : "none",
+        "ablate" : 2,
+        "cost" : 100
+    },
+    {
+        "ref" : "biotoxin_grenade",
+        "ammoType" : "Grenade",
+        "name" : "Biotoxin Grenade",
+        "dmg" : "3d6",
+        "effect" : "Meat <Target> must attempt Resist Torture/Drugs DV15 or suffer 3d6 DMG direct to HP. Armor is not ablated.",
+        "ablate" : 0,
+        "cost" : 500
+    },
+    {
+        "ref" : "emp_grenade",
+        "ammoType" : "Grenade",
+        "name" : "EMP Grenade",
+        "dmg" : 0,
+        "effect" : "<Target> must attempt Cybertech DV15 or GM chooses 2 pieces of Cyberwear or carried electronics to become inoperable for 1 min. (Cyberlimbs effected act the same as being dismembered for duration of effect).",
+        "ablate" : 0,
+        "cost" : 500
+    },
+    {
+        "ref" : "flashbang_grenade",
+        "ammoType" : "Grenade",
+        "name" : "Flashbang Grenade",
+        "dmg" : 0,
+        "effect" : "Any <target> hit by blast must attempt a Resist/Torture Drugs DV15 or suffer Damaged Eye and Damaged Ear Critical Injuries for the net minute. (No Bonus DMG)",
+        "ablate" : 0,
+        "cost" : 100
+    },
+    {
+        "ref" : "incendiary_grenade",
+        "ammoType" : "Grenade",
+        "name" : "Incendiary Grenade",
+        "dmg" : "6d6",
+        "effect" : "If DMG passes through armor, <Target> is ignited. <Target> suffers 2 DMG directly to HP on their Turn until Action taken to put themselves out.",
+        "ablate" : 1,
+        "cost" : 100
+    },
+    {
+        "ref" : "poison_grenade",
+        "ammoType" : "Grenade",
+        "name" : "Poison Grenade",
+        "dmg" : "2d6",
+        "effect" : "Meat <target> must attempt a Resist Torture/Drugs DV13 or <Target> suffers 2d6 DMG directly to HP. Armor is not ablated.",
+        "ablate" : 0,
+        "cost" : 100
+    },
+    {
+        "ref" : "sleep_grenade",
+        "ammoType" : "Grenade",
+        "name" : "Sleep Grenade",
+        "dmg" : 0,
+        "effect" : "Meat <Target> must attempt a Resist Torture/Drugs DV13 or become Prone and Unconscious for 1 minute or until awoken by taking DMG, or by someone else using an Action that touches them.",
+        "ablate" : 0,
+        "cost" : 500
+    },
+    {
+        "ref" : "smoke_grenade",
+        "ammoType" : "Grenade",
+        "name" : "Smoke Grenade",
+        "dmg" : 0,
+        "effect" : "Obscures a 10m/yd by 10m/yd area with smoke for a minute on impact. The typical penalty for trying to perform a task obscured by smoke is -4.",
+        "ablate" : 0,
+        "cost" : 50
+    },
+    {
+        "ref" : "teargas_grenade",
+        "ammoType" : "Grenade",
+        "name" : "Teargas Grenade",
+        "dmg" : 0,
+        "effect" : "Anyone with meat eyes hit must attempt Resist Torture/Drugs DV13 or suffer the Damaged Eye Critical Injury for 1 min. (No Bonus DMG)",
+        "ablate" : 0,
+        "cost" : 50
+    }
+]
