@@ -11,8 +11,8 @@ const rangedAttack = ra(pc, ["smg"], 12);
 const reload = rl(pc, ["smg"]);
 const load = la(pc, ['bow'], ['biotoxin', 'arrow'])
 
-console.log(skillCheck.roll.display);
-console.log(statCheck.display);
-console.log(rangedAttack.sc.roll.display);
-console.log(reload.loaded.name);
+console.log(skillCheck);
+console.log(statCheck);
+console.log(rangedAttack);
+console.log(reload);
 console.log(load);
