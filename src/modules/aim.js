@@ -4,7 +4,6 @@ function aim(attack, location) {
         dv: 0,
         isHit: false,
         effect: "",
-        dmg: 0,
         injury: "none",
     };
     aimObject.dv = attack.dv + 8;

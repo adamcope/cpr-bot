@@ -3,13 +3,11 @@ function aim(attack: any, location: string) {
     dv: number;
     isHit: boolean;
     effect: string;
-    dmg: number;
     injury: string;
   } = {
     dv: 0,
     isHit: false,
     effect: "",
-    dmg: 0,
     injury: "none",
   };
 
