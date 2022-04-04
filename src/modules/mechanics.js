@@ -428,7 +428,7 @@ const blackICE = {
     def: 2,
     rez: 15,
     effect:
-      "```Destroy's a single Program on the enemy Netrunner's Cyberdeck at random.```",
+      "Destroy's a single Program on the enemy Netrunner's Cyberdeck at random.",
     actionLabel: "Spin to Win",
     actionId: "action",
   },
@@ -442,7 +442,7 @@ const blackICE = {
     def: 4,
     rez: 25,
     effect:
-      "```Does 3d6 damage direct to an enemy Netrunner's brain. The Netrunner is forcibly and unsafely Jacked Out of their current Netrun. They suffer the effect of all Rezzed enemy Black ICE they've encountered in the Architecture as they leave, not inluding the Giant.```",
+      "Does 3d6 damage direct to an enemy Netrunner's brain. The Netrunner is forcibly and unsafely Jacked Out of their current Netrun. They suffer the effect of all Rezzed enemy Black ICE they've encountered in the Architecture as they leave, not inluding the Giant.",
     actionLabel: "Brain DMG",
     actionId: "action",
   },
@@ -456,7 +456,7 @@ const blackICE = {
     def: 2,
     rez: 20,
     effect:
-      "```Does 2d6 DMG direct to the Netrunner's brain. Unless insulated, their cyberdeck catches fire along with their clothing.  Until they spend a Meat Action to put themselves out, they take 2 damage to their HP whenever they end their turn. [Cannot Stack]```",
+      "Does 2d6 DMG direct to the Netrunner's brain. Unless insulated, their cyberdeck catches fire along with their clothing.  Until they spend a Meat Action to put themselves out, they take 2 damage to their HP whenever they end their turn. [Cannot Stack]",
     actionLabel: "Brain DMG",
     actionId: "action",
   },
@@ -470,7 +470,7 @@ const blackICE = {
     def: 4,
     rez: 30,
     effect:
-      "```Does 3d6 DMG to an enemy Netrunner's brain. Until the end of the Netrunner's next Turn. the Netrunner cannot progress deeper into the Architecture or Jack Out safely (The Netrunner can still perform an unsafe Jack Out).```",
+      "Does 3d6 DMG to an enemy Netrunner's brain. Until the end of the Netrunner's next Turn. the Netrunner cannot progress deeper into the Architecture or Jack Out safely (The Netrunner can still perform an unsafe Jack Out).",
     actionLabel: "Brain DMG",
     actionId: "action",
   },
@@ -484,7 +484,7 @@ const blackICE = {
     def: 2,
     rez: 25,
     effect:
-      "```Enemy Netrunner's INT, REF, and DEX are each lowered by 1d6 for the next hour (minimum1). The effects are largely psychosomatic and leave no permanent effects.```",
+      "Enemy Netrunner's INT, REF, and DEX are each lowered by 1d6 for the next hour (minimum1). The effects are largely psychosomatic and leave no permanent effects.",
     actionLabel: "Make Them Dumber",
     actionId: "action",
   },
@@ -498,7 +498,7 @@ const blackICE = {
     def: 2,
     rez: 15,
     effect:
-      "```Derezzes a single Defender Program the enemy Netrunner has Rezzed at random, then deals 1d6 DMG direct the the Netrunner's brain.```",
+      "Derezzes a single Defender Program the enemy Netrunner has Rezzed at random, then deals 1d6 DMG direct the the Netrunner's brain.",
     actionLabel: "DEREZZ and Brain DMG",
     actionId: "action",
   },
@@ -512,7 +512,7 @@ const blackICE = {
     def: 2,
     rez: 15,
     effect:
-      "```Enemy Netrunner's MOVE is lowered by 1d6 for the next hour (minimum 1). The effects are largely psychosomatic and leave no permanent effects.```",
+      "Enemy Netrunner's MOVE is lowered by 1d6 for the next hour (minimum 1). The effects are largely psychosomatic and leave no permanent effects.",
     actionLabel: "SLOOOOOOWWW",
     actionId: "action",
   },
@@ -527,7 +527,7 @@ const blackICE = {
     def: 2,
     rez: 10,
     effect:
-      "```Until this Program is Derezzed, an enemy Netrunner hit by this Effect amkes all Slide Checks at a -2. Each Skunk Black ICE can only affect a single Netrunner at a time, but the effets of multiple Skunks can stack.```",
+      "Until this Program is Derezzed, an enemy Netrunner hit by this Effect amkes all Slide Checks at a -2. Each Skunk Black ICE can only affect a single Netrunner at a time, but the effets of multiple Skunks can stack.",
     actionLabel: " ",
     actionId: " ",
   },
@@ -541,7 +541,7 @@ const blackICE = {
     def: 2,
     rez: 15,
     effect:
-      "```Does 1d6 of DMG direct to an enemy Netrunner's brain and lowers the amount of total NET actions the Netrunner can accomplish on their next Turn by 1 (minumum 2).```",
+      "Does 1d6 of DMG direct to an enemy Netrunner's brain and lowers the amount of total NET actions the Netrunner can accomplish on their next Turn by 1 (minumum 2).",
     actionLabel: "Brain DMG",
     actionId: "action",
   },
@@ -555,7 +555,7 @@ const blackICE = {
     def: 6,
     rez: 30,
     effect:
-      "```Deals 6d6 damage to a Program, If this would be enough to Derezz the Program, it is instead Destroyed.```",
+      "Deals 6d6 damage to a Program, If this would be enough to Derezz the Program, it is instead Destroyed.",
     actionLabel: "DESTR0Y!!",
     actionId: "action",
   },
@@ -569,7 +569,7 @@ const blackICE = {
     def: 2,
     rez: 10,
     effect:
-      "```Deals 4d6 DMG to a Program. If this DMG would be enough to Derezz the Program, it is instead Destroyed.```",
+      "Deals 4d6 DMG to a Program. If this DMG would be enough to Derezz the Program, it is instead Destroyed.",
     actionLabel: "DESTR0Y!!",
     actionId: "action",
   },
@@ -583,7 +583,7 @@ const blackICE = {
     def: 2,
     rez: 25,
     effect:
-      "```Deals 6d6 damage to a Program. If this damage would be enough to Derezz the Program, it is instead Destroyed.```",
+      "Deals 6d6 damage to a Program. If this damage would be enough to Derezz the Program, it is instead Destroyed.",
     actionLabel: "DESTR0Y!!",
     actionId: "action",
   },
@@ -597,7 +597,7 @@ const nonBlackICE = {
     def: 0,
     rez: 0,
     effect:
-      "```Does 2d6 DMG direct to the Netrunner's brain. Unless insulated, their cyberdeck catches fire along with their clothing.  Until they spend a Meat Action to put themselves out, they take 2 damage to their HP. [cannot stack]```",
+      "Does 2d6 DMG direct to the Netrunner's brain. Unless insulated, their cyberdeck catches fire along with their clothing.  Until they spend a Meat Action to put themselves out, they take 2 damage to their HP. [cannot stack]",
     thumbURL:
       "https://media1.giphy.com/media/VG8Dto0bkHDUdVYZrj/giphy.gif?cid=790b761157e585d5010fef2871c43539e88dd370ed006310&rid=giphy.gif&ct=g",
     actionLabel: "Brain DMG",
@@ -610,7 +610,7 @@ const nonBlackICE = {
     def: 0,
     rez: 0,
     effect:
-      "``` Does 3d6 REZ to a Non-Black ICE Program, or 2d6 REZ to a Black ICE Program. ```",
+      " Does 3d6 REZ to a Non-Black ICE Program, or 2d6 REZ to a Black ICE Program. ",
     thumbURL: "https://i.imgur.com/azCR8D1.gif",
     actionLabel: ["ATK Non-Black ICE Program", "ATK Black ICE Program"],
     actionId: "banhammer_action",
@@ -622,7 +622,7 @@ const nonBlackICE = {
     def: 0,
     rez: 0,
     effect:
-      "``` Does 3d6 REZ to a Black ICE Program, or 2d6 REZ to a Non-Black ICE Program. ```",
+      " Does 3d6 REZ to a Black ICE Program, or 2d6 REZ to a Non-Black ICE Program. ",
     thumbURL: "https://c.tenor.com/fQD5fvkp8HwAAAAC/sawa-yukimura-sawa.gif",
     actionLabel: ["ATK Non-Black ICE Program", "ATK Black ICE Program"],
     actionId: "sword_action",
@@ -634,7 +634,7 @@ const nonBlackICE = {
     def: 0,
     rez: 0,
     effect:
-      "``` Enemy Netrunner is forcibly and unsafely Jacked Out of the Architecture, suffering the effect of all Rezzed enemy Black ICE they've encountered in the Architecture as they leave. ```",
+      " Enemy Netrunner is forcibly and unsafely Jacked Out of the Architecture, suffering the effect of all Rezzed enemy Black ICE they've encountered in the Architecture as they leave. ",
     thumbURL:
       "https://c.tenor.com/y33r5eXsELUAAAAd/serial-experiments-lain-lain.gif",
   },
@@ -645,7 +645,7 @@ const nonBlackICE = {
     def: 0,
     rez: 0,
     effect:
-      "``` Enemy Netrunner's INT, REF, and DEX are each lowered by 1d6 for the next hour (minimum1). The effects are largely psychosomatic and leave no permanent effects. ```",
+      " Enemy Netrunner's INT, REF, and DEX are each lowered by 1d6 for the next hour (minimum1). The effects are largely psychosomatic and leave no permanent effects. ",
     thumbURL:
       "https://c.tenor.com/RliaDiLzcnEAAAAC/serial-experiments-lain-lain.gif",
     actionLabel: "Brain DMG",
@@ -658,7 +658,7 @@ const nonBlackICE = {
     def: 0,
     rez: 0,
     effect:
-      "``` Destroy's a single Non-Black ICE Program Installed on the Netrunner target's Cyberdeck at random. ```",
+      " Destroy's a single Non-Black ICE Program Installed on the Netrunner target's Cyberdeck at random. ",
     thumbURL:
       "https://64.media.tumblr.com/cac533ba2d76d04bb3af42a8836a41da/tumblr_pm5yokAOZU1r6xm5co1_1280.gif",
     actionLabel: "D-REZ Roulette",
@@ -671,7 +671,7 @@ const nonBlackICE = {
     def: 0,
     rez: 0,
     effect:
-      "``` Enemy Netrunner cannot progress deeper into the Architecture or Jack Out safely for 1d6 Rounds (enemy Netrunner ca still perform unsafe Jack Out, though). Each copy of this Program can only be used once per Netrun. ```",
+      " Enemy Netrunner cannot progress deeper into the Architecture or Jack Out safely for 1d6 Rounds (enemy Netrunner ca still perform unsafe Jack Out, though). Each copy of this Program can only be used once per Netrun. ",
     thumbURL:
       "https://wompampsupport.azureedge.net/fetchimage?siteId=7575&v=2&jpgQuality=100&width=700&url=https%3A%2F%2Fi.kym-cdn.com%2Fphotos%2Fimages%2Fnewsfeed%2F001%2F135%2F770%2Fb2d.gif",
     actionLabel: "Rounds",
@@ -684,7 +684,7 @@ const nonBlackICE = {
     def: 0,
     rez: 0,
     effect:
-      "``` Does 1d6 DMG direct to a Netrunner's brain and lowers the amount of total NET Actions the Netrunner can accomplish on their ext Turn by 1 (minimum 2). ```",
+      " Does 1d6 DMG direct to a Netrunner's brain and lowers the amount of total NET Actions the Netrunner can accomplish on their ext Turn by 1 (minimum 2). ",
     thumbURL:
       "https://78.media.tumblr.com/179cd9ffde8e8a3371be473717b958c5/tumblr_pau1xuwBQ41whahvko1_540.gif",
     actionLabel: "Brain DMG",
@@ -697,7 +697,7 @@ const nonBlackICE = {
     def: 0,
     rez: 7,
     effect:
-      "``` Increases all Cloak Checks you make by +2 as long as this Program remains Rezzed. ```",
+      " Increases all Cloak Checks you make by +2 as long as this Program remains Rezzed. ",
     thumbURL:
       "https://64.media.tumblr.com/03f3571855f3b3c33ca75149bb42fdc3/5c196d8fe68c385e-b3/s500x750/821694d4b89c20d2b8865bb0aa4b457b38d4e583.gif",
     actionLabel: "Enhanced Cloak",
@@ -710,7 +710,7 @@ const nonBlackICE = {
     def: 0,
     rez: 7,
     effect:
-      "``` Increases all Pathfinder Checks you make by +2 as long as this Program remains Rezzed. ```",
+      " Increases all Pathfinder Checks you make by +2 as long as this Program remains Rezzed. ",
     thumbURL:
       "https://media0.giphy.com/media/2m1YQuAdhvG0q6HBab/200w.gif?cid=82a1493b5ctoh9g4vrx0qutqy0xbimorkvsewn1p9wv3ocpe&rid=200w.gif&ct=g",
     actionLabel: "Enhanced Pathfinder",
@@ -722,7 +722,7 @@ const nonBlackICE = {
     atk: 0,
     def: 0,
     rez: 7,
-    effect: "``` Increase your speed +2 as long as this Program is Rezzed. ```",
+    effect: " Increase your speed +2 as long as this Program is Rezzed. ",
     thumbURL:
       "https://i.pinimg.com/originals/dd/b7/d2/ddb7d26375807f772c47b7df57a15395.gif",
     actionLabel: "SPD Boost",
@@ -735,7 +735,7 @@ const nonBlackICE = {
     def: 0,
     rez: 7,
     effect:
-      "``` Increase all Backdoor Checks you make by +2 as long as this Program is Rezzed. ```",
+      " Increase all Backdoor Checks you make by +2 as long as this Program is Rezzed. ",
     thumbURL: "https://monophy.com/media/40DRc0W00UbgQ/monophy.gif",
     actionLabel: "Enhanced Backdoor",
     actionId: "worm_action",
@@ -747,7 +747,7 @@ const nonBlackICE = {
     def: 0,
     rez: 7,
     effect:
-      "``` Lowers all brain DMG you would receive by 4, as long as this Program remains Rezzed. ```",
+      " Lowers all brain DMG you would receive by 4, as long as this Program remains Rezzed. ",
     thumbURL:
       "https://i.pinimg.com/originals/a8/07/f5/a807f5da6c07679020f90e6925bdbc1c.gif",
   },
@@ -758,7 +758,7 @@ const nonBlackICE = {
     def: 0,
     rez: 7,
     effect:
-      "``` Reduces the ATK of all Non-Black ICE Attacker Programs run against you to 0 as long as this Program is Rezzed. Only 1 copy of this Program can be running at a time. Each copy of this Program can only be used once per Netrun. ```",
+      " Reduces the ATK of all Non-Black ICE Attacker Programs run against you to 0 as long as this Program is Rezzed. Only 1 copy of this Program can be running at a time. Each copy of this Program can only be used once per Netrun. ",
     thumbURL:
       "https://i.pinimg.com/originals/97/ac/b4/97acb42cbfd990000954aef7954c497c.gif",
   },
@@ -769,7 +769,7 @@ const nonBlackICE = {
     def: 0,
     rez: 7,
     effect:
-      "``` Stops the first successful Non-Black ICE Program Effect from dealing Brain DMG. After stopping this DMG, the Shi3ld Derezzes itself. Only 1 copy of this Program can be running at a time. Each copy of this Program can only be used once per Netrun. ```",
+      " Stops the first successful Non-Black ICE Program Effect from dealing Brain DMG. After stopping this DMG, the Shi3ld Derezzes itself. Only 1 copy of this Program can be running at a time. Each copy of this Program can only be used once per Netrun. ",
     thumbURL:
       "https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F7d5c5775-3fe7-4b55-afc7-73b5330e2e4c_720x720.gif",
   },
