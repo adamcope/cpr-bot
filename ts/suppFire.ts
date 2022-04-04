@@ -1,6 +1,11 @@
 
 import { bold } from "@discordjs/builders"
 
+/**
+ * 
+ * @param weapon Weapon object received from ranged attack.
+ * @returns 
+ */
 function suppressiveFire(weapon: any): object {
     const suppressiveFire = {
       displayText: `Everyone on foot within 25 m/yds, out of cover, and in your line of sight must roll ${bold(
