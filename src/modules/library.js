@@ -4,12 +4,12 @@ const rangedWeapons = require('../JSON/rangedWeapons.json');
 const ammo = require('../JSON/ammo.json');
 const skillstat = require('../JSON/skillStat.json');
 const critInjuryTable = require('../JSON/critInjuryTable.json');
-const pc = require('../JSON/testPC.json');
+const meleeWeapons = require("../JSON/meleeWeapons.json");
 const lib = {
-    pc: pc,
     rangedWeapons: rangedWeapons,
     ammo: ammo,
     skillstat: skillstat,
-    critInjuryTable: critInjuryTable
+    critInjuryTable: critInjuryTable,
+    meleeWeapons: meleeWeapons
 };
 module.exports = lib;

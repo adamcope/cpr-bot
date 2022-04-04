@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function reload(pc, weapon) {
     const weaponRef = weapon.join("_");
     const weaponObj = pc.weapons.find((x) => x.ref == weaponRef);

@@ -33,3 +33,5 @@ function reload(pc: any, weapon: any) {
 }
 
 module.exports = reload;
+
+export {};

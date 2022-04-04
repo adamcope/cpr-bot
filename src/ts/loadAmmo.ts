@@ -49,3 +49,5 @@ function load(pc: any, weapon: Array<string>, ammo: Array<string>) {
 }}
 
 module.exports = load;
+
+export {};

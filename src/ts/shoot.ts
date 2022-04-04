@@ -14,3 +14,4 @@ function shoot(weapon: any, qty: number) {
 
   module.exports = shoot
   
+  export {};

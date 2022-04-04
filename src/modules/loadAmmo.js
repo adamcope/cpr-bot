@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function load(pc, weapon, ammo) {
     const ammoRef = ammo.join("_");
     const weaponRef = weapon.join("_");

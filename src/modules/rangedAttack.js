@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const { hitCheck, dvIndex, attackDmg } = require("../modules/mechanics");
 const skillCheck = require("../modules/skillCheck");
 const lib = require("./library");

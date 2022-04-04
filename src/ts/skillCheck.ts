@@ -102,3 +102,5 @@ function skillCheck(
 }
 
 module.exports = skillCheck;
+
+export {};

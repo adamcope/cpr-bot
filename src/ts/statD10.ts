@@ -45,3 +45,5 @@ function statD10(pc: any, stat: string) {
 }
 
 module.exports = statD10
+
+export {};

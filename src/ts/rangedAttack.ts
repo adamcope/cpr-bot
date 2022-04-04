@@ -55,5 +55,4 @@ function rangedAttack(pc: any, weapon: Array<string>, distance: number) {
 
 module.exports = rangedAttack;
 
-
-
+export {};

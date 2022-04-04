@@ -1,0 +1,30 @@
+{
+    "light_melee_weapon":{
+        "name": "",
+        "hands": "",
+        "rof": 2,
+        "concealable": true,
+        "dmg": "1d6"
+    },
+    "medium_melee_weapon": {
+        "name": "",
+        "hands": "",
+        "rof": 2,
+        "concealable": true,
+        "dmg": "2d6"
+    },
+    "heavy_melee_weapon": {
+        "name": "",
+        "hands": "",
+        "rof": 2,
+        "concealable": false,
+        "dmg": "3d6"
+    },
+    "very_heavy_melee_weapon": {
+        "name": "",
+        "hands": "",
+        "rof": 1,
+        "concealable": false,
+        "dmg": "4d6"
+    }
+}
