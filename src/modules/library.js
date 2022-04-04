@@ -12,4 +12,4 @@ const lib = {
     skillstat: skillstat,
     critInjuryTable: critInjuryTable
 };
-exports.default = lib;
+module.exports = lib;

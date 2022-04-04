@@ -1,7 +1,9 @@
 "use strict";
 function reload(pc, weapon) {
-    const invAmmo = pc.ammo.find((x) => x.name == pc.hands[0].ammoLoaded);
-    const magSize = weapon[`${weapon.magSize}`];
+    const weaponRef = weapon.join("_");
+    const weaponObj = pc.weapons.find((x) => x.ref == weaponRef);
+    const invAmmo = pc.ammo.find((x) => x.name == weaponObj.ammoLoaded);
+    const magSize = weaponObj[weaponObj.magSize];
     function invAmmoRemaining() {
         if (invAmmo.amount < magSize) {
             return 0;
@@ -19,11 +21,12 @@ function reload(pc, weapon) {
         }
     }
     const x = {
+        weaponName: weaponObj.name,
         remaining: invAmmoRemaining(),
         loaded: {
-            name: pc.hands[0].ammoLoaded,
+            name: weaponObj.ammoLoaded,
             amount: loadAmount(),
-        }
+        },
     };
     return x;
 }

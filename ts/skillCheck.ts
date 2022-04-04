@@ -1,5 +1,5 @@
 import { bold } from "@discordjs/builders";
-import lib from "./library";
+const lib = require("./library");
 
 /**
  *
@@ -42,7 +42,7 @@ function skillCheck(
   };
 
   const skillref = arr.join("_");
-  const statref = lib.skillstat.find((x: any) => x.name == skillref)
+  const statref = lib.skillstat.find((x: any) => x.name == skillref);
 
   let capitalize = [];
   for (let i = 0; i < arr.length; i++)

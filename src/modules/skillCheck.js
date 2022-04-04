@@ -1,10 +1,7 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const builders_1 = require("@discordjs/builders");
-const library_1 = __importDefault(require("./library"));
+const lib = require("./library");
 /**
  *
  * @param { Object } pc ``await Character.findOne({userID:`${interaction.member.id}`}).lean();``
@@ -39,7 +36,7 @@ function skillCheck(pc, arr) {
         }
     };
     const skillref = arr.join("_");
-    const statref = library_1.default.skillstat.find((x) => x.name == skillref);
+    const statref = lib.skillstat.find((x) => x.name == skillref);
     let capitalize = [];
     for (let i = 0; i < arr.length; i++)
         capitalize.push(arr[i].charAt(0).toUpperCase() + arr[i].slice(1));

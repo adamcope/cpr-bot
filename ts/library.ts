@@ -12,4 +12,6 @@ const lib = {
     critInjuryTable: critInjuryTable
 }
 
-export default lib
+module.exports = lib
+
+export {};

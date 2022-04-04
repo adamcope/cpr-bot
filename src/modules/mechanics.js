@@ -1,5 +1,5 @@
 const { bold } = require("@discordjs/builders");
-import lib from "./library.js";
+const lib = require("./library");
 
 const dvIndex = (distance) => {
   if (distance < 7) {

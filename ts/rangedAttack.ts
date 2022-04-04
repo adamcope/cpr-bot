@@ -1,7 +1,7 @@
 
 const { hitCheck, dvIndex, attackDmg } =  require( "../modules/mechanics");
 const skillCheck = require("../modules/skillCheck");
-import lib from "./library";
+const lib = require("./library");
 
 /**
  * @param {*} pc ``await Character.findOne({userID:`${interaction.member.id}`}).lean();``

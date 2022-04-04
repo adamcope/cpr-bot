@@ -1,7 +1,10 @@
 "use strict";
-function load(pc, ammoRef) {
+function load(pc, weapon, ammo) {
+    const ammoRef = ammo.join("_");
+    const weaponRef = weapon.join("_");
+    const weaponObj = pc.weapons.find((x) => x.ref == weaponRef);
     const invAmmo = pc.ammo.find((x) => x.ref == ammoRef);
-    const magSize = pc.hands[0][`${pc.hands[0].magSize}`];
+    const magSize = weaponObj[weaponObj.magSize];
     if (!invAmmo) {
         return 'Ammo Type not in Inventory';
     }
@@ -29,11 +32,11 @@ function load(pc, ammoRef) {
                 amount: loadAmount(),
             },
             returned: {
-                name: pc.hands[0].ammoLoaded,
-                amount: pc.hands[0].ammo,
+                name: weaponObj.ammoLoaded,
+                amount: weaponObj.ammo,
             },
         };
-        if (invAmmo.type != pc.hands[0].ammoType) {
+        if (invAmmo.type != weaponObj.ammoType) {
             return "Wrong Ammo Type";
         }
         else if (invAmmo.amount == 0) {
