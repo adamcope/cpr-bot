@@ -93,7 +93,6 @@ const advancedArch = [
   "Dragon x2",
 ];
 
-let floors = 6;
 
 let lobby = new Set();
 while ([...lobby].length < 2) {
@@ -104,6 +103,9 @@ while ([...lobby].length < 2) {
   lobby.add(lobbyTable[l]);
 }
 lobby = [...lobby];
+
+// let floors = 6;
+function generateArchitecture(floors, type){
 
 let architecture = {
   basic: new Set(),
@@ -126,7 +128,6 @@ while ([...architecture.basic].length < floors + 2) {
   architecture.basic.add(basicArch[r]);
 }
 architecture.basic = [...architecture.basic];
-console.log(architecture.basic);
 
 architecture.standard.add(lobby[0]);
 architecture.standard.add(lobby[1]);
@@ -175,3 +176,17 @@ while ([...architecture.advanced].length < floors + 2) {
   architecture.advanced.add(advancedArch[r]);
 }
 architecture.advanced = [...architecture.advanced];
+
+if (type == 'basic') {
+  return architecture.basic
+} else if (type == 'standard'){
+  return architecture.standard
+} else if (type == 'uncommon'){
+  return architecture.uncommon
+} else if (type == 'advanced'){
+  return architecture.advanced
+}
+
+}
+
+module.exports = generateArchitecture
