@@ -16,5 +16,8 @@
     "mongoose": "^6.2.4",
     "nodemon": "^2.0.15",
     "reconlx": "^2.5.2"
+  },
+  "devDependencies": {
+    "coffeescript": "^2.6.1"
   }
 }
