@@ -70,9 +70,7 @@ function skillCheck(
   let roll = {
     display: `[${stat.name}] ${stat.value} ${statModifier(stat.modifier)} + [${
       skill.name
-    }] ${skill.value} + ${display(d10x1)} = ${
-      stat.value + skill.value + result(d10x1)
-    } ${d10CritMsg(d10x1)}`,
+    }] ${skill.value} + ${display(d10x1)} ${d10CritMsg(d10x1)}`,
     result: stat.value - stat.modifier + skill.value + result(d10x1),
   };
 

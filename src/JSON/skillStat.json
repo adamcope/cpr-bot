@@ -58,6 +58,7 @@
   {"name": "language", "stat": "int"},
   {"name": "library_search", "stat": "int"},
   {"name": "local_expert", "stat": "int"},
+  {"name": "perception", "stat": "int"},
   {"name": "science", "stat": "int"},
   {"name": "tactics", "stat": "int"},
   {"name": "wilderness_survival", "stat": "int"}

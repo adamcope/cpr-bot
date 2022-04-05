@@ -58,7 +58,7 @@ function skillCheck(pc, arr) {
         }
     };
     let roll = {
-        display: `[${stat.name}] ${stat.value} ${statModifier(stat.modifier)} + [${skill.name}] ${skill.value} + ${display(d10x1)} = ${stat.value + skill.value + result(d10x1)} ${d10CritMsg(d10x1)}`,
+        display: `[${stat.name}] ${stat.value} ${statModifier(stat.modifier)} + [${skill.name}] ${skill.value} + ${display(d10x1)} ${d10CritMsg(d10x1)}`,
         result: stat.value - stat.modifier + skill.value + result(d10x1),
     };
     const obj = {
