@@ -4,7 +4,7 @@ const { hitCheck, dvIndex, attackDmg } = require("../modules/mechanics");
 const skillCheck = require("../modules/skillCheck");
 const lib = require("./library");
 /**
- * @param {*} pc ``await Character.findOne({userID:`${interaction.member.id}`}).lean();``
+ * @param {typeof PC} pc ``await Character.findOne({userID:`${interaction.member.id}`}).lean();``
  * @param {number} distance ``interaction.options.getInteger("distance")``
  */
 function rangedAttack(pc, weapon, distance) {

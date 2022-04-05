@@ -76,22 +76,6 @@ function skillCheck(
     result: stat.value - stat.modifier + skill.value + result(d10x1),
   };
 
-  interface SC {
-    skill: {
-      name: string;
-      value: number;
-    };
-    stat: {
-      name: string;
-      value: number;
-      modifier: number;
-    };
-    roll: {
-      display: string;
-      result: number;
-    };
-  }
-
   const obj: SC = {
     skill: skill,
     stat: stat,

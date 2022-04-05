@@ -13,7 +13,7 @@ const rangedAttack = ra(pc, ["smg"], 12);
 const reload = rl(pc, ["smg"]);
 const load = la(pc, ['bow'], ['biotoxin', 'arrow'])
 
-const netArchitecture = genArch(4, 'standard')
+const netArchitecture = genArch(3, 'standard')
 
 console.log(skillCheck);
 console.log(statCheck);
