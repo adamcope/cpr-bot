@@ -158,7 +158,16 @@
       "skillName": "Handgun",
       "ammoType": "M pistol",
       "cost": "100"
-    }
+    },
+    {
+      "ref": "medium_melee_weapon",
+      "name": "Metal Bat",
+      "hands": "",
+      "rof": 2,
+      "concealable": true,
+      "dmg": "2d6"
+  }
+
   ],
   "cyberwear": ["Neural Link", "Cyberdeck"],
   "ammo": [

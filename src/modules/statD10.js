@@ -1,6 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const builders_1 = require("@discordjs/builders");
+/**
+ *
+ * @param pc
+ * @param stat
+ * @returns
+ */
 function statD10(pc, stat) {
     let d10x1 = Math.floor(Math.random() * 10) + 1;
     let d10x2 = Math.floor(Math.random() * 10) + 1;

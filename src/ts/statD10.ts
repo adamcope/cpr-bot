@@ -1,5 +1,11 @@
 import { bold } from "@discordjs/builders";
 
+/**
+ * 
+ * @param pc 
+ * @param stat 
+ * @returns 
+ */
 function statD10(pc: any, stat: string) {
   let d10x1 = Math.floor(Math.random() * 10) + 1;
   let d10x2 = Math.floor(Math.random() * 10) + 1;
