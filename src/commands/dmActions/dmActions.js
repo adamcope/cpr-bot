@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const Character = require("../../models/playerCharacter.js");
 const { MessageEmbed } = require("discord.js");
 const { bold, italic, underscore } = require("@discordjs/builders");
-const thumbGIFurl = require("../../mechanics/thumbGIFurl.js");
 
 module.exports = {
   data: new SlashCommandBuilder()

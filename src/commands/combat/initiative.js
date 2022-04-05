@@ -19,10 +19,10 @@ module.exports = {
     const characterEmbed = new MessageEmbed()
       .setColor("#7a1212")
       .setTitle(`${pc.characterName} - ${bold('Inititiative')}`)
+      .setDescription(`${bold('Roll:')} ${statD10.display}`)
       .setThumbnail(`${pc.characterImgUrl}`)
       .setFooter({ text: `Player: @${pc.username}` })
       .addFields(
-        { name: `${underscore('Roll')}`, value: `${statD10.display}`, inline: true },
         { name: `${underscore('Result')}`, value: `${statD10.result}`, inline: true }
         );
 
