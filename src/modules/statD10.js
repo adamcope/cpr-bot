@@ -28,7 +28,7 @@ function statD10(pc, stat) {
     };
     let d10CritMsg = (d10) => {
         if (d10 === 10) {
-            return `${(0, builders_1.bold)("CRITICAL ROLL!")}`;
+            return `${(0, builders_1.italic)("CRITICAL ROLL!")}`;
         }
         else {
             return "";
@@ -37,14 +37,16 @@ function statD10(pc, stat) {
     const statName = stat.toUpperCase();
     const statValue = pc.stats[stat][0];
     const statModifier = pc.stats[stat][1];
-    const rollResult = statValue - statModifier + d10Result(d10x1);
-    const rollDisplay = `[${statName}] ${statValue - statModifier} + ${d10Display(d10x1)} = ${rollResult} ${d10CritMsg(d10x1)}`;
+    const rollResult = (statValue - statModifier) + d10Result(d10x1);
+    const rollDisplay = `${(0, builders_1.bold)(statName)} ${statValue - statModifier} + ${d10Display(d10x1)}`;
+    const critMsg = `${d10CritMsg(d10x1)}`;
     const x = {
         stat: statName,
         value: statValue,
         modifier: statModifier,
         display: rollDisplay,
         result: rollResult,
+        critMsg: critMsg
     };
     return x;
 }

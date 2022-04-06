@@ -29,7 +29,7 @@ function skillCheck(pc, arr) {
     };
     let d10CritMsg = (d10) => {
         if (d10 === 10) {
-            return `${(0, builders_1.bold)("CRITICAL ROLL!")}`;
+            return `${(0, builders_1.italic)("CRITICAL ROLL!")}`;
         }
         else {
             return "";
@@ -57,13 +57,19 @@ function skillCheck(pc, arr) {
             return `- ${mod}`;
         }
     };
+    let d10 = {
+        display: display(d10x1),
+        result: result(d10x1)
+    };
     let roll = {
-        display: `[${stat.name}] ${stat.value} ${statModifier(stat.modifier)} + [${skill.name}] ${skill.value} + ${display(d10x1)} ${d10CritMsg(d10x1)}`,
+        display: `${(0, builders_1.bold)(stat.name)} ${stat.value} ${statModifier(stat.modifier)} + ${(0, builders_1.bold)(skill.name)} ${skill.value} + ${display(d10x1)}`,
         result: stat.value - stat.modifier + skill.value + result(d10x1),
+        critMsg: `${d10CritMsg(d10x1)}`
     };
     const obj = {
         skill: skill,
         stat: stat,
+        d10: d10,
         roll: roll,
     };
     return obj;

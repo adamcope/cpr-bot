@@ -8,9 +8,14 @@ declare interface SC {
     value: number;
     modifier: number;
   };
+  d10: {
+    display: string;
+    result: number;
+  }
   roll: {
     display: string;
     result: number;
+    critMsg: string;
   };
 }
 
@@ -159,4 +164,13 @@ declare namespace Weapon{
       let skillName: string;
       let ammoType: string;
       let cost: string;
+}
+
+declare interface statD10{
+  stat: string,
+    value: number,
+    modifier: number,
+    display: string,
+    result: number,
+    critMsg: string
 }

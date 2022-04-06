@@ -1,4 +1,4 @@
-import { bold } from "@discordjs/builders";
+import { italic, bold } from "@discordjs/builders";
 const lib = require("./library");
 
 /**
@@ -35,7 +35,7 @@ function skillCheck(
 
   let d10CritMsg = (d10: number) => {
     if (d10 === 10) {
-      return `${bold("CRITICAL ROLL!")}`;
+      return `${italic("CRITICAL ROLL!")}`;
     } else {
       return "";
     }
@@ -67,16 +67,21 @@ function skillCheck(
     }
   };
 
+  let d10 = {
+    display: display(d10x1),
+    result: result(d10x1)
+  }
+
   let roll = {
-    display: `[${stat.name}] ${stat.value} ${statModifier(stat.modifier)} + [${
-      skill.name
-    }] ${skill.value} + ${display(d10x1)} ${d10CritMsg(d10x1)}`,
+    display: `${bold(stat.name)} ${stat.value} ${statModifier(stat.modifier)} + ${bold(skill.name)} ${skill.value} + ${display(d10x1)}`,
     result: stat.value - stat.modifier + skill.value + result(d10x1),
+    critMsg: `${d10CritMsg(d10x1)}`
   };
 
   const obj: SC = {
     skill: skill,
     stat: stat,
+    d10: d10,
     roll: roll,
   };
 

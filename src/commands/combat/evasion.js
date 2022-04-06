@@ -7,18 +7,18 @@ const statCheck = require("../../modules/statD10.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("initiative")
-    .setDescription("Roll Initiative"),
+    .setName("evasion")
+    .setDescription("Roll Evasion"),
   async execute(interaction) {
     const pc = await Character.findOne({
       userID: `${interaction.member.id}`,
     }).lean();
 
-    const statD10 = statCheck(pc, "ref");
+    const statD10 = statCheck(pc, "dex");
 
     const characterEmbed = new MessageEmbed()
       .setColor("#7a1212")
-      .setTitle(`${pc.characterName} - ${italic("Inititiative")}`)
+      .setTitle(`${pc.characterName} - ${italic("Evasion")}`)
       .setDescription(
         `${underscore(bold("Roll:"))} ${statD10.display}\n\n${underscore(
           bold("Result:")

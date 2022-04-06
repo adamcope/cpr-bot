@@ -24,10 +24,9 @@ module.exports = {
     const characterEmbed = new MessageEmbed()
       .setColor("#7a1212")
       .setTitle(`${pc.characterName} - ${italic(sc.skill.name + ' Check')}`)
-      .setDescription(
-        `${underscore(bold("Roll:"))} ${sc.roll.display}\n\n${underscore(
-          bold("Result:")
-        )} ${sc.roll.result}`
+      .addFields(
+        { name: `${underscore("Roll")}`, value: `${sc.roll.display}`, inline: false },
+        { name: `${underscore("Result")}`, value: `${bold(sc.roll.result)}`, inline: false },
       )
       .setThumbnail(`${pc.characterImgUrl}`)
       .setFooter({ text: `Player: @${pc.username}` });

@@ -21,6 +21,8 @@ function rangedAttack(pc, weapon, distance) {
         weapon: {
             name: weaponInfo.name,
             rof: weaponInfo.rof,
+            isAutofire: weaponInfo.autofire[0],
+            afMultiplier: weaponInfo.autofire[1],
             ammo: {
                 count: weaponInfo.ammo,
                 loaded: weaponInfo.ammoLoaded,
