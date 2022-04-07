@@ -271,7 +271,6 @@ module.exports = {
         .setTitle(
           `${pc.characterName} - ${italic("Ranged Attack - Aimed Shot")}`
         )
-        .setDescription(`🎯`)
         .addFields(
           {
             name: `${underscore("Roll")}`,
@@ -342,7 +341,6 @@ module.exports = {
       const rangedAttackEmbed = new MessageEmbed()
         .setColor("#7a1212")
         .setTitle(`${pc.characterName} - ${italic("Ranged Attack")}`)
-        .setDescription(`HIT!`)
         .addFields(
           {
             name: `${underscore("Roll")}`,
