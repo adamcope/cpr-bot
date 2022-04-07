@@ -32,10 +32,10 @@ module.exports = {
     .addStringOption((option) =>
       option
         .setName("aim")
-        .setDescription("Specify target. (adds +8 to DV)")
-        .addChoice("Head", "head")
-        .addChoice("Hand", "hand")
-        .addChoice("Leg", "leg")
+        .setDescription("Specify target. (-8 to Skill Check)")
+        .addChoice("Head", "Head")
+        .addChoice("Hand", "Hand")
+        .addChoice("Leg", "Leg")
         .setRequired(false)
     ),
   async execute(interaction) {
@@ -218,7 +218,30 @@ module.exports = {
 
       await interaction.reply({ embeds: [suppressiveFireEmbed] });
     } else if (target != undefined) {
-      const aimEmbed = new MessageEmbed()
+      const aimIsHit = () => {
+        if ((ra.sc.roll.result - 8) > ra.dv) {
+          return true;
+        } else {
+          return false;
+        }
+      };
+      ra.isHit = aimIsHit();
+
+      const aimBonusEffect = (target) => {
+        if (target == "Head") {
+          return `Multiply the damage that gets through your target's head armor by ${bold(
+            "2"
+          )}.`;
+        } else if (target == "Hand") {
+          return `If a single point of damage gets through your target's body armor, your target drops one item of your choice held in their hands. It lands on the ground in front of them.`;
+        } else if (target == "Leg") {
+          return `If a single point of damage gets through your target's body armor, your target also suffers the ${bold(
+            "Broken Leg"
+          )} Critical Injury if they have any legs left that aren't broken.`;
+        }
+      };
+
+      const aimMissEmbed = new MessageEmbed()
         .setColor("#7a1212")
         .setTitle(
           `${pc.characterName} - ${italic("Ranged Attack - Aimed Shot")}`
@@ -226,23 +249,100 @@ module.exports = {
         .addFields(
           {
             name: `${underscore("Roll")}`,
-            value: `[ROLL]`,
-            inline: true,
+            value: `${ra.sc.roll.display} - 8`,
+            inline: false,
           },
           {
             name: `${underscore("Result")}`,
-            value: `[RESULT]`,
-            inline: false,
+            value: `${ra.sc.roll.result - 8}`,
+            inline: true,
+          },
+          {
+            name: `${underscore("DV")}`,
+            value: `${ra.dv}`,
+            inline: true,
           }
         )
         .setThumbnail(`${pc.characterImgUrl}`)
         .setFooter({ text: `Player: @${pc.username}` });
 
-      await interaction.reply({ embeds: [aimEmbed] });
+      const aimHitEmbed = new MessageEmbed()
+        .setColor("#7a1212")
+        .setTitle(
+          `${pc.characterName} - ${italic("Ranged Attack - Aimed Shot")}`
+        )
+        .setDescription(`🎯`)
+        .addFields(
+          {
+            name: `${underscore("Roll")}`,
+            value: `${ra.sc.roll.display} - 8`,
+            inline: false,
+          },
+          {
+            name: `${underscore("Result")}`,
+            value: `${ra.sc.roll.result - 8}`,
+            inline: true,
+          },
+          {
+            name: `${underscore("DV")}`,
+            value: `${ra.dv}`,
+            inline: true,
+          },
+          {
+            name: `${underscore("DMG")}`,
+            value: `${ra.dmg.result}`,
+            inline: false,
+          },
+          {
+            name: `${underscore("Ammo")}`,
+            value: `${ra.weapon.ammo.loaded}`,
+            inline: true,
+          },
+          {
+            name: `${underscore("Effect")}`,
+            value: `${ra.weapon.ammo.effect}`,
+            inline: true,
+          }
+        )
+        .setThumbnail(`${pc.characterImgUrl}`)
+        .setFooter({ text: `Player: @${pc.username}` });
+
+      const critInjury = new MessageEmbed()
+        .setColor("DARK_ORANGE")
+        .setTitle(`Critical Injury - ${italic(ra.dmg.injury.name)}`)
+        .addFields({
+          name: `${underscore("Effect")}`,
+          value: `${ra.dmg.injury.effect}`,
+          inline: false,
+        })
+        .setThumbnail(
+          `https://64.media.tumblr.com/38c2289f4fb32da7afa9e3b4c1eba656/tumblr_nv25v6qn7b1ud4rmfo1_400.gif`
+        )
+        .setFooter({ text: `Player: @${pc.username}` });
+
+      const targetEffect = new MessageEmbed()
+        .setColor("RED")
+        .setTitle(`Target - ${italic(target)}`)
+        .addFields({
+          name: `${underscore("Effect")}`,
+          value: `${aimBonusEffect(target)}`,
+          inline: false,
+        })
+        .setFooter({ text: `Player: @${pc.username}` });
+      if (ra.isHit == false) {
+        await interaction.reply({ embeds: [aimMissEmbed] });
+      } else if (ra.isHit == true && ra.dmg.isCrit == false) {
+        await interaction.reply({ embeds: [aimHitEmbed, targetEffect] });
+      } else if (ra.isHit == true && ra.dmg.isCrit == true) {
+        await interaction.reply({
+          embeds: [aimHitEmbed, targetEffect, critInjury],
+        });
+      }
     } else if (specModes == undefined && target == undefined) {
       const rangedAttackEmbed = new MessageEmbed()
         .setColor("#7a1212")
         .setTitle(`${pc.characterName} - ${italic("Ranged Attack")}`)
+        .setDescription(`HIT!`)
         .addFields(
           {
             name: `${underscore("Roll")}`,
