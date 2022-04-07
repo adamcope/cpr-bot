@@ -45,7 +45,7 @@ critInjuryInfo = [
   {
     target: "body",
     injury: "Dismembered Arm",
-    effect: `The Dismembered Arm is gone. You drop any items in that dismembered arm's hand immediately. ${bold(
+    effect: `The Dismembered Arm is gone. You drop any items in that dismembered arm's hand immediately.\n${bold(
       "Base Death Save Penalty is incereased by 1."
     )}`,
     quickFix: [{ skill: "N/A", dv: 0 }],
@@ -57,7 +57,7 @@ critInjuryInfo = [
   {
     target: "body",
     injury: "Dismembered Hand",
-    effect: `The Dismembered Hand is gone. You drop any items in the dismembered hand immediately. ${bold(
+    effect: `The Dismembered Hand is gone. You drop any items in the dismembered hand immediately.\n${bold(
       "Base Death Save Penalty is incereased by 1."
     )}`,
     quickFix: [{ skill: "N/A", dv: 0 }],
@@ -69,7 +69,7 @@ critInjuryInfo = [
   {
     target: "body",
     injury: "Collapsed Lung",
-    effect: `-2 to MOVE (minimum 1). ${bold(
+    effect: `-2 to MOVE (minimum 1).\n${bold(
       "Base Death Penalty Save is increased by 1."
     )}`,
     quickFix: [{ skill: "Paramedic", dv: 15 }],
@@ -149,7 +149,7 @@ critInjuryInfo = [
   {
     target: "body",
     injury: "Spinal Injury",
-    effect: `Next Turn, you cannot take an Action, but you can still take a Move Action. ${bold(
+    effect: `Next Turn, you cannot take an Action, but you can still take a Move Action.\n${bold(
       "Base Death Save Penalty is increased by 1."
     )}`,
     quickFix: [{ skill: "Paramedic", dv: 15 }],
@@ -171,7 +171,7 @@ critInjuryInfo = [
   {
     target: "body",
     injury: "Dismembered Leg",
-    effect: `The Dismembered Leg is gone. -6 to MOVE (minimum 1). You cannot dodge attacks. ${bold(
+    effect: `The Dismembered Leg is gone. -6 to MOVE (minimum 1). You cannot dodge attacks.\n${bold(
       "Base Death Penalty Save increased by 1"
     )}`,
     quickFix: [{ skill: "N/A", dv: 0 }],
@@ -183,7 +183,7 @@ critInjuryInfo = [
   {
     target: "head",
     injury: "Lost Eye",
-    effect: `The Lost Eye is gone. -4 to Ranged Attacks & Perception Checks involving vision. ${bold(
+    effect: `The Lost Eye is gone. -4 to Ranged Attacks & Perception Checks involving vision.\n${bold(
       "Base Death Save Penalty is increased by 1."
     )}`,
     quickFix: [{ skill: "N/A", dv: 0 }],
@@ -195,7 +195,7 @@ critInjuryInfo = [
   {
     target: "head",
     injury: "Brain Injury",
-    effect: `-2 to all Actions. ${bold(
+    effect: `-2 to all Actions.\n${bold(
       "Base Death Save Penalty is increased by 1"
     )}`,
     quickFix: [{ skill: "N/A", dv: 0 }],
@@ -270,7 +270,7 @@ critInjuryInfo = [
   {
     target: "head",
     injury: "Cracked Skull",
-    effect: `Aimed Shots to your head multiply the damage that gets through your SP by 3 instead of 2. ${bold(
+    effect: `Aimed Shots to your head multiply the damage that gets through your SP by 3 instead of 2.\n${bold(
       "Base Death Save Penalty is increased by 1."
     )}`,
     quickFix: [{ skill: "Paramedic", dv: 15 }],
@@ -296,7 +296,7 @@ critInjuryInfo = [
   {
     target: "head",
     injury: "Crushed Windpipe",
-    effect: `You cannot speak. ${bold(
+    effect: `You cannot speak.\n${bold(
       "Base Death Save Penalty is increased by 1."
     )}`,
     quickFix: [{ skill: "N/A", dv: 0 }],
@@ -308,7 +308,7 @@ critInjuryInfo = [
   {
     target: "head",
     injury: "Lost Ear",
-    effect: `The Lost Ear is gone. Whenever you move further than 4m/yds on foot in a Turn, you cannot take a Move Action on your next Turn. Additionally you take a -4 to Perception Checks involving hearing. ${bold(
+    effect: `The Lost Ear is gone. Whenever you move further than 4m/yds on foot in a Turn, you cannot take a Move Action on your next Turn. Additionally you take a -4 to Perception Checks involving hearing.\n${bold(
       "Base Death Penalty is increased by 1."
     )}`,
     quickFix: [{ skill: "N/A", dv: 0 }],
