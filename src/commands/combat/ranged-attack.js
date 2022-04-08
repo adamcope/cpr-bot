@@ -7,7 +7,6 @@ const rangedAttack = require("../../modules/rangedAttack.js");
 const suppFire = require("../../modules/suppFire.js");
 const skillCheck = require("../../modules/skillCheck.js");
 const { attackDmg } = require("../../modules/mechanics.js");
-const discharge = require("../../modules/shoot.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
