@@ -7,6 +7,7 @@ const rangedAttack = require("../../modules/rangedAttack.js");
 const suppFire = require("../../modules/suppFire.js");
 const skillCheck = require("../../modules/skillCheck.js");
 const { attackDmg } = require("../../modules/mechanics.js");
+const discharge = require("../../modules/shoot.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -41,10 +42,6 @@ module.exports = {
   async execute(interaction) {
     const pc = await Character.findOne({
       userID: `${interaction.member.id}`,
-    }).lean();
-
-    const writeDB = await Character.find({
-      userID: `${interaction.member.id}`,
     });
 
     const weaponInput = interaction.options.getString("weapon").split(" ");
@@ -53,6 +50,8 @@ module.exports = {
     const target = interaction.options.getString("aim");
 
     const ra = rangedAttack(pc, weaponInput, distanceInput);
+
+    const index = pc.weapons.findIndex((x) => x.name == ra.weapon.name);
 
     if (!ra) {
       const notEquipped = new MessageEmbed()
@@ -63,7 +62,22 @@ module.exports = {
         .setFooter({ text: `Player: @${pc.username}` });
 
       await interaction.reply({ embeds: [notEquipped], ephemeral: true });
-    } else if (specModes == "autofire" && ra.weapon.isAutofire == true) {
+    } else if (ra.weapon.ammo.count < 1) {
+      const outOfAmmo = new MessageEmbed()
+        .setColor("#7a1212")
+        .setTitle(`${pc.characterName} - ${italic("Ranged Attack")}`)
+        .setDescription(`Out of Ammo.`)
+        .setThumbnail(
+          `https://i.pinimg.com/originals/9a/b4/67/9ab46702d1f0669a0ae40464b25568f2.gif`
+        )
+        .setFooter({ text: `Player: @${pc.username}` });
+
+      await interaction.reply({ embeds: [outOfAmmo], ephemeral: true });
+    } else if (
+      specModes == "autofire" &&
+      ra.weapon.isAutofire == true &&
+      ra.weapon.ammo.count < 9
+    ) {
       const sc = skillCheck(pc, ["autofire"]);
       const afDmg = attackDmg("2d6");
       const afDmgMultiplier = sc.roll.result - ra.dv;
@@ -153,10 +167,16 @@ module.exports = {
         .setThumbnail(`${pc.characterImgUrl}`)
         .setFooter({ text: `Player: @${pc.username}` });
       if (afDmgMultiplier < 1) {
+        pc.weapons[index].ammo = ra.weapon.ammo.count - 10;
+        await pc.save();
         await interaction.reply({ embeds: [autofireMiss] });
       } else if (afDmgMultiplier > 0 && afDmg.isCrit == true) {
+        pc.weapons[index].ammo = ra.weapon.ammo.count - 10;
+        await pc.save();
         await interaction.reply({ embeds: [autofireHit, critInjury] });
       } else if (afDmgMultiplier > 0) {
+        pc.weapons[index].ammo = ra.weapon.ammo.count - 10;
+        await pc.save();
         await interaction.reply({ embeds: [autofireHit] });
       }
     } else if (specModes == "autofire" && ra.weapon.isAutofire == false) {
@@ -184,7 +204,8 @@ module.exports = {
       await interaction.reply({ embeds: [noSuppFireEmbed], ephemeral: true });
     } else if (
       specModes == "suppressive-fire" &&
-      ra.weapon.isAutofire == true
+      ra.weapon.isAutofire == true &&
+      ra.weapon.ammo.count < 9
     ) {
       const sc = skillCheck(pc, ["autofire"]);
       const sf = suppFire(ra.weapon);
@@ -216,10 +237,13 @@ module.exports = {
         .setThumbnail(`${pc.characterImgUrl}`)
         .setFooter({ text: `Player: @${pc.username}` });
 
+      pc.weapons[index].ammo = ra.weapon.ammo.count - 10;
+      await pc.save();
+
       await interaction.reply({ embeds: [suppressiveFireEmbed] });
     } else if (target != undefined) {
       const aimIsHit = () => {
-        if ((ra.sc.roll.result - 8) > ra.dv) {
+        if (ra.sc.roll.result - 8 > ra.dv) {
           return true;
         } else {
           return false;
@@ -329,10 +353,16 @@ module.exports = {
         })
         .setFooter({ text: `Player: @${pc.username}` });
       if (ra.isHit == false) {
+        pc.weapons[index].ammo = ra.weapon.ammo.count - 1;
+        await pc.save();
         await interaction.reply({ embeds: [aimMissEmbed] });
       } else if (ra.isHit == true && ra.dmg.isCrit == false) {
+        pc.weapons[index].ammo = ra.weapon.ammo.count - 1;
+        await pc.save();
         await interaction.reply({ embeds: [aimHitEmbed, targetEffect] });
       } else if (ra.isHit == true && ra.dmg.isCrit == true) {
+        pc.weapons[index].ammo = ra.weapon.ammo.count - 1;
+        await pc.save();
         await interaction.reply({
           embeds: [aimHitEmbed, targetEffect, critInjury],
         });
@@ -413,10 +443,16 @@ module.exports = {
         .setFooter({ text: `Player: @${pc.username}` });
 
       if (ra.dmg.isCrit == true && ra.isHit == true) {
+        pc.weapons[index].ammo = ra.weapon.ammo.count - 1;
+        await pc.save();
         await interaction.reply({ embeds: [rangedAttackEmbed, critInjury] });
       } else if (ra.dmg.isCrit == false && ra.isHit == true) {
+        pc.weapons[index].ammo = ra.weapon.ammo.count - 1;
+        await pc.save();
         await interaction.reply({ embeds: [rangedAttackEmbed] });
       } else if (ra.isHit == false) {
+        pc.weapons[index].ammo = ra.weapon.ammo.count - 1;
+        await pc.save();
         await interaction.reply({ embeds: [missEmbed] });
       }
     }

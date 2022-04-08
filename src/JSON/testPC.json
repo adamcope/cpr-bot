@@ -1,205 +1,287 @@
 {
-  "userID": "558698466914861057",
-  "guildID": "903123838290772029",
-  "username": "adamc",
-  "characterName": "Schreber",
-  "characterImgUrl": "https://media4.giphy.com/media/112CeAWuyhQX1C/giphy.gif",
-  "hp": [40, 40],
-  "humanity": [30, 30],
-  "role": {
-    "name": "Netrunner",
-    "ability": "Interface",
-    "rank": 5
-  },
-  "criticalInjuries": [],
-  "addictions": [],
-  "stats": {
-    "int": [8, 0],
-    "ref": [7, 0],
-    "dex": [7, 0],
-    "tech": [6, 0],
-    "cool": [6, 0],
-    "will": [7, 0],
-    "luck": [4, 4],
-    "move": [7, 0],
-    "body": [5, 0],
-    "emp": [3, 3]
-  },
-  "skills": {
-    "concentration": 6,
-    "conceal/reveal_object": 0,
-    "lip_reading": 0,
-    "perception": 2,
-    "tracking": 0,
-    "athletics": 3,
-    "contortionist": 0,
-    "dance": 0,
-    "endurance": 0,
-    "resist_torture/drugs": 0,
-    "stealth": 6,
-    "drive_land_vehicle": 0,
-    "pilot_air_vehicle": 0,
-    "pilot_sea_vehicle": 0,
-    "riding": 0,
-    "accounting": 0,
-    "animal_handling": 0,
-    "bureaucracy": 0,
-    "business": 0,
-    "composition": 0,
-    "criminology": 0,
-    "cryptography": 0,
-    "deduction": 0,
-    "education": 2,
-    "gamble": 0,
-    "language": 6,
-    "library_search": 0,
-    "local_expert": 2,
-    "science": 0,
-    "tactics": 0,
-    "wilderness_survival": 0,
-    "brawling": 0,
-    "evasion": 6,
-    "martial_arts": 0,
-    "melee_weapons": 0,
-    "acting": 0,
-    "play_instrument": 0,
-    "archery": 6,
-    "autofire": 4,
-    "handgun": 6,
-    "heavy_weapons": 0,
-    "shoulder_arms": 0,
-    "bribery": 0,
-    "conversation": 0,
-    "human_perception": 0,
-    "interrogation": 0,
-    "persuasion": 2,
-    "personal_grooming": 0,
-    "streetwise": 0,
-    "trading": 0,
-    "wardrobe_&_style": 0,
-    "air_vehicle_tech": 0,
-    "basic_tech": 6,
-    "cybertech": 6,
-    "demolititions": 0,
-    "electronics_security_tech": 0,
-    "first_aid": 2,
-    "forgery": 0,
-    "land_vehicle_tech": 0,
-    "paint/draw/sculpt": 0,
-    "paramedic": 0,
-    "photography_film": 0,
-    "pick_lock": 5,
-    "pick_pocket": 3,
-    "sea_vehicle_tech": 0,
-    "weapons_tech": 6
-  },
-  "armor": {
-    "head": { "ref": "none", "sp": 0, "penalty": 0 },
-    "body": { "ref": "none", "name": "none", "sp": 0, "penalty": 0 },
-    "shield": { "ref": "none", "name": "none", "sp": 0, "penalty": 0 }
-  },
-  "weapons": [
-    {
-      "ref": "heavy_pistol",
-      "name": "Heavy Pistol",
-      "ammo": 8,
-      "magSize": "standardMag",
-      "ammoLoaded": "Basic H pistol",
-      "rangeDV": [13, 15, 20, 25, 30, 30, 99],
-      "dmg": "3d6",
-      "standardMag": 8,
-      "extendedMag": 14,
-      "drumMag": 28,
-      "rof": 2,
-      "hands": 1,
-      "autofire": [false, 0],
-      "suppressiveFire": false,
-      "skillRef": "handgun",
-      "skillName": "Handgun",
-      "ammoType": "H pistol",
-      "cost": "100"
-    },
-    {
-      "ref": "bow",
-      "name": "Bow",
-      "ammo": 1,
-      "ammoLoaded": "Basic Arrow",
-      "magSize": "standardMag",
-      "rangeDV": [15, 13, 15, 17, 20, 22, 99, 99],
-      "dmg": "4d6",
-      "standardMag": 1,
-      "extendedMag": 1,
-      "drumMag": 1,
-      "rof": 1,
-      "hands": 2,
-      "autofire": [false, 0],
-      "suppressiveFire": false,
-      "skillRef": "archery",
-      "skillName": "Archery",
-      "ammoType": "Arrow",
-      "cost": "100"
-    },
-    {
-      "ref": "smg",
-      "name": "SMG",
-      "ammo": 30,
-      "magSize": "standardMag",
-      "ammoLoaded": "Basic M pistol",
-      "rangeDV": [15, 13, 15, 20, 25, 25, 30, 99],
-      "dmg": "2d6",
-      "standardMag": 30,
-      "extendedMag": 40,
-      "drumMag": 50,
-      "rof": 1,
-      "hands": 1,
-      "autofire": [true, 3],
-      "suppressiveFire": true,
-      "skillRef": "handgun",
-      "skillName": "Handgun",
-      "ammoType": "M pistol",
-      "cost": "100"
-    },
-    {
-      "ref": "medium_melee_weapon",
-      "name": "Metal Bat",
-      "hands": "",
-      "rof": 2,
-      "concealable": true,
-      "dmg": "2d6"
-  }
-
+  "userID" : "558698466914861057",
+  "guildID" : "903123838290772029",
+  "username" : "adamc",
+  "characterName" : "Schreber",
+  "characterImgUrl" : "https://media4.giphy.com/media/112CeAWuyhQX1C/giphy.gif",
+  "hp" : [ 
+      40, 
+      40
   ],
-  "cyberwear": ["Neural Link", "Cyberdeck"],
-  "ammo": [
-    {
-      "ref": "basic_arrow",
-      "name": "Basic Arrow",
-      "amount": 30,
-      "type": "Arrow"
-    },
-    {
-      "ref": "biotoxin_arrow",
-      "name": "Biotoxin Arrow",
-      "amount": 10,
-      "type": "Arrow"
-    },
-    {
-      "ref": "sleep_arrow",
-      "name": "Sleep Arrow",
-      "amount": 10,
-      "type": "Arrow"
-    },
-    {
-      "ref": "basic_m_pistol",
-      "name": "Basic M pistol",
-      "amount": 60,
-      "type": "M pistol"
-    },
-    {
-      "ref": "basic_h_pistol",
-      "name": "Basic H pistol",
-      "amount": 24,
-      "type": "H pistol"
-    }
-  ]
+  "humanity" : [ 
+      30, 
+      30
+  ],
+  "role" : {
+      "name" : "Netrunner",
+      "ability" : "Interface",
+      "rank" : 5
+  },
+  "criticalInjuries" : [],
+  "addictions" : [],
+  "stats" : {
+      "int" : [ 
+          8, 
+          0
+      ],
+      "ref" : [ 
+          7, 
+          0
+      ],
+      "dex" : [ 
+          7, 
+          0
+      ],
+      "tech" : [ 
+          6, 
+          0
+      ],
+      "cool" : [ 
+          6, 
+          0
+      ],
+      "will" : [ 
+          7, 
+          0
+      ],
+      "luck" : [ 
+          4, 
+          4
+      ],
+      "move" : [ 
+          7, 
+          0
+      ],
+      "body" : [ 
+          5, 
+          0
+      ],
+      "emp" : [ 
+          3, 
+          3
+      ]
+  },
+  "skills" : {
+      "concentration" : 6,
+      "conceal/reveal_object" : 0,
+      "lip_reading" : 0,
+      "perception" : 2,
+      "tracking" : 0,
+      "athletics" : 3,
+      "contortionist" : 0,
+      "dance" : 0,
+      "endurance" : 0,
+      "resist_torture/drugs" : 0,
+      "stealth" : 6,
+      "drive_land_vehicle" : 0,
+      "pilot_air_vehicle" : 0,
+      "pilot_sea_vehicle" : 0,
+      "riding" : 0,
+      "accounting" : 0,
+      "animal_handling" : 0,
+      "bureaucracy" : 0,
+      "business" : 0,
+      "composition" : 0,
+      "criminology" : 0,
+      "cryptography" : 0,
+      "deduction" : 0,
+      "education" : 2,
+      "gamble" : 0,
+      "language" : 6,
+      "library_search" : 0,
+      "local_expert" : 2,
+      "science" : 0,
+      "tactics" : 0,
+      "wilderness_survival" : 0,
+      "brawling" : 0,
+      "evasion" : 6,
+      "martial_arts" : 0,
+      "melee_weapons" : 0,
+      "acting" : 0,
+      "play_instrument" : 0,
+      "archery" : 6,
+      "autofire" : 4,
+      "handgun" : 6,
+      "heavy_weapons" : 0,
+      "shoulder_arms" : 0,
+      "bribery" : 0,
+      "conversation" : 0,
+      "human_perception" : 0,
+      "interrogation" : 0,
+      "persuasion" : 2,
+      "personal_grooming" : 0,
+      "streetwise" : 0,
+      "trading" : 0,
+      "wardrobe_&_style" : 0,
+      "air_vehicle_tech" : 0,
+      "basic_tech" : 6,
+      "cybertech" : 6,
+      "demolititions" : 0,
+      "electronics_security_tech" : 0,
+      "first_aid" : 2,
+      "forgery" : 0,
+      "land_vehicle_tech" : 0,
+      "paint/draw/sculpt" : 0,
+      "paramedic" : 0,
+      "photography_film" : 0,
+      "pick_lock" : 5,
+      "pick_pocket" : 3,
+      "sea_vehicle_tech" : 0,
+      "weapons_tech" : 6
+  },
+  "armor" : {
+      "head" : {
+          "ref" : "none",
+          "sp" : 0,
+          "penalty" : 0
+      },
+      "body" : {
+          "ref" : "none",
+          "name" : "none",
+          "sp" : 0,
+          "penalty" : 0
+      },
+      "shield" : {
+          "ref" : "none",
+          "name" : "none",
+          "sp" : 0,
+          "penalty" : 0
+      }
+  },
+  "weapons" : [ 
+      {
+          "ref" : "heavy_pistol",
+          "name" : "Heavy Pistol",
+          "ammo" : 8,
+          "magSize" : "standardMag",
+          "ammoLoaded" : "Basic H pistol",
+          "rangeDV" : [ 
+              13, 
+              15, 
+              20, 
+              25, 
+              30, 
+              30, 
+              99
+          ],
+          "dmg" : "3d6",
+          "standardMag" : 8,
+          "extendedMag" : 14,
+          "drumMag" : 28,
+          "rof" : 2,
+          "hands" : 1,
+          "isAutofire" : false,
+          "afMultiplier" : 0,
+          "suppressiveFire" : false,
+          "skillRef" : "handgun",
+          "skillName" : "Handgun",
+          "ammoType" : "H pistol",
+          "cost" : 100
+      }, 
+      {
+          "ref" : "bow",
+          "name" : "Bow",
+          "ammo" : 30,
+          "magSize" : "standardMag",
+          "ammoLoaded" : "Basic Arrow",
+          "rangeDV" : [ 
+              15, 
+              13, 
+              15, 
+              17, 
+              20, 
+              22, 
+              99, 
+              99
+          ],
+          "dmg" : "4d6",
+          "standardMag" : 999,
+          "extendedMag" : 999,
+          "drumMag" : 999,
+          "rof" : 1,
+          "hands" : 2,
+          "isAutofire" : false,
+          "afMultiplier" : 0,
+          "suppressiveFire" : false,
+          "skillRef" : "archery",
+          "skillName" : "Archery",
+          "ammoType" : "Arrow",
+          "cost" : 100
+      }, 
+      {
+          "ref" : "smg",
+          "name" : "SMG",
+          "ammo" : 30,
+          "magSize" : "standardMag",
+          "ammoLoaded" : "Basic M pistol",
+          "rangeDV" : [ 
+              15, 
+              13, 
+              15, 
+              20, 
+              25, 
+              25, 
+              30, 
+              99
+          ],
+          "dmg" : "2d6",
+          "standardMag" : 30,
+          "extendedMag" : 40,
+          "drumMag" : 50,
+          "rof" : 1,
+          "hands" : 1,
+          "isAutofire" : true,
+          "afMultiplier" : 3,
+          "suppressiveFire" : true,
+          "skillRef" : "handgun",
+          "skillName" : "Handgun",
+          "ammoType" : "M pistol",
+          "cost" : 100
+      }
+  ],
+  "cyberwear" : [ 
+      {
+          "ref" : "neural_link",
+          "name" : "Neural Link",
+          "desc" : " "
+      }, 
+      {
+          "ref" : "cyber-deck",
+          "name" : "Cyberdeck",
+          "desc" : " "
+      }
+  ],
+  "ammo" : [ 
+      {
+          "ref" : "basic_arrow",
+          "name" : "Basic Arrow",
+          "type" : "Arrow",
+          "amount" : 30
+      }, 
+      {
+          "ref" : "biotoxin_arrow",
+          "name" : "Biotoxin Arrow",
+          "type" : "Arrow",
+          "amount" : 10
+      }, 
+      {
+          "ref" : "sleep_arrow",
+          "name" : "Sleep Arrow",
+          "type" : "Arrow",
+          "amount" : 10
+      }, 
+      {
+          "ref" : "basic_m_pistol",
+          "name" : "Basic M pistol",
+          "type" : "M pistol",
+          "amount" : 60
+      }, 
+      {
+          "ref" : "basic_h_pistol",
+          "name" : "Basic H pistol",
+          "type" : "H pistol",
+          "amount" : 24
+      }
+  ],
+  "inventory" : []
 }

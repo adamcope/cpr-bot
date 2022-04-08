@@ -5,7 +5,7 @@ const lib = require("./library");
 function meleeWeaponAttack(pc: typeof PC, weapon: Array<string>) {
   const weaponRef: string = weapon.join("_").toLowerCase();
   const weaponInfo: typeof PC.weapons[0] = pc.weapons.find(
-    (x: typeof Weapon) => x.ref == weaponRef
+    (x: any) => x.ref == weaponRef
   )!;
 
   const sc: SC = skillCheck(pc, ["melee", "weapons"]);

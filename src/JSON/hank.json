@@ -1,0 +1,174 @@
+{
+    "userID" : "558698466914861057",
+    "guildID" : "903123838290772029",
+    "username" : "cchill",
+    "characterName" : "Hank Hill",
+    "characterImgUrl" : "https://cdn.discordapp.com/attachments/903124045363572777/904913032906420284/brittany-anderson-asset.jpg",
+    "hp" : [ 
+        30, 
+        30
+    ],
+    "humanity" : [ 
+        46, 
+        50
+    ],
+    "weaponDrawn" : "Shotgun",
+    "role" : {
+        "name" : "Tech",
+        "ability" : "Maker",
+        "rank" : 4
+    },
+    "seriouslyWounded" : "",
+    "criticalInjuries" : [],
+    "addictions" : [],
+    "stats" : {
+        "int" : [ 
+            8, 
+            0
+        ],
+        "ref" : [ 
+            7, 
+            0
+        ],
+        "dex" : [ 
+            7, 
+            0
+        ],
+        "tech" : [ 
+            7, 
+            0
+        ],
+        "cool" : [ 
+            4, 
+            0
+        ],
+        "will" : [ 
+            3, 
+            0
+        ],
+        "luck" : [ 
+            6, 
+            6
+        ],
+        "move" : [ 
+            5, 
+            0
+        ],
+        "body" : [ 
+            5, 
+            0
+        ],
+        "emp" : [ 
+            4, 
+            4
+        ]
+    },
+    "skills" : {
+        "concentration" : 5,
+        "conceal/reveal_object" : 0,
+        "lip_reading" : 0,
+        "perception" : 4,
+        "tracking" : 0,
+        "athletics" : 4,
+        "contortionist" : 0,
+        "dance" : 0,
+        "endurance" : 0,
+        "resist_torture/drugs" : 0,
+        "stealth" : 3,
+        "drive_land_vehicle" : 0,
+        "pilot_air_vehicle" : 0,
+        "pilot_sea_vehicle" : 0,
+        "riding" : 0,
+        "accounting" : 0,
+        "animal_handling" : 0,
+        "bureaucracy" : 0,
+        "business" : 0,
+        "composition" : 0,
+        "criminology" : 0,
+        "cryptography" : 0,
+        "deduction" : 0,
+        "education" : 3,
+        "gamble" : 0,
+        "language" : 4,
+        "library_search" : 0,
+        "local_expert" : 6,
+        "science" : 4,
+        "tactics" : 0,
+        "wilderness_survival" : 0,
+        "brawling" : 0,
+        "evasion" : 6,
+        "martial_arts" : 0,
+        "melee_weapons" : 0,
+        "acting" : 0,
+        "play_instrument" : 0,
+        "archery" : 0,
+        "autofire" : 0,
+        "handgun" : 0,
+        "heavy_weapons" : 0,
+        "shoulder_arms" : 4,
+        "bribery" : 0,
+        "conversation" : 4,
+        "human_perception" : 4,
+        "interrogation" : 0,
+        "persuasion" : 4,
+        "personal_grooming" : 0,
+        "streetwise" : 0,
+        "trading" : 0,
+        "wardrobe_&_style" : 0,
+        "air_vehicle_tech" : 0,
+        "basic_tech" : 0,
+        "cybertech" : 6,
+        "demolititions" : 0,
+        "electronics_security_tech" : 0,
+        "first_aid" : 3,
+        "forgery" : 0,
+        "land_vehicle_tech" : 5,
+        "paint/draw/sculpt" : 0,
+        "paramedic" : 0,
+        "photography_film" : 0,
+        "pick_lock" : 0,
+        "pick_pocket" : 0,
+        "sea_vehicle_tech" : 0,
+        "weapons_tech" : 4
+    },
+    "armor" : {
+        "head" : {
+            "ref" : "helmet",
+            "sp" : 11,
+            "penalty" : 0
+        },
+        "body" : {
+            "ref" : "body",
+            "sp" : 11,
+            "penalty" : 0
+        },
+        "shield" : {
+            "ref" : "none",
+            "sp" : 0,
+            "penalty" : 0
+        }
+    },
+    "weapons" : [ 
+        {
+            "ref" : "shotgun",
+            "name" : "Shotgun",
+            "ammo" : 4,
+            "ammoLoaded" : "Basic Shell"
+        }, 
+        {
+            "ref" : "heavy_melee_weapon",
+            "name" : "Heavy Melee Weapon"
+        }
+    ],
+    "cyberwear" : [ 
+        "Neural Link", 
+        "Cyberdeck"
+    ],
+    "ammo" : [ 
+        {
+            "name" : "Basic Shell",
+            "amt" : 100
+        }
+    ],
+    "inventory" : []
+}

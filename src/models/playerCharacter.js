@@ -9,12 +9,12 @@ const playerCharacter = new Schema({
   characterName: String,
   characterImgUrl: String,
   hp: [Number, Number],
+  humanity: [Number, Number],
   role: {
     name: String,
     ability: String,
     rank: Number,
   },
-  humanity: [Number, Number],
   criticalInjuries: [String],
   addictions: [String],
   stats: {
@@ -106,27 +106,28 @@ const playerCharacter = new Schema({
     {
       ref: String,
       name: String,
-      dmg: String,
       ammo: Number,
       magSize: String,
+      ammoLoaded: String,
       rangeDV: [Number],
+      dmg: String,
       standardMag: Number,
       extendedMg: Number,
       drumMag: Number,
       rof: Number,
       hands: Number,
-      autofire: [Boolean, Number],
+      isAutofire: Boolean,
+      afMultiplier: Number,
       suppressiveFire: Boolean,
       skillRef: String,
       skillName: String,
       ammoType: String,
-      ammoLoaded: String,
-      cost: String
+      cost: Number
     },
   ],
-  ammo: [{ ref: String, name: String, type: String, amount: Number }],
-  cyberwear: [{ref: String, name: String, desc: String}],
-  inventory: [{ref: String, name: String, qty: Number}],
+  cyberwear: [ { ref: String, name: String, desc: String } ],
+  ammo: [ {} ],//{ ref: String, name: String, type: String, amount: Number } ],
+  inventory: [ { ref: String, name: String, qty: Number } ],
 });
 
-module.exports = mongoose.model("Character", playerCharacter);
+module.exports = mongoose.model("Character", playerCharacter);                                     

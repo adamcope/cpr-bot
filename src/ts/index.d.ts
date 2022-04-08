@@ -133,7 +133,8 @@ declare namespace PC {
       drumMag: number;
       rof: number;
       hands: number;
-      autofire: [boolean, number];
+      isAutofire : boolean,
+      afMultiplier: number,
       suppressiveFire: boolean;
       skillRef: string;
       skillName: string;
