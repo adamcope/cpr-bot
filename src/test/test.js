@@ -26,29 +26,3 @@ console.log(reload);
 console.log(load);
 console.log(netArchitecture)
 console.log(meleeWeapon)
-
-// const sc = {
-//     roll: {
-//         result: 12
-//     }
-// }
-// const ra ={
-//     dv: 15
-// }
-// const dmgRoll ={
-//     result: 8
-// }
-// const multiplier = 3
-
-// const afDMG = () => {
-//     if ((sc.roll.result - ra.dv) <= 0){
-//         return dmgRoll.result
-//     }
-//     else if (multiplier < (sc.roll.result - ra.dv))
-//     {return dmgRoll.result * multiplier}
-//     else if (multiplier > (sc.roll.result - ra.dv)){
-//         return dmgRoll.result * (sc.roll.result - ra.dv)
-//     }
-// }
-// const dmg = afDMG()
-// console.log(dmg)

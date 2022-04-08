@@ -10,33 +10,40 @@ const lib = require("./library");
 function rangedAttack(pc: typeof PC, weapon: Array<string>, distance: number) {
   
   const weaponRef: string = weapon.join("_").toLowerCase()
-  const weaponInfo: typeof PC.weapons[0] = pc.weapons.find((x: typeof Weapon) => x.ref == weaponRef)!
-  const ammoInfo = lib.ammo.find((x: any) => x.name == weaponInfo.ammoLoaded)
-  const weaponSkill: Array<string> = weaponInfo.skillName.toLowerCase().split(" ");
-  const index: number = dvIndex(distance);
-
-  const sc: SC = skillCheck(pc, weaponSkill);
-  const dv: number = weaponInfo.rangeDV[index];
-
-  const atk = {
-    sc: sc,
-    dv: dv,
-    weapon: {
-      name: weaponInfo.name,
-      rof: weaponInfo.rof,
-      isAutofire: weaponInfo.autofire[0],
-      afMultiplier: weaponInfo.autofire[1],
-      ammo: { 
-      count: weaponInfo.ammo,
-      loaded: weaponInfo.ammoLoaded,
-      effect: ammoInfo.effect
-      }
-    },
-    isHit: hitCheck(dv, sc.roll.result),
-    dmg: attackDmg(weaponInfo.dmg),
-  };
-
-  return atk;
+  
+  try {
+    
+    const weaponInfo: typeof PC.weapons[0] = pc.weapons.find((x: typeof Weapon) => x.ref == weaponRef)! 
+    //** add a try - catch for weapons not equipped.
+    const ammoInfo = lib.ammo.find((x: any) => x.name == weaponInfo.ammoLoaded)
+    const weaponSkill: Array<string> = weaponInfo.skillName.toLowerCase().split(" ");
+    const index: number = dvIndex(distance);
+    
+    const sc: SC = skillCheck(pc, weaponSkill);
+    const dv: number = weaponInfo.rangeDV[index];
+    
+    const atk = {
+      sc: sc,
+      dv: dv,
+      weapon: {
+        name: weaponInfo.name,
+        rof: weaponInfo.rof,
+        isAutofire: weaponInfo.autofire[0],
+        afMultiplier: weaponInfo.autofire[1],
+        ammo: { 
+          count: weaponInfo.ammo,
+          loaded: weaponInfo.ammoLoaded,
+          effect: ammoInfo.effect
+        }
+      },
+      isHit: hitCheck(dv, sc.roll.result),
+      dmg: attackDmg(weaponInfo.dmg),
+    };
+    
+    return atk;
+  } catch (error) {
+    return undefined
+  }
 }
 
 module.exports = rangedAttack;

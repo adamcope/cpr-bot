@@ -54,11 +54,11 @@ module.exports = {
 
     const ra = rangedAttack(pc, weaponInput, distanceInput);
 
-    if (!ra.weapon.name) {
+    if (!ra) {
       const notEquipped = new MessageEmbed()
         .setColor("#7a1212")
         .setTitle(`${pc.characterName} - ${italic("Ranged Attack")}`)
-        .setDescription(`Weapon not in equipped.`)
+        .setDescription(`Weapon not equipped.`)
         .setThumbnail(`${pc.characterImgUrl}`)
         .setFooter({ text: `Player: @${pc.username}` });
 
