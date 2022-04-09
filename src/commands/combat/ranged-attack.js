@@ -39,7 +39,7 @@ module.exports = {
         .setRequired(false)
     ),
   async execute(interaction) {
-    const pc = await Character.findOne({
+    const pc = await Character.findOne({  
       userID: `${interaction.member.id}`,
     });
 
