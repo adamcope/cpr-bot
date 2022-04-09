@@ -14,7 +14,7 @@ function meleeUnarmedAttack(pc, weapon) {
                 name: weaponInfo.name,
                 rof: weaponInfo.rof,
             },
-            dmg: attackDmg(weaponInfo.dmg),
+            dmg: 0, // create dmg function
         };
         return atk;
     }
