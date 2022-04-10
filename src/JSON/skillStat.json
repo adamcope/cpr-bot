@@ -7,7 +7,7 @@
   {"name": "brawling", "stat": "dex"},
   {"name": "evasion", "stat": "dex"},
   {"name": "martial_arts", "stat": "dex"},
-  {"name": "melee_weapons", "stat": "dex"},
+  {"name": "melee_weapon", "stat": "dex"},
   {"name": "human_perception", "stat": "emp"},
   {"name": "conversation", "stat": "emp"},
   {"name": "concentration", "stat": "will"},

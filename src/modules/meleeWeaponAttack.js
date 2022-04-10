@@ -7,7 +7,7 @@ function meleeWeaponAttack(pc, weapon) {
     try {
         const weaponRef = weapon.join("_").toLowerCase();
         const weaponInfo = pc.weapons.find((x) => x.ref == weaponRef);
-        const sc = skillCheck(pc, ["melee", "weapons"]);
+        const sc = skillCheck(pc, ["melee", "weapon"]);
         const atk = {
             sc: sc,
             weapon: {

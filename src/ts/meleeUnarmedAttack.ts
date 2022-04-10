@@ -2,21 +2,28 @@ const { attackDmg } = require("../modules/mechanics");
 const skillCheck = require("../modules/skillCheck");
 const lib = require("./library");
 
-function meleeUnarmedAttack(pc: typeof PC, weapon: Array<string>) {
+function meleeUnarmedAttack(pc: typeof PC) {
   try {
-    const weaponRef: string = weapon.join("_").toLowerCase();
-    const weaponInfo: typeof PC.weapons[0] = pc.weapons.find(
-      (x: any) => x.ref == weaponRef
-    )!;
+    function unarmedDmgRoll(body: number) {
+      if (body == 4) {
+        return "1d6";
+      } else if (body < 7) {
+        return "2d6";
+      } else if (body < 10) {
+        return "3d6";
+      } else if (body > 10) {
+        return "4d6";
+      } else {
+        return 0;
+      }
+    }
 
-    const sc: SC = skillCheck(pc, ['brawling']);
+    const dmg = attackDmg(unarmedDmgRoll(pc.stats.body[0] - pc.stats.body[1]));
+
+    const sc: SC = skillCheck(pc, ["brawling"]);
     const atk = {
       sc: sc,
-      weapon: {
-        name: weaponInfo.name,
-        rof: weaponInfo.rof,
-      },
-      dmg: 0, // create dmg function
+      dmg: dmg,
     };
 
     return atk;

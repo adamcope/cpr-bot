@@ -3,18 +3,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const { attackDmg } = require("../modules/mechanics");
 const skillCheck = require("../modules/skillCheck");
 const lib = require("./library");
-function meleeUnarmedAttack(pc, weapon) {
+function meleeUnarmedAttack(pc) {
     try {
-        const weaponRef = weapon.join("_").toLowerCase();
-        const weaponInfo = pc.weapons.find((x) => x.ref == weaponRef);
-        const sc = skillCheck(pc, ['brawling']);
+        function unarmedDmgRoll(body) {
+            if (body == 4) {
+                return "1d6";
+            }
+            else if (body < 7) {
+                return "2d6";
+            }
+            else if (body < 10) {
+                return "3d6";
+            }
+            else if (body > 10) {
+                return "4d6";
+            }
+            else {
+                return 0;
+            }
+        }
+        const dmg = attackDmg(unarmedDmgRoll(pc.stats.body[0] - pc.stats.body[1]));
+        const sc = skillCheck(pc, ["brawling"]);
         const atk = {
             sc: sc,
-            weapon: {
-                name: weaponInfo.name,
-                rof: weaponInfo.rof,
-            },
-            dmg: 0, // create dmg function
+            dmg: dmg,
         };
         return atk;
     }

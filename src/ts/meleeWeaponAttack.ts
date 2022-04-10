@@ -9,7 +9,7 @@ function meleeWeaponAttack(pc: typeof PC, weapon: Array<string>) {
       (x: any) => x.ref == weaponRef
     )!;
 
-    const sc: SC = skillCheck(pc, ["melee", "weapons"]);
+    const sc: SC = skillCheck(pc, ["melee", "weapon"]);
     const atk = {
       sc: sc,
       weapon: {
