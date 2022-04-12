@@ -41,10 +41,15 @@ module.exports = {
     });
 
     const typeInput = interaction.options.getString("type");
-    try {
-      const weaponInput = interaction.options.getString("weapon").split(" ");
-      const aimInput = interaction.options.getString("aim");
+    const aimInput = interaction.options.getString("aim");
 
+    const sc = skillCheck(pc, ["brawling"]);
+    const mwa = meleeWeaponAttack(pc, weaponInput);
+    const uma = meleeUnarmedAttack(pc);
+
+    if (!sc) {
+      return;
+    } else if (typeInput == "unarmed") {
       //** Unarmed Melee Attack Embed */
       const umaEmbed = new MessageEmbed()
         .setColor("#7a1212")
@@ -76,7 +81,7 @@ module.exports = {
         .setThumbnail(`${pc.characterImgUrl}`)
         .setFooter({ text: `Player: @${pc.username}` });
 
-      //** Unarmed Melee Crit Injury Embed */
+        //** Unarmed Melee Crit Injury Embed */
       const umaCritInjury = new MessageEmbed()
         .setColor("DARK_ORANGE")
         .setTitle(`Critical Injury - ${italic(uma.dmg.injury.name)}`)
@@ -90,8 +95,18 @@ module.exports = {
         )
         .setFooter({ text: `Player: @${pc.username}` });
 
-        //** Melee Weapon Attack Embed */
-        const mwaEmbed = new MessageEmbed()
+      if (uma.dmg.isCrit == false && !aimInput) {
+        await interaction.reply({ embeds: [umaEmbed] });
+      } else if (uma.dmg.isCrit == true && !aimInput) {
+        await interaction.reply({ embeds: [umaEmbed, umaCritInjury] });
+      } else if (uma.dmg.isCrit == false) {
+        await interaction.reply({ embeds: [umaEmbed] });
+      } else if (uma.dmg.isCrit == true) {
+        await interaction.reply({ embeds: [umaEmbed, umaCritInjury] });
+      }
+    } else if (typeInput == "weapon") {
+      const weaponInput = interaction.options.getString("weapon").split(" ");
+      const mwaEmbed = new MessageEmbed()
         .setColor("#7a1212")
         .setTitle(
           `${pc.characterName} - ${italic("Melee Weapon Attack - ")}${italic(
@@ -122,40 +137,6 @@ module.exports = {
         )
         .setThumbnail(`${pc.characterImgUrl}`)
         .setFooter({ text: `Player: @${pc.username}` });
-
-        //** Melee Weapon Attack Crit Embed */
-        const mwaCritInjury = new MessageEmbed()
-        .setColor("DARK_ORANGE")
-        .setTitle(`Critical Injury - ${italic(mwa.dmg.injury.name)}`)
-        .addFields({
-          name: `${underscore("Effect")}`,
-          value: `${mwa.dmg.injury.effect}`,
-          inline: false,
-        })
-        .setThumbnail(
-          `https://64.media.tumblr.com/38c2289f4fb32da7afa9e3b4c1eba656/tumblr_nv25v6qn7b1ud4rmfo1_400.gif`
-        )
-        .setFooter({ text: `Player: @${pc.username}` });
-
-    } catch (error) {
-      weaponInput = undefined;
-      aimInput = undefined;
-    }
-
-    const sc = skillCheck(pc, ["brawling"]);
-    const mwa = meleeWeaponAttack(pc, weaponInput);
-    const uma = meleeUnarmedAttack(pc);
-
-    if (!sc) {
-      return;
-    } else if (!aimInput && !weaponInput && uma.dmg.isCrit == false) {
-      await interaction.reply({ embeds: [umaEmbed] });
-    } else if (!aimInput && !weaponInput && uma.dmg.isCrit == true) {
-      await interaction.reply({ embeds: [umaEmbed, critInjury] });
-    } else if (!aimInput && mwa.dmg.isCrit == false) {
-      await interaction.reply({embeds: [mwaEmbed]})
-    } else if (!aimInput && mwa.dmg.isCrit == false) {
-      await interaction.reply({embeds: [mwaEmbed, mwaCritInjury]})
     }
   },
 };
