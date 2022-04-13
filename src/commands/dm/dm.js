@@ -7,7 +7,8 @@ const { bold, italic, underscore } = require("@discordjs/builders");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("dm")
-    .setDescription("DM Actions")
+    .setDescription("DM Actions (DISABLED)")
+    .setDefaultPermission(false)
     .addSubcommand((subcommand) =>
       subcommand
         .setName("dmg")

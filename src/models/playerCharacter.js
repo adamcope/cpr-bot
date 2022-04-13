@@ -10,13 +10,12 @@ const playerCharacter = new Schema({
   characterImgUrl: String,
   hp: [Number, Number],
   humanity: [Number, Number],
-  role: {
-    name: String,
-    ability: String,
-    rank: Number,
-  },
+  role: String,
+  abilities: [{ name: String, rank: Number }],
   criticalInjuries: [String],
   addictions: [String],
+  eb: Number,
+  ip: Number,
   stats: {
     int: [Number, Number],
     ref: [Number, Number],
@@ -98,9 +97,9 @@ const playerCharacter = new Schema({
     weapons_tech: Number,
   },
   armor: {
-  head: { name: String, sp: Number, penalty: String },
-  body: { name: String, sp: Number, penalty: String },
-  shield: { name: String, sp: Number, penalty: String },
+    head: { name: String, sp: Number, penalty: String },
+    body: { name: String, sp: Number, penalty: String },
+    shield: { name: String, sp: Number, penalty: String },
   },
   weapons: [
     {
@@ -122,12 +121,12 @@ const playerCharacter = new Schema({
       skillRef: String,
       skillName: String,
       ammoType: String,
-      cost: Number
+      cost: Number,
     },
   ],
-  cyberwear: [ { ref: String, name: String, desc: String } ],
-  ammo: [ {} ],//{ ref: String, name: String, type: String, amount: Number } ],
-  inventory: [ { ref: String, name: String, qty: Number } ],
+  cyberwear: [{ ref: String, name: String, desc: String }],
+  ammo: [{}], //{ ref: String, name: String, type: String, amount: Number } ],
+  inventory: [{ ref: String, name: String, qty: Number }],
 });
 
-module.exports = mongoose.model("Character", playerCharacter);                                     
+module.exports = mongoose.model("Character", playerCharacter);

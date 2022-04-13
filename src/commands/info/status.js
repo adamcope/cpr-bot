@@ -7,7 +7,8 @@ const { bold, italic, underscore } = require("@discordjs/builders");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("status")
-    .setDescription("Posts your character's status"),
+    .setDescription("Posts your character's status (DISABLED)")
+    .setDefaultPermission(false),
   async execute(interaction) {
  
     const characterEmbed = new MessageEmbed()

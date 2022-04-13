@@ -7,7 +7,8 @@ const { italic, underscore } = require("@discordjs/builders");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("weapons")
-    .setDescription("Displays the weapons in your inventory."),
+    .setDescription("Displays the weapons in your inventory. (DISABLED)")
+    .setDefaultPermission(false),
   async execute(interaction) {
 
     const weaponsEmbed = new MessageEmbed()
