@@ -3,11 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const { attackDmg } = require("../modules/mechanics");
 const skillCheck = require("../modules/skillCheck");
 const lib = require("./library");
-function meleeWeaponAttack(pc, weapon) {
+function meleeWeaponAttack(pc, weaponRef) {
     try {
-        const weaponRef = weapon.join("_").toLowerCase();
         const weaponInfo = pc.weapons.find((x) => x.ref == weaponRef);
-        const sc = skillCheck(pc, ["melee", "weapon"]);
+        const sc = skillCheck(pc, ["melee", "weapons"]);
         const atk = {
             sc: sc,
             weapon: {

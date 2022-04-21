@@ -22,7 +22,7 @@ module.exports = {
     )
     .addStringOption((option) => option
     .setName("stats")
-    .setDescription("Enter stat values in the following order: 'INT, REF, DEX, TECH, COOL, WILL, LUCK, MOVE, BODY EMP'")
+    .setDescription("Enter stat values in the following order: 'INT/REF/DEX/TECH/COOL/WILL/LUCK/MOVE/BODY/EMP'")
     .setRequired(true)
     ),
 
@@ -32,10 +32,10 @@ module.exports = {
         const username = interaction.member.user
         const pcName = interaction.options.getString("name")
         const pcRole = interaction.options.getString("role")
-        const pcStats = interaction.options.getString("stats").split(", ")
+        const pcStats = interaction.options.getString("stats").split("/")
         
         
         
-        interaction.reply(` ${bold("User")} ${username} ${bold("ID")} ${userID}\n${bold("Name")} ${pcName} ${bold("Role")} ${pcRole}\n${bold("INT")} ${pcStats[0]} ${bold("REF")} ${pcStats[1]} ${bold("DEX")} ${pcStats[2]} ${bold("TECH")} ${pcStats[3]} ${bold("COOL")} ${pcStats[4]}\n${bold("WILL")} ${pcStats[5]} ${bold("LUCK")} ${pcStats[6]} ${bold("MOVE")} ${pcStats[7]} ${bold("BODY")} ${pcStats[8]} ${bold("EMP")} ${pcStats[9]}`)
+        interaction.reply(`${bold("User")} ${username} ${bold("ID")} ${userID}\n${bold("Name")} ${pcName} ${bold("Role")} ${pcRole}\n${bold("INT")} ${pcStats[0]} ${bold("REF")} ${pcStats[1]} ${bold("DEX")} ${pcStats[2]} ${bold("TECH")} ${pcStats[3]} ${bold("COOL")} ${pcStats[4]}\n${bold("WILL")} ${pcStats[5]} ${bold("LUCK")} ${pcStats[6]} ${bold("MOVE")} ${pcStats[7]} ${bold("BODY")} ${pcStats[8]} ${bold("EMP")} ${pcStats[9]}`)
     }
 }
