@@ -35,6 +35,8 @@ module.exports = {
       userID: `${interaction.member.id}`,
     }).lean();
 
+    // !! debug aimed hit !!
+
     const typeInput = interaction.options.getString("type");
     const targetInput = interaction.options.getString("target");
     const targetModifier = () => {
@@ -47,7 +49,7 @@ module.exports = {
     const dmg = attackDmg(weapon.dmg);
 
     if (targetInput == "body") {
-      //** Melee Weapon Attack to the Body Embed */
+      //** Melee Weapon Attack to the Body */
 
       const bodyEmbed = new MessageEmbed()
         .setColor("#7a1212")
@@ -102,7 +104,8 @@ module.exports = {
       }
     }
     if (targetInput != "body") {
-      //** Melee Weapon Attack to the Body Embed */
+      //** Melee Weapon Attack Aimed */
+      // ? debug ? //
 
       const targetName = (targetInput) => {
         if ((targetInput = "head")) {
