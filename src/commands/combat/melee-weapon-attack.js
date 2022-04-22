@@ -24,10 +24,10 @@ module.exports = {
       option
         .setName("target")
         .setDescription("Choose a target on the enemy to attack.")
-        .addChoice("Body", "body")
-        .addChoice("Head (-8 to Skillcheck)", "head")
-        .addChoice("Hand (-8 to Skillcheck)", "hand")
-        .addChoice("Leg (-8 to Skillcheck)", "leg")
+        .addChoice("Body", "Body")
+        .addChoice("Head (-8 to Skillcheck)", "Head")
+        .addChoice("Hand (-8 to Skillcheck)", "Hand")
+        .addChoice("Leg (-8 to Skillcheck)", "Leg")
         .setRequired(true)
     ),
   async execute(interaction) {
@@ -105,19 +105,6 @@ module.exports = {
     }
     if (targetInput != "body") {
       //** Melee Weapon Attack Aimed */
-      // ? debug ? //
-
-      const targetName = (targetInput) => {
-        if ((targetInput = "head")) {
-          return "Head";
-        }
-        if ((targetInput = "hand")) {
-          return "Hand";
-        }
-        if ((targetInput = "leg")) {
-          return "Leg";
-        }
-      };
 
       const aimBonusEffect = (target) => {
         if (target == "Head") {
@@ -136,7 +123,7 @@ module.exports = {
         .setTitle(
           `${pc.characterName} - ${italic(
             "Melee Weapon Attack | Target:"
-          )} ${italic(targetName(targetInput))}`
+          )} ${italic(targetInput)}`
         )
         .addFields(
           {
@@ -161,7 +148,7 @@ module.exports = {
           },
           {
             name: `${underscore("Bonus Effect")}`,
-            value: `${aimBonusEffect(targetName(targetInput))}`,
+            value: `${aimBonusEffect(targetInput)}`,
             inline: false,
           }
         )
