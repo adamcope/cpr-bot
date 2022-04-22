@@ -34,10 +34,10 @@ module.exports = {
     let lobby = [];
     let floors = [];
     for (let i = 0; i < 2; i++) {
-      lobby.push(`[${i + 1}]⌬{{ ${netArray[i]}\n`);
+      lobby.push(`[${i + 1}]⌬[${netArray[i]}\n`);
     }
     for (let i = 2; i < netArray.length; i++) {
-      floors.push(`[${i + 1}]⌬{{ ${netArray[i]}\n`);
+      floors.push(`[${i + 1}]⌬[${netArray[i]}\n`);
     }
     for (let i = netArray.length; i < 10; i++) {
       floors.push(" ");

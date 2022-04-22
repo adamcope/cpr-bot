@@ -39,7 +39,7 @@ module.exports = {
         .setRequired(false)
     ),
   async execute(interaction) {
-    const pc = await Character.findOne({  
+    const pc = await Character.findOne({
       userID: `${interaction.member.id}`,
     });
 
@@ -61,6 +61,14 @@ module.exports = {
         .setFooter({ text: `Player: @${pc.username}` });
 
       await interaction.reply({ embeds: [notEquipped], ephemeral: true });
+    } else if (ra.weapon.name == "Bow" || ra.weapon.name == "Crossbow") {
+      const archery = new MessageEmbed()
+        .setColor("#7a1212")
+        .setTitle(`${underscore("REDbot")}`)
+        .setDescription(
+          `Bows and Crossbows must use \`\`/archery\`\` command.`
+        );
+      await interaction.reply({ embeds: [archery], ephemeral: true });
     } else if (ra.weapon.ammo.count < 1) {
       const outOfAmmo = new MessageEmbed()
         .setColor("#7a1212")
@@ -75,7 +83,7 @@ module.exports = {
     } else if (
       specModes == "autofire" &&
       ra.weapon.isAutofire == true &&
-      ra.weapon.ammo.count < 9
+      ra.weapon.ammo.count > 9
     ) {
       const sc = skillCheck(pc, ["autofire"]);
       const afDmg = attackDmg("2d6");
@@ -165,6 +173,7 @@ module.exports = {
         )
         .setThumbnail(`${pc.characterImgUrl}`)
         .setFooter({ text: `Player: @${pc.username}` });
+
       if (afDmgMultiplier < 1) {
         pc.weapons[index].ammo = ra.weapon.ammo.count - 10;
         await pc.save();
@@ -252,15 +261,13 @@ module.exports = {
 
       const aimBonusEffect = (target) => {
         if (target == "Head") {
-          return `Multiply the damage that gets through your target's head armor by ${bold(
-            "2"
-          )}.`;
+          return `${bold("x2")} DMG that gets through head armor.`;
         } else if (target == "Hand") {
-          return `If a single point of damage gets through your target's body armor, your target drops one item of your choice held in their hands. It lands on the ground in front of them.`;
+          return `If DMG gets through armor, target drops item of choice.`;
         } else if (target == "Leg") {
-          return `If a single point of damage gets through your target's body armor, your target also suffers the ${bold(
+          return `If DMG gets through armor, target suffers ${bold(
             "Broken Leg"
-          )} Critical Injury if they have any legs left that aren't broken.`;
+          )} (see pg.187).`;
         }
       };
 
@@ -342,7 +349,7 @@ module.exports = {
         )
         .setFooter({ text: `Player: @${pc.username}` });
 
-      const targetEffect = new MessageEmbed()
+      const targetEffect = new MessageEmbed() //!! Move the content of this embed into a field in the aimEmbed */
         .setColor("RED")
         .setTitle(`Target - ${italic(target)}`)
         .addFields({
