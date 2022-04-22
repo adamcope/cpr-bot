@@ -32,16 +32,21 @@ module.exports = {
     const pc = await Character.findOne({
       userID: `${interaction.member.id}`,
     });
+    try {
+      const weaponInput = interaction.options.getString("weapon").split(" ");
+      const distanceInput = interaction.options.getInteger("distance");
+      const target = interaction.options.getString("aim");
 
-    const weaponInput = interaction.options.getString("weapon").split(" ");
-    const distanceInput = interaction.options.getInteger("distance");
-    const target = interaction.options.getString("aim");
+      const ra = rangedAttack(pc, weaponInput, distanceInput);
+      //!! Debug: 
+      //!! rangedAttack is returning 'undefined' when Character.ammo is defined as
+      //!! '[{ref: String, name: String, type: String, amount: Number}]' instead of [{}]
 
-    const ra = rangedAttack(pc, weaponInput, distanceInput);
-    //!! Create function that subtracts arrow from 'pc.ammo[<ammo_name>]' instead of 'ra.weapon.ammo'
-
-    const index = pc.weapons.findIndex((x) => x.name == ra.weapon.name);
-
+      const quiver = pc.ammo.find((x) => x.name == ra.weapon.ammo.loaded);
+      const index = pc.ammo.findIndex((x) => x.name == ra.weapon.ammo.loaded);
+    } catch (error) {
+      console.log(error);
+    }
     if (!ra) {
       const notEquipped = new MessageEmbed()
         .setColor("#7a1212")
@@ -87,7 +92,9 @@ module.exports = {
       const aimMissEmbed = new MessageEmbed()
         .setColor("#7a1212")
         .setTitle(
-          `${pc.characterName} - ${italic("Archery - Target:")} ${italic(target)}`
+          `${pc.characterName} - ${italic("Archery - Target:")} ${italic(
+            target
+          )}`
         )
         .addFields(
           {
@@ -112,7 +119,9 @@ module.exports = {
       const aimHitEmbed = new MessageEmbed()
         .setColor("#7a1212")
         .setTitle(
-          `${pc.characterName} - ${italic("Archery - Target:")} ${italic(target)}`
+          `${pc.characterName} - ${italic("Archery - Target:")} ${italic(
+            target
+          )}`
         )
         .addFields(
           {
@@ -168,15 +177,15 @@ module.exports = {
         .setFooter({ text: `Player: @${pc.username}` });
 
       if (ra.isHit == false) {
-        pc.weapons[index].ammo = ra.weapon.ammo.count - 1; //! use new arrow shoot function
+        pc.ammo[index].amount = quiver.amount - 1;
         await pc.save();
         await interaction.reply({ embeds: [aimMissEmbed] });
-      } else if (ra.isHit == true && ra.dmg.isCrit == false) { 
-        pc.weapons[index].ammo = ra.weapon.ammo.count - 1; //! use new arrow shoot function
+      } else if (ra.isHit == true && ra.dmg.isCrit == false) {
+        pc.ammo[index].amount = quiver.amount - 1;
         await pc.save();
         await interaction.reply({ embeds: [aimHitEmbed] });
       } else if (ra.isHit == true && ra.dmg.isCrit == true) {
-        pc.weapons[index].ammo = ra.weapon.ammo.count - 1; //! use new arrow shoot function
+        pc.ammo[index].amount = quiver.amount - 1;
         await pc.save();
         await interaction.reply({
           embeds: [aimHitEmbed, critInjury],
@@ -259,15 +268,15 @@ module.exports = {
         .setFooter({ text: `Player: @${pc.username}` });
 
       if (ra.dmg.isCrit == true && ra.isHit == true) {
-        pc.weapons[index].ammo = ra.weapon.ammo.count - 1; //! use new arrow shoot function
+        pc.ammo[index].amount = quiver.amount - 1;
         await pc.save();
         await interaction.reply({ embeds: [rangedAttackEmbed, critInjury] });
       } else if (ra.dmg.isCrit == false && ra.isHit == true) {
-        pc.weapons[index].ammo = ra.weapon.ammo.count - 1; //! use new arrow shoot function
+        pc.ammo[index].amount = quiver.amount - 1;
         await pc.save();
         await interaction.reply({ embeds: [rangedAttackEmbed] });
       } else if (ra.isHit == false) {
-        pc.weapons[index].ammo = ra.weapon.ammo.count - 1; //! use new arrow shoot function
+        pc.ammo[index].amount = quiver.amount - 1;
         await pc.save();
         await interaction.reply({ embeds: [missEmbed] });
       }

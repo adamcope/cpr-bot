@@ -35,8 +35,6 @@ module.exports = {
       userID: `${interaction.member.id}`,
     }).lean();
 
-    // !! debug aimed hit !!
-
     const typeInput = interaction.options.getString("type");
     const targetInput = interaction.options.getString("target");
     const targetModifier = () => {

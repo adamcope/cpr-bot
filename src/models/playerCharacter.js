@@ -125,7 +125,7 @@ const playerCharacter = new Schema({
     },
   ],
   cyberwear: [{ ref: String, name: String, desc: String }],
-  ammo: [{}], //{ ref: String, name: String, type: String, amount: Number } ],
+  ammo: [ { ref: String, name: String, type: String, amount: Number }, ],
   inventory: [{ ref: String, name: String, qty: Number }],
 });
 
