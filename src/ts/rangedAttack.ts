@@ -9,7 +9,6 @@ const lib = require("./library");
 function rangedAttack(pc: typeof PC, weapon: Array<string>, distance: number) {
   const weaponRef: string = weapon.join("_").toLowerCase();
 
-  try {
     const weaponInfo = pc.weapons.find((x: any) => x.ref == weaponRef)!;
 
     const ammoInfo = lib.ammo.find((x: any) => x.name == weaponInfo.ammoLoaded);
@@ -40,9 +39,6 @@ function rangedAttack(pc: typeof PC, weapon: Array<string>, distance: number) {
     };
 
     return atk;
-  } catch (error) {
-    return undefined;
-  }
 }
 
 module.exports = rangedAttack;

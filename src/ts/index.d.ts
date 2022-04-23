@@ -143,7 +143,7 @@ declare namespace PC {
     }
   ];
   let cyberwear: Array<string>;
-  let ammo: [{ ref: string; name: string; amount: number; type: string }];
+  let ammo: [{ ref: string; name: string; ammoType: string; amount: number; }];
 }
 
 declare namespace Weapon{

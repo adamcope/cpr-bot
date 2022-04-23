@@ -124,9 +124,9 @@ const playerCharacter = new Schema({
       cost: Number,
     },
   ],
+  ammo: [{ ref: String, name: String, ammoType: String, amount: Number }],
   cyberwear: [{ ref: String, name: String, desc: String }],
-  ammo: [ { ref: String, name: String, type: String, amount: Number }, ],
-  inventory: [{ ref: String, name: String, qty: Number }],
+  inventory: [{ ref: String, name: String, amount: Number }],
 });
 
 module.exports = mongoose.model("Character", playerCharacter);

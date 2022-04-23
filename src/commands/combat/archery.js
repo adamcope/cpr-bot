@@ -32,21 +32,17 @@ module.exports = {
     const pc = await Character.findOne({
       userID: `${interaction.member.id}`,
     });
-    try {
-      const weaponInput = interaction.options.getString("weapon").split(" ");
-      const distanceInput = interaction.options.getInteger("distance");
-      const target = interaction.options.getString("aim");
 
-      const ra = rangedAttack(pc, weaponInput, distanceInput);
-      //!! Debug: 
-      //!! rangedAttack is returning 'undefined' when Character.ammo is defined as
-      //!! '[{ref: String, name: String, type: String, amount: Number}]' instead of [{}]
+    const weaponInput = interaction.options.getString("weapon").split(" ");
+    const distanceInput = interaction.options.getInteger("distance");
+    const target = interaction.options.getString("aim");
 
-      const quiver = pc.ammo.find((x) => x.name == ra.weapon.ammo.loaded);
-      const index = pc.ammo.findIndex((x) => x.name == ra.weapon.ammo.loaded);
-    } catch (error) {
-      console.log(error);
-    }
+    const ra = rangedAttack(pc, weaponInput, distanceInput);
+    
+    console.log(pc)
+    const quiver = pc.ammo.find((x) => x.name == ra.weapon.ammo.loaded);
+    const index = pc.ammo.findIndex((x) => x.name == ra.weapon.ammo.loaded);
+
     if (!ra) {
       const notEquipped = new MessageEmbed()
         .setColor("#7a1212")
@@ -178,14 +174,17 @@ module.exports = {
 
       if (ra.isHit == false) {
         pc.ammo[index].amount = quiver.amount - 1;
+        console.log(pc.ammo[index].amount)
         await pc.save();
         await interaction.reply({ embeds: [aimMissEmbed] });
       } else if (ra.isHit == true && ra.dmg.isCrit == false) {
         pc.ammo[index].amount = quiver.amount - 1;
+        console.log(pc.ammo[index].amount)
         await pc.save();
         await interaction.reply({ embeds: [aimHitEmbed] });
       } else if (ra.isHit == true && ra.dmg.isCrit == true) {
         pc.ammo[index].amount = quiver.amount - 1;
+        console.log(pc.ammo[index].amount)
         await pc.save();
         await interaction.reply({
           embeds: [aimHitEmbed, critInjury],
@@ -269,14 +268,17 @@ module.exports = {
 
       if (ra.dmg.isCrit == true && ra.isHit == true) {
         pc.ammo[index].amount = quiver.amount - 1;
+        console.log(pc.ammo[index].amount)
         await pc.save();
         await interaction.reply({ embeds: [rangedAttackEmbed, critInjury] });
       } else if (ra.dmg.isCrit == false && ra.isHit == true) {
         pc.ammo[index].amount = quiver.amount - 1;
+        console.log(pc.ammo[index].amount)
         await pc.save();
         await interaction.reply({ embeds: [rangedAttackEmbed] });
       } else if (ra.isHit == false) {
         pc.ammo[index].amount = quiver.amount - 1;
+        console.log(pc.ammo[index].amount)
         await pc.save();
         await interaction.reply({ embeds: [missEmbed] });
       }
