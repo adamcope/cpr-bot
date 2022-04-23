@@ -7,6 +7,8 @@ const lib = require("./library");
  * @param {number} distance ``interaction.options.getInteger("distance")``
  */
 function rangedAttack(pc: typeof PC, weapon: Array<string>, distance: number) {
+  try {
+    
   const weaponRef: string = weapon.join("_").toLowerCase();
 
     const weaponInfo = pc.weapons.find((x: any) => x.ref == weaponRef)!;
@@ -39,6 +41,9 @@ function rangedAttack(pc: typeof PC, weapon: Array<string>, distance: number) {
     };
 
     return atk;
+  } catch (error) {
+    return undefined
+  }
 }
 
 module.exports = rangedAttack;

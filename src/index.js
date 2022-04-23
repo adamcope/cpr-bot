@@ -24,4 +24,3 @@ const commandFolders = fs.readdirSync("./src/commands");
   client.login(process.env.token);
   client.dbLogin();
 })();
-
