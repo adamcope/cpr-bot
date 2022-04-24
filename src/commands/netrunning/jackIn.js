@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js");
 const { bold, underscore, italic } = require("@discordjs/builders");
 const Character = require("../../models/playerCharacter.js");
 const Netarch = require("../../models/netSchema.js");
-const { execute } = require("./generateNET.js");
+const blackICE= require("../../modules/blackICE.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -16,6 +16,7 @@ module.exports = {
 
   async execute(interaction) {
     const idInput = interaction.options.getString("id");
+
     const pc = await Character.findOne({
       userID: `${interaction.member.id}`,
     });
@@ -34,6 +35,12 @@ module.exports = {
 
     net.netRunners.push(netrunner);
     net.save()
+
+    const floor_one = net.floors[0]
+
+    console.log(floor_one.name)
+
+    
 
     await interaction.reply(`\`\`Successfully [Jacked In]\`\``)
   },
