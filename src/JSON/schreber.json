@@ -252,5 +252,10 @@
           "amount" : 60
       }
   ],
-  "inventory" : []
+  "inventory" : [],
+  "cyberdeck" : {
+      "model": "怖いDREAMマシン v2.3",
+      "quality": "Good",
+      "programs":[{}]
+  }
 }

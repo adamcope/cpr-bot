@@ -1,75 +1,76 @@
-const pc = require("../JSON/testPC.json");
-const sc = require("../modules/skillCheck.js");
-const sr = require("../modules/statD10");
-const ra = require("../modules/rangedAttack");
-const rl = require("../modules/reload");
-const la = require("../modules/loadAmmo");
-const mwa = require("../modules/meleeWeaponAttack");
-const mongoose = require("mongoose");
-const Character = require("../models/playerCharacter.js");
-
 const genArch = require("../modules/netArchitecture.js");
-const netArchitecture = genArch(3, "standard");
 
-const pswdDV6 = {
-  id: 'pswdDV6',
-  name: 'Password',
-  dv: 6,
-  type: 0,
-  floor: 0
+let nameInput = "Poop House"
+let floorInput = 3
+let rankInput = "basic"
+
+const makeid = (length) => {
+      var result = "";
+      var characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(
+          Math.floor(Math.random() * charactersLength)
+        );
+      }
+      return result;
+    };
+    const netID = makeid(10);
+
+
+
+
+const netArray = genArch(floorInput, rankInput);
+
+
+
+let netObject = {
+  netID: netID,
+  netName: nameInput,
+  floors: [],
+  netRunners: [
+    {
+      id: " ",
+      name: " ",
+      floor: 0,
+    },
+  ],
+  daemons: [
+    {
+      id: " ",
+      name: " ",
+      floor: 0,
+    },
+  ],
+};
+
+
+for (let i = 0; i < netArray.length; i++) {
+  netObject.floors.push({
+    floor: i + 1,
+    programs: [
+      {
+        id: makeid(9),
+        name: netArray[i]
+        }
+    ],
+  });
 }
 
-const schreber = {
-  id: 0001,
-  name: Schreber,
-  interface: 4,
-  floor: 0
+let lobby = [];
+let floors = [];
+for (let i = 0; i < 2; i++) {
+  lobby.push(`[${i + 1}]⌬[${netArray[i]}\n`);
+}
+for (let i = 2; i < netArray.length; i++) { 
+  floors.push(`[${i + 1}]⌬[${netArray[i]}\n`);
+}
+for (let i = netArray.length; i < 10; i++) {
+  floors.push(" ");
 }
 
-const net ={
-  floors: [{floor: 0, contents:[pswdDV6, schreber ], DV:6 }],
-  netrunners: [{floor: 0, id: 0001, name: 'Schreber'}]
-}
+console.log(netArray)
 
-console.log(netArchitecture);
-
-
-// dbLogin = async () => {
-//   await mongoose.connect(
-//     "mongodb+srv://bot:Jnx9iBH15sJ922SM@cluster0.pc4ut.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-//     {
-//       useUnifiedTopology: true,
-//       useNewUrlParser: true,
-//     }
-//   );
-// };
-// dbLogin();
-
-// const ammoshoot = async () => {
-//   const pc = await Character.findOne({
-//     userID: `558698466914861057`,
-//   });
-  
-//   const index = pc.weapons.findIndex((x) => x.name == "SMG");
-
-//   pc.weapons[index].ammo = pc.weapons[index].ammo - 10;
-//   await pc.save();
-//   console.log(pc.ammo[0].ref);
-// };
-// ammoshoot();
-// console.log(skillCheck);
-// console.log(statCheck);
-// console.log(rangedAttack);
-// console.log(reload);
-// console.log(load);
-// console.log(meleeWeapon);
-
-// const skillCheck = sc(pc, ["stealth"]);
-// const statCheck = sr(pc, "dex");
-// const rangedAttack = ra(pc, ["smg"], 12);
-// console.log(rangedAttack)
-// const reload = rl(pc, ["smg"]);
-// const load = la(pc, ["bow"], ["biotoxin", "arrow"]);
-
-// const meleeWeapon = mwa(pc, ["medium", "melee", "weapon"]);
+console.log(netObject.floors[0])
 

@@ -3,11 +3,18 @@ const mongoose = require("mongoose");
 const { MessageEmbed } = require("discord.js");
 const { bold, underscore, italic } = require("@discordjs/builders");
 const genArch = require("../../modules/netArchitecture.js");
+const Netarch = require("../../models/netSchema.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("generate-net")
-    .setDescription("Randomly generate NET architecture.")
+    .setName("net-generate")
+    .setDescription("Randomly generate NET Architecture.")
+    .addStringOption((option) =>
+      option
+        .setName("name")
+        .setDescription("Set the Architecture's name.")
+        .setRequired(true)
+    )
     .addIntegerOption((option) =>
       option
         .setName("floors")
@@ -26,11 +33,60 @@ module.exports = {
     ),
 
   async execute(interaction) {
+    const nameInput = interaction.options.getString("name");
     const floorInput = interaction.options.getInteger("floors");
     const rankInput = interaction.options.getString("rank");
 
     const netArray = genArch(floorInput, rankInput);
 
+    const makeid = (length) => {
+      var result = "";
+      var characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(
+          Math.floor(Math.random() * charactersLength)
+        );
+      }
+      return result;
+    };
+    const netID = makeid(10);
+
+    let netObject = {
+      netID: netID,
+      netName: nameInput,
+      floors: [],
+      netRunners: [
+        {
+          id: " ",
+          name: " ",
+          floor: 0,
+        },
+      ],
+      daemons: [
+        {
+          id: " ",
+          name: " ",
+          floor: 0,
+        },
+      ],
+    };
+
+    for (let i = 0; i < netArray.length; i++) {
+      netObject.floors.push({
+        floor: i + 1,
+        programs: [
+          {
+            id: makeid(9),
+            name: netArray[i],
+          },
+        ],
+      });
+    }
+
+    // This formats the netArray into an aesthetically pleasing (imo)
+    // display for the embed.
     let lobby = [];
     let floors = [];
     for (let i = 0; i < 2; i++) {
@@ -42,11 +98,24 @@ module.exports = {
     for (let i = netArray.length; i < 10; i++) {
       floors.push(" ");
     }
+    
+    const netarch = new Netarch( netObject );
+    netarch.save();
 
     const architectureEmbed = new MessageEmbed()
       .setColor("DARK_PURPLE")
       .setTitle(`NET Architecture - ${rankInput.toUpperCase()}`)
       .addFields(
+        {
+          name: `${underscore("Name")}`,
+          value: `${nameInput}`,
+          inline: true,
+        },
+        {
+          name: `${underscore("ID")}`,
+          value: `${netID}`,
+          inline: true,
+        },
         {
           name: `${underscore("Lobby")}`,
           value: `${lobby[0]} ${lobby[1]}`,
@@ -59,7 +128,6 @@ module.exports = {
         }
       );
 
-    console.log(netArray);
     await interaction.reply({ embeds: [architectureEmbed] });
   },
 };
