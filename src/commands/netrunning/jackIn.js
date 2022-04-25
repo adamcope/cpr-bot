@@ -9,13 +9,13 @@ const blackICE= require("../../modules/blackICE.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("jack-in")
-    .setDescription("Jack In to access point using NET Architecture ID.")
+    .setDescription("Jack In to access point using Access Point Key.")
     .addStringOption((option) =>
-      option.setName("id").setDescription("NET Architecture ID.").setRequired(true)
+      option.setName("key").setDescription("Access Point Key").setRequired(true)
     ),
 
   async execute(interaction) {
-    const idInput = interaction.options.getString("id");
+    const idInput = interaction.options.getString("key");
 
     const pc = await Character.findOne({
       userID: `${interaction.member.id}`,

@@ -5,6 +5,9 @@ const { bold, underscore, italic } = require("@discordjs/builders");
 const genArch = require("../../modules/netArchitecture.js");
 const Netarch = require("../../models/netSchema.js");
 
+//!! Featur needs MAJOR OVERHAUL, while this can certainly work to generate simple 'branchless' NET Architecture,
+//!! it needs to be much more robust to allow for more complex Architecture.
+
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("net-generate")
@@ -57,21 +60,11 @@ module.exports = {
       netID: netID,
       netName: nameInput,
       floors: [],
-      netRunners: [
-        {
-          id: " ",
-          name: " ",
-          floor: 0,
-        },
-      ],
-      daemons: [
-        {
-          id: " ",
-          name: " ",
-          floor: 0,
-        },
-      ],
+      netRunners: [],
+      daemons: [],
     };
+
+    
 
     for (let i = 0; i < netArray.length; i++) {
       netObject.floors.push({
@@ -112,7 +105,7 @@ module.exports = {
           inline: true,
         },
         {
-          name: `${underscore("ID")}`,
+          name: `${underscore("Access Point Key")}`,
           value: `${netID}`,
           inline: true,
         },

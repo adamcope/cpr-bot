@@ -1,3 +1,9 @@
+//!! Where multiple BlackICE promgrams can be generated, handling how that works when saving Architectures that are
+//!! generated to the DB is currently unsatisfactory since the multiple programs are not seperated and rendered as
+//!! seperate objects within the 'floors.programs' array. Without a good way of doing this, more robust features
+//!! such as having the programs enter combat or follow a runner through the Architecture won't work.
+
+
 const lobbyTable = [
   "",
   "File DV6",
@@ -13,7 +19,7 @@ const basicArch = [
   "",
   "Hellhound",
   "Sabertooth",
-  "Raven x 2",
+  "Raven, Raven",
   "Hellhound",
   "Wisp",
   "Raven",
@@ -25,14 +31,14 @@ const basicArch = [
   "Asp",
   "Scorpion",
   "Killer, Skunk",
-  "Wisp x3",
+  "Wisp, Wisp, Wisp",
   "Liche",
 ];
 const standardArch = [
   "",
   "",
   "",
-  "Hellhound x2",
+  "Hellhound, Hellhound",
   "Hellhound, Killer",
   "Skunk",
   "Sabertooth",
@@ -42,12 +48,11 @@ const standardArch = [
   "File DV8",
   "Control Node DV8",
   "Password DV8",
-  ,
   "Asp",
   "Killer",
   "Liche",
   "Asp",
-  "Raven x3",
+  "Raven, Raven, Raven",
   "Liche, Raven",
 ];
 const uncommonArch = [
@@ -57,7 +62,7 @@ const uncommonArch = [
   "Kraken",
   "Hellhound, Scorpion",
   "Hellhound, Killer",
-  "Raven x2",
+  "Raven, Raven",
   "Sabertooth",
   "Hellhound",
   "Password DV10",
@@ -75,10 +80,10 @@ const advancedArch = [
   "",
   "",
   "",
-  "Hellhound x3",
-  "Asp x2",
+  "Hellhound, Hellhound, Hellhound",
+  "Asp, Asp",
   "Hellhound, Liche",
-  "Wisp x3",
+  "Wisp, Wisp, Wisp",
   "Hellhound, Sabertooth",
   "Kaken",
   "Password DV12",
@@ -90,7 +95,7 @@ const advancedArch = [
   "Killer, Scorpion",
   "Kraken",
   "Raven, Wisp, Hellhound",
-  "Dragon x2",
+  "Dragon, Dragon",
 ];
 
 
@@ -104,7 +109,6 @@ while ([...lobby].length < 2) {
 }
 lobby = [...lobby];
 
-// let floors = 6;
 function generateArchitecture(floors, type){
 
 let architecture = {

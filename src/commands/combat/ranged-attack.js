@@ -8,6 +8,10 @@ const suppFire = require("../../modules/suppFire.js");
 const skillCheck = require("../../modules/skillCheck.js");
 const { attackDmg } = require("../../modules/mechanics.js");
 
+//!! Modify Crit Injury Embed so that when Target is 'Head" crit injury is rolled from Head Injry Table
+
+//!! Add Bonus DMG Field to Crit Injury Embed
+
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("ranged-attack")

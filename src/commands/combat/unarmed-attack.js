@@ -4,8 +4,7 @@ const { bold, underscore, italic } = require("@discordjs/builders");
 const skillCheck = require("../../modules/skillCheck.js");
 const Character = require("../../models/playerCharacter.js");
 const mongoose = require("mongoose");
-const { attackDmg } = require("../../modules/mechanics.js");
-const lib = require("../../modules/library.js");
+const meleeUnarmedAttack = require("../../modules/meleeUnarmedAttack.js")
 
 //!! Modify Crit Injury Embed so that when Target is 'Head" crit injury is rolled from Head Injry Table
 
@@ -13,17 +12,8 @@ const lib = require("../../modules/library.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("melee-weapon-attack")
-    .setDescription("Make a melee weapon attack.")
-    .addStringOption((option) =>
-      option
-        .setName("type")
-        .setDescription("Melee Weapon Type")
-        .addChoice("Medium Melee Weapon", "medium_melee_weapon")
-        .addChoice("Heavy Melee Weapon", "heavy_melee_weapon")
-        .addChoice("Very Heavy Melee Weapon", "very_heavy_melee_weapon")
-        .setRequired(true)
-    )
+    .setName("unarmed-attack")
+    .setDescription("Make an unarmed melee attack.")
     .addStringOption((option) =>
       option
         .setName("target")
@@ -39,25 +29,26 @@ module.exports = {
       userID: `${interaction.member.id}`,
     }).lean();
 
-    const typeInput = interaction.options.getString("type");
     const targetInput = interaction.options.getString("target");
     const targetModifier = () => {
       if (targetInput != "Body") {
         return 8;
       }
     };
-    const weapon = lib.meleeWeapons.find((x) => x.ref == typeInput);
-    const sc = skillCheck(pc, ["melee", "weapons"]);
-    const dmg = attackDmg(weapon.dmg);
+
+    const sc = skillCheck(pc, ["brawling"]);
+    const atk = meleeUnarmedAttack(pc)
+
+    console.log(atk)
 
     if (targetInput == "Body") {
-      //** Melee Weapon Attack to the Body */
+      //** Unarmed Melee Attack to the Body */
 
       const bodyEmbed = new MessageEmbed()
         .setColor("#7a1212")
         .setTitle(
           `${pc.characterName} - ${italic(
-            "Melee Weapon Attack | Target: Body"
+            "Unarmed Melee Attack | Target: Body"
           )}`
         )
         .addFields(
@@ -78,20 +69,20 @@ module.exports = {
           },
           {
             name: `${underscore("DMG")}`,
-            value: `${dmg.result}\n ${italic("(if Hit Check Successful)")}`,
+            value: `${atk.dmg.result}\n ${italic("(if Hit Check Successful)")}`,
             inline: false,
           }
         )
         .setThumbnail(`${pc.characterImgUrl}`)
         .setFooter({ text: `Player: @${pc.username}` });
 
-      //** Melee Weapon Attack Crit Injury Embed */
+      //** Unarmed Melee Attack Crit Injury Embed */
       const bodyCritInjury = new MessageEmbed()
         .setColor("DARK_ORANGE")
-        .setTitle(`Critical Injury - ${italic(dmg.injury.name)}`)
+        .setTitle(`Critical Injury - ${italic(atk.dmg.injury.name)}`)
         .addFields({
           name: `${underscore("Effect")}`,
-          value: `${dmg.injury.effect}`,
+          value: `${atk.dmg.injury.effect}`,
           inline: false,
         })
         .setThumbnail(
@@ -99,14 +90,14 @@ module.exports = {
         )
         .setFooter({ text: `Player: @${pc.username}` });
 
-      if (dmg.isCrit == false) {
+      if (atk.dmg.isCrit == false) {
         await interaction.reply({ embeds: [bodyEmbed] });
-      } else if (dmg.isCrit == true) {
+      } else if (atk.dmg.isCrit == true) {
         await interaction.reply({ embeds: [bodyEmbed, bodyCritInjury] });
       }
     }
     if (targetInput != "Body") {
-      //** Melee Weapon Attack Aimed */
+      //** Unarmed Melee Attack Aimed */
 
       const aimBonusEffect = (target) => {
         if (target == "Head") {
@@ -124,7 +115,7 @@ module.exports = {
         .setColor("#7a1212")
         .setTitle(
           `${pc.characterName} - ${italic(
-            "Melee Weapon Attack | Target:"
+            "Unarmed Melee Attack | Target:"
           )} ${italic(targetInput)}`
         )
         .addFields(
@@ -145,7 +136,7 @@ module.exports = {
           },
           {
             name: `${underscore("DMG")}`,
-            value: `${dmg.result}\n ${italic("(if Hit Check Successful)")}`,
+            value: `${atk.dmg.result}\n ${italic("(if Hit Check Successful)")}`,
             inline: false,
           },
           {
@@ -157,13 +148,18 @@ module.exports = {
         .setThumbnail(`${pc.characterImgUrl}`)
         .setFooter({ text: `Player: @${pc.username}` });
 
-      //** Melee Weapon Attack Crit Injury Embed */
+      //** Unarmed Melee Attack Crit Injury Embed */ 
       const bodyCritInjury = new MessageEmbed()
         .setColor("DARK_ORANGE")
-        .setTitle(`Critical Injury - ${italic(dmg.injury.name)}`)
+        .setTitle(`Critical Injury - ${italic(atk.dmg.injury.name)}`)
         .addFields({
+          name: `${underscore("Bonus DMG")}`,
+          value: `+5`,
+          inline: false,
+        },
+        {
           name: `${underscore("Effect")}`,
-          value: `${dmg.injury.effect}`,
+          value: `${atk.dmg.injury.effect}`,
           inline: false,
         })
         .setThumbnail(
@@ -171,9 +167,9 @@ module.exports = {
         )
         .setFooter({ text: `Player: @${pc.username}` });
 
-      if (dmg.isCrit == false) {
+      if (atk.dmg.isCrit == false) {
         await interaction.reply({ embeds: [bodyEmbed] });
-      } else if (dmg.isCrit == true) {
+      } else if (atk.dmg.isCrit == true) {
         await interaction.reply({ embeds: [bodyEmbed, bodyCritInjury] });
       }
     }

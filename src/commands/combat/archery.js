@@ -5,6 +5,10 @@ const { MessageEmbed } = require("discord.js");
 const { bold, underscore, italic } = require("@discordjs/builders");
 const rangedAttack = require("../../modules/rangedAttack.js");
 
+//!! Modify Crit Injury Embed so that when Target is 'Head" crit injury is rolled from Head Injry Table
+
+//!! Add Bonus DMG Field to Crit Injury Embed
+
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("archery")
