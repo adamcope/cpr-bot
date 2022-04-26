@@ -1,5 +1,5 @@
 # RED bot
-A discord bot for playing Cyberpunk R E D
+A discord bot for playing Cyberpunk R E D 
 
 ## Development Diary
 
@@ -8,7 +8,7 @@ This project started as means for me to learn Javascript and Discord.js. I'm ful
 The more I work on this bot, the more I think that to get the most out of it, and make the process of GMing with it much more smooth, a connected web app that serves as a GM screen would be nice, as just using slash commands on discord for all the features it would need to be a really nice tool (such as character resource tracking, and netrunning management). At some point I will have to make a decision as to whether I begin developming this complimentary web app, or designing the slash commands to instead rely on inputs and not track as much character data.<br><br>
 
 `` !! BEGINNING OF OPINION !! ``<br><br>
-For what it's worth, in making this bot I have learned a great deal about javascript, node, and Discord.js, which was the whole poin, and really that's enough for me. Originally I only intended to take some mechanics that were a pain to reference using the manual and a dice rolling bot, some stat blocks and effects that were scattered throughout the manual, and integrate them in a simple Discord bot of my own making for mine and my friend's game. Since embarking on this project I have also learned a lot about the mechanics and design of R. Talsorian's Cyberpunk RED TTRPG, and I am not without my criticisms. 
+For what it's worth, in making this bot I have learned a great deal about javascript, node, and Discord.js, which was the whole point, and really that's enough for me. Originally I only intended to take some mechanics that were a pain to reference using the manual and a dice rolling bot, some stat blocks and effects that were scattered throughout the manual, and integrate them in a simple Discord bot of my own making for mine and my friend's game. Since embarking on this project I have also learned a lot about the mechanics and design of R. Talsorian's Cyberpunk RED TTRPG, and I am not without my criticisms. 
 
 CPR is needlessly complex in some areas, and truly broken in some others. A complete and integrated rendering of the game's mechanics either in this bot, or the amazing Foundry VTT module (which I only admire, and have nothing to do with), isn't possible without homebrew, judgement calls on the part of the tool designers, or both.  This isn't so much a deal breaker for me or others, as the game as written contains enough to ignore the inconsistencies and problems, and play a fun TTRPG with friends.
 
@@ -23,10 +23,7 @@ What I would like to do is:
 - make a few tools for randomly generating NET Architecture
 - make commands for displaying references to NET Programs (blackICE, non-blackICE, etc)
 
-And see how nice that is to use as a tool before continuing on to goals that require a great deal of complexity to work.<br><br>
-
-----
-<br>
+We'll see how useful that is to use as a tool before continuing on to goals that require more complexity to work.<br><br>
 
 ## To Do:
 
@@ -37,7 +34,7 @@ And see how nice that is to use as a tool before continuing on to goals that req
 - [ ] ``/martial-arts`` command
 - [ ] ``/character`` command
   - [ ] ``create`` subcommand
-  - [ ] ``update`` subcommand
+  - [ ] ``update`` ``<skill> || <stat>`` subcommand
 - [ ] ``/equip``  command
 - [ ] ``/buy`` command
 
