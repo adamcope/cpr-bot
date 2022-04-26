@@ -16,6 +16,14 @@ module.exports = {
     .setDescription("Make an unarmed melee attack.")
     .addStringOption((option) =>
       option
+        .setName("cyberarm")
+        .setDescription("Is your character attacking with a cyberarm?")
+        .addChoice("Yes", "yes")
+        .addChoice("No", "no")
+        .setRequired(true)
+    )
+    .addStringOption((option) =>
+      option
         .setName("target")
         .setDescription("Choose a target on the enemy to attack.")
         .addChoice("Body", "Body")

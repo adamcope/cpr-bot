@@ -17,7 +17,10 @@ module.exports = {
       userID: `${interaction.member.id}`,
     }).lean();
 
-    const skill = interaction.options.getString("skill").split(" ");
+    const skill = interaction.options
+      .getString("skill")
+      .toLowerCase()
+      .split(" ");
 
     const sc = skillCheck(pc, skill);
 
@@ -45,7 +48,9 @@ module.exports = {
       .addFields(
         {
           name: `${underscore("Roll")}`,
-          value: `${bold(sc.stat.name)} ${sc.stat.value} + ${bold(sc.skill.name)} ${sc.skill.value} + ${sc.d10.display}`,
+          value: `${bold(sc.stat.name)} ${sc.stat.value} + ${bold(
+            sc.skill.name
+          )} ${sc.skill.value} + ${sc.d10.display}`,
           inline: false,
         },
         {
@@ -59,6 +64,8 @@ module.exports = {
 
     if (sc.stat.name != "EMP") {
       await interaction.reply({ embeds: [characterEmbed] });
-    } else {await interaction.reply({ embeds: [empEmbed]})}
+    } else {
+      await interaction.reply({ embeds: [empEmbed] });
+    }
   },
 };

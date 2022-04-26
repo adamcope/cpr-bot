@@ -14,12 +14,24 @@ module.exports = {
     .setName("archery")
     .setDescription("Fire a Bow or Crossbow")
     .addStringOption((option) =>
-      option.setName("weapon").setDescription("Weapon name.").setRequired(true)
+      option.setName("weapon")
+      .setDescription("Weapon name.")
+      .addChoice("Bow", "bow")
+      .addChoice("Crossbow", "crossbow")
+      .setRequired(true)
     )
     .addIntegerOption((option) =>
       option
         .setName("distance")
         .setDescription("Distance to target in m/yds.")
+        .addChoice("0 - 6 m/yds", 5)
+        .addChoice("7 - 12 m/yds", 8)
+        .addChoice("13 - 25 m/yds", 14)
+        .addChoice("26 - 50 m/yds", 27)
+        .addChoice("51 - 100 m/yds", 52)
+        .addChoice("101 - 200 m/yds", 102)
+        .addChoice("201 - 400 m/yds", 202)
+        .addChoice("401 - 800 m/yds", 402)
         .setRequired(true)
     )
     .addStringOption((option) =>
