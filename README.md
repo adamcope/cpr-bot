@@ -43,6 +43,6 @@ And see how nice that is to use as a tool before continuing on to goals that req
 #### ``/jack-in`` Command
 This command needs to be able to check if Netrunner is already jacked in. Otherwise working.
 #### ``/net-generate`` Command 
-This feature needs MAJOR OVERHAUL, while this can certainly work to generate a simple branchless NET Architecture, it needs to be much more robust to for more complex Architecture to be possible.
+This feature needs a MAJOR OVERHAUL, while this can certainly work to generate a simple branchless NET Architecture, it needs to be much more robust for more complex Architecture to be possible.
 
 Where multiple BlackICE programs can be generated, handling how  that works when saving Architectures that are generated to the DB is currently unsatisfactory since the multiple programs are not seperated and rendered as seperate objects within the 'floors.programs' array Without a good way of doing this, more robust features such as having the programs enter combat or follow a runner through the Architecture won't work.
