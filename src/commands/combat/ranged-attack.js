@@ -8,28 +8,25 @@ const suppFire = require("../../modules/suppFire.js");
 const skillCheck = require("../../modules/skillCheck.js");
 const { attackDmg } = require("../../modules/mechanics.js");
 
-//!! Modify Crit Injury Embed so that when Target is 'Head" crit injury is rolled from Head Injry Table
-
-//!! Add Bonus DMG Field to Crit Injury Embed
-
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("ranged-attack")
     .setDescription("Make a Ranged Attack.")
     .addStringOption((option) =>
-      option.setName("weapon")
-      .setDescription("Weapon type:")
-      .addChoice("Medium Pistol", "medium pistol")
-      .addChoice("Heavy Pistol", "heavy pistol")
-      .addChoice("Very Heavy Pistol", "very heavy pistol")
-      .addChoice("SMG", "smg")
-      .addChoice("Heavy SMG", "heavy smg")
-      .addChoice("Shotgun", "shotgun")
-      .addChoice("Assault Rifle", "assault rifle")
-      .addChoice("Sniper Rifle", "sniper rifle")
-      .addChoice("Grenade Launcher", "grenade launcher")
-      .addChoice("Rocket Launcher", "rocket launcher")
-      .setRequired(true)
+      option
+        .setName("weapon")
+        .setDescription("Weapon type:")
+        .addChoice("Medium Pistol", "medium pistol")
+        .addChoice("Heavy Pistol", "heavy pistol")
+        .addChoice("Very Heavy Pistol", "very heavy pistol")
+        .addChoice("SMG", "smg")
+        .addChoice("Heavy SMG", "heavy smg")
+        .addChoice("Shotgun", "shotgun")
+        .addChoice("Assault Rifle", "assault rifle")
+        .addChoice("Sniper Rifle", "sniper rifle")
+        .addChoice("Grenade Launcher", "grenade launcher")
+        .addChoice("Rocket Launcher", "rocket launcher")
+        .setRequired(true)
     )
     .addIntegerOption((option) =>
       option
@@ -74,7 +71,7 @@ module.exports = {
     const target = interaction.options.getString("target");
 
     try {
-      const ra = rangedAttack(pc, weaponInput, distanceInput);
+      const ra = rangedAttack(pc, weaponInput, distanceInput, target);
 
       const index = pc.weapons.findIndex((x) => x.name == ra.weapon.name);
       if (ra.weapon.name == "Bow" || ra.weapon.name == "Crossbow") {
@@ -103,7 +100,7 @@ module.exports = {
         target == "Body"
       ) {
         const sc = skillCheck(pc, ["autofire"]);
-        const afDmg = attackDmg("2d6");
+        const afDmg = attackDmg("2d6", target);
         const afDmgMultiplier = sc.roll.result - ra.dv;
         const multiplierLimit = ra.weapon.afMultiplier;
 
@@ -383,11 +380,18 @@ module.exports = {
         const critInjury = new MessageEmbed()
           .setColor("DARK_ORANGE")
           .setTitle(`Critical Injury - ${italic(ra.dmg.injury.name)}`)
-          .addFields({
-            name: `${underscore("Effect")}`,
-            value: `${ra.dmg.injury.effect}`,
-            inline: false,
-          })
+          .addFields(
+            {
+              name: `${underscore("Bonus DMG")}`,
+              value: `5`,
+              inline: false,
+            },
+            {
+              name: `${underscore("Effect")}`,
+              value: `${ra.dmg.injury.effect}`,
+              inline: false,
+            }
+          )
           .setThumbnail(
             `https://64.media.tumblr.com/38c2289f4fb32da7afa9e3b4c1eba656/tumblr_nv25v6qn7b1ud4rmfo1_400.gif`
           )
@@ -450,11 +454,18 @@ module.exports = {
         const critInjury = new MessageEmbed()
           .setColor("DARK_ORANGE")
           .setTitle(`Critical Injury - ${italic(ra.dmg.injury.name)}`)
-          .addFields({
-            name: `${underscore("Effect")}`,
-            value: `${ra.dmg.injury.effect}`,
-            inline: false,
-          })
+          .addFields(
+            {
+              name: `${underscore("Bonus DMG")}`,
+              value: `5`,
+              inline: false,
+            },
+            {
+              name: `${underscore("Effect")}`,
+              value: `${ra.dmg.injury.effect}`,
+              inline: false,
+            }
+          )
           .setThumbnail(
             `https://64.media.tumblr.com/38c2289f4fb32da7afa9e3b4c1eba656/tumblr_nv25v6qn7b1ud4rmfo1_400.gif`
           )

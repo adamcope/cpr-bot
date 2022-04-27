@@ -6,7 +6,7 @@ const lib = require("./library");
  * @param {typeof PC} pc ``await Character.findOne({userID:`${interaction.member.id}`}).lean();``
  * @param {number} distance ``interaction.options.getInteger("distance")``
  */
-function rangedAttack(pc: typeof PC, weapon: Array<string>, distance: number) {
+function rangedAttack(pc: typeof PC, weapon: Array<string>, distance: number, target: string) {
   try {
     
   const weaponRef: string = weapon.join("_").toLowerCase();
@@ -37,7 +37,7 @@ function rangedAttack(pc: typeof PC, weapon: Array<string>, distance: number) {
         },
       },
       isHit: hitCheck(dv, sc.roll.result),
-      dmg: attackDmg(weaponInfo.dmg),
+      dmg: attackDmg(weaponInfo.dmg, target),
     };
 
     return atk;

@@ -7,10 +7,6 @@ const mongoose = require("mongoose");
 const { attackDmg } = require("../../modules/mechanics.js");
 const lib = require("../../modules/library.js");
 
-//!! Modify Crit Injury Embed so that when Target is 'Head" crit injury is rolled from Head Injry Table
-
-//!! Add Bonus DMG Field to Crit Injury Embed
-
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("melee-weapon-attack")
@@ -48,7 +44,7 @@ module.exports = {
     };
     const weapon = lib.meleeWeapons.find((x) => x.ref == typeInput);
     const sc = skillCheck(pc, ["melee", "weapons"]);
-    const dmg = attackDmg(weapon.dmg);
+    const dmg = attackDmg(weapon.dmg, targetInput);
 
     if (targetInput == "Body") {
       //** Melee Weapon Attack to the Body */
@@ -89,11 +85,18 @@ module.exports = {
       const bodyCritInjury = new MessageEmbed()
         .setColor("DARK_ORANGE")
         .setTitle(`Critical Injury - ${italic(dmg.injury.name)}`)
-        .addFields({
-          name: `${underscore("Effect")}`,
-          value: `${dmg.injury.effect}`,
-          inline: false,
-        })
+        .addFields(
+          {
+            name: `${underscore("Bonus DMG")}`,
+            value: `5`,
+            inline: false,
+          },
+          {
+            name: `${underscore("Effect")}`,
+            value: `${dmg.injury.effect}`,
+            inline: false,
+          }
+        )
         .setThumbnail(
           `https://64.media.tumblr.com/38c2289f4fb32da7afa9e3b4c1eba656/tumblr_nv25v6qn7b1ud4rmfo1_400.gif`
         )
@@ -161,11 +164,18 @@ module.exports = {
       const bodyCritInjury = new MessageEmbed()
         .setColor("DARK_ORANGE")
         .setTitle(`Critical Injury - ${italic(dmg.injury.name)}`)
-        .addFields({
-          name: `${underscore("Effect")}`,
-          value: `${dmg.injury.effect}`,
-          inline: false,
-        })
+        .addFields(
+          {
+            name: `${underscore("Bonus DMG")}`,
+            value: `5`,
+            inline: false,
+          },
+          {
+            name: `${underscore("Effect")}`,
+            value: `${dmg.injury.effect}`,
+            inline: false,
+          }
+        )
         .setThumbnail(
           `https://64.media.tumblr.com/38c2289f4fb32da7afa9e3b4c1eba656/tumblr_nv25v6qn7b1ud4rmfo1_400.gif`
         )

@@ -5,20 +5,17 @@ const { MessageEmbed } = require("discord.js");
 const { bold, underscore, italic } = require("@discordjs/builders");
 const rangedAttack = require("../../modules/rangedAttack.js");
 
-//!! Modify Crit Injury Embed so that when Target is 'Head" crit injury is rolled from Head Injry Table
-
-//!! Add Bonus DMG Field to Crit Injury Embed
-
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("archery")
     .setDescription("Fire a Bow or Crossbow")
     .addStringOption((option) =>
-      option.setName("weapon")
-      .setDescription("Weapon name.")
-      .addChoice("Bow", "bow")
-      .addChoice("Crossbow", "crossbow")
-      .setRequired(true)
+      option
+        .setName("weapon")
+        .setDescription("Weapon name.")
+        .addChoice("Bow", "bow")
+        .addChoice("Crossbow", "crossbow")
+        .setRequired(true)
     )
     .addIntegerOption((option) =>
       option
@@ -53,7 +50,7 @@ module.exports = {
     const distanceInput = interaction.options.getInteger("distance");
     const target = interaction.options.getString("aim");
 
-    const ra = rangedAttack(pc, weaponInput, distanceInput);
+    const ra = rangedAttack(pc, weaponInput, distanceInput, target);
 
     const quiver = pc.ammo.find((x) => x.name == ra.weapon.ammo.loaded);
     const index = pc.ammo.findIndex((x) => x.name == ra.weapon.ammo.loaded);
@@ -177,11 +174,18 @@ module.exports = {
       const critInjury = new MessageEmbed()
         .setColor("DARK_ORANGE")
         .setTitle(`Critical Injury - ${italic(ra.dmg.injury.name)}`)
-        .addFields({
-          name: `${underscore("Effect")}`,
-          value: `${ra.dmg.injury.effect}`,
-          inline: false,
-        })
+        .addFields(
+          {
+            name: `${underscore("Bonus DMG")}`,
+            value: `5`,
+            inline: false,
+          },
+          {
+            name: `${underscore("Effect")}`,
+            value: `${ra.dmg.injury.effect}`,
+            inline: false,
+          }
+        )
         .setThumbnail(
           `https://64.media.tumblr.com/38c2289f4fb32da7afa9e3b4c1eba656/tumblr_nv25v6qn7b1ud4rmfo1_400.gif`
         )
@@ -248,11 +252,18 @@ module.exports = {
       const critInjury = new MessageEmbed()
         .setColor("DARK_ORANGE")
         .setTitle(`Critical Injury - ${italic(ra.dmg.injury.name)}`)
-        .addFields({
-          name: `${underscore("Effect")}`,
-          value: `${ra.dmg.injury.effect}`,
-          inline: false,
-        })
+        .addFields(
+          {
+            name: `${underscore("Bonus DMG")}`,
+            value: `5`,
+            inline: false,
+          },
+          {
+            name: `${underscore("Effect")}`,
+            value: `${ra.dmg.injury.effect}`,
+            inline: false,
+          }
+        )
         .setThumbnail(
           `https://64.media.tumblr.com/38c2289f4fb32da7afa9e3b4c1eba656/tumblr_nv25v6qn7b1ud4rmfo1_400.gif`
         )

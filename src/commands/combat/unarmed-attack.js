@@ -4,11 +4,7 @@ const { bold, underscore, italic } = require("@discordjs/builders");
 const skillCheck = require("../../modules/skillCheck.js");
 const Character = require("../../models/playerCharacter.js");
 const mongoose = require("mongoose");
-const meleeUnarmedAttack = require("../../modules/meleeUnarmedAttack.js")
-
-//!! Modify Crit Injury Embed so that when Target is 'Head" crit injury is rolled from Head Injry Table
-
-//!! Add Bonus DMG Field to Crit Injury Embed
+const meleeUnarmedAttack = require("../../modules/meleeUnarmedAttack.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -22,6 +18,7 @@ module.exports = {
         .addChoice("No", "no")
         .setRequired(true)
     )
+    //!! Add logic that reflects the change in BODY stat when using a cyberarm.
     .addStringOption((option) =>
       option
         .setName("target")
@@ -45,9 +42,9 @@ module.exports = {
     };
 
     const sc = skillCheck(pc, ["brawling"]);
-    const atk = meleeUnarmedAttack(pc)
+    const atk = meleeUnarmedAttack(pc, targetInput);
 
-    console.log(atk)
+    console.log(atk);
 
     if (targetInput == "Body") {
       //** Unarmed Melee Attack to the Body */
@@ -88,11 +85,18 @@ module.exports = {
       const bodyCritInjury = new MessageEmbed()
         .setColor("DARK_ORANGE")
         .setTitle(`Critical Injury - ${italic(atk.dmg.injury.name)}`)
-        .addFields({
-          name: `${underscore("Effect")}`,
-          value: `${atk.dmg.injury.effect}`,
-          inline: false,
-        })
+        .addFields(
+          {
+            name: `${underscore("Bonus DMG")}`,
+            value: `5`,
+            inline: false,
+          },
+          {
+            name: `${underscore("Effect")}`,
+            value: `${atk.dmg.injury.effect}`,
+            inline: false,
+          }
+        )
         .setThumbnail(
           `https://64.media.tumblr.com/38c2289f4fb32da7afa9e3b4c1eba656/tumblr_nv25v6qn7b1ud4rmfo1_400.gif`
         )
@@ -156,20 +160,22 @@ module.exports = {
         .setThumbnail(`${pc.characterImgUrl}`)
         .setFooter({ text: `Player: @${pc.username}` });
 
-      //** Unarmed Melee Attack Crit Injury Embed */ 
+      //** Unarmed Melee Attack Crit Injury Embed */
       const bodyCritInjury = new MessageEmbed()
         .setColor("DARK_ORANGE")
         .setTitle(`Critical Injury - ${italic(atk.dmg.injury.name)}`)
-        .addFields({
-          name: `${underscore("Bonus DMG")}`,
-          value: `+5`,
-          inline: false,
-        },
-        {
-          name: `${underscore("Effect")}`,
-          value: `${atk.dmg.injury.effect}`,
-          inline: false,
-        })
+        .addFields(
+          {
+            name: `${underscore("Bonus DMG")}`,
+            value: `5`,
+            inline: false,
+          },
+          {
+            name: `${underscore("Effect")}`,
+            value: `${atk.dmg.injury.effect}`,
+            inline: false,
+          }
+        )
         .setThumbnail(
           `https://64.media.tumblr.com/38c2289f4fb32da7afa9e3b4c1eba656/tumblr_nv25v6qn7b1ud4rmfo1_400.gif`
         )

@@ -2,7 +2,7 @@ const { attackDmg } = require("../modules/mechanics");
 const skillCheck = require("../modules/skillCheck");
 const lib = require("./library");
 
-function meleeUnarmedAttack(pc: typeof PC) {
+function meleeUnarmedAttack(pc: typeof PC, target: string) {
   try {
     function unarmedDmgRoll(body: number) {
       if (body == 4) {
@@ -18,7 +18,7 @@ function meleeUnarmedAttack(pc: typeof PC) {
       }
     }
 
-    const dmg = attackDmg(unarmedDmgRoll(pc.stats.body[0] - pc.stats.body[1]));
+    const dmg = attackDmg(unarmedDmgRoll(pc.stats.body[0] - pc.stats.body[1]), target);
 
     const sc: SC = skillCheck(pc, ["brawling"]);
     const atk = {

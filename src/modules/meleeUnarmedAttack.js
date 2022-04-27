@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const { attackDmg } = require("../modules/mechanics");
 const skillCheck = require("../modules/skillCheck");
 const lib = require("./library");
-function meleeUnarmedAttack(pc) {
+function meleeUnarmedAttack(pc, target) {
     try {
         function unarmedDmgRoll(body) {
             if (body == 4) {
@@ -22,7 +22,7 @@ function meleeUnarmedAttack(pc) {
                 return 0;
             }
         }
-        const dmg = attackDmg(unarmedDmgRoll(pc.stats.body[0] - pc.stats.body[1]));
+        const dmg = attackDmg(unarmedDmgRoll(pc.stats.body[0] - pc.stats.body[1]), target);
         const sc = skillCheck(pc, ["brawling"]);
         const atk = {
             sc: sc,

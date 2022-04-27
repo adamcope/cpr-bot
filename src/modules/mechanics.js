@@ -319,7 +319,7 @@ critInjuryInfo = [
   },
 ];
 
-const attackDmg = (dmgRoll) => {
+const attackDmg = (dmgRoll, target) => { //!! add param target
   const dice = {
     d6_1: Math.floor(Math.random() * 6) + 1,
     d6_2: Math.floor(Math.random() * 6) + 1,
@@ -390,9 +390,14 @@ const attackDmg = (dmgRoll) => {
 
   const index = rollTable(isCrit());
 
-  const injObj = critInjuryInfo.find(
+  const critTarget = (target) => {
+    if (target != "Head") {return critInjuryInfo.find(
     (x) => x.injury == lib.critInjuryTable.body[index]
-  );
+  )} if(target == "Head") {return critInjuryInfo.find(
+    (x) => x.injury == lib.critInjuryTable.head[index]
+  )}  }
+
+  const injObj = critTarget(target)
 
   const x = {
     dice: dmgDice(),
