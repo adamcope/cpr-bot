@@ -18,7 +18,7 @@ module.exports = {
         .addChoice("No", "no")
         .setRequired(true)
     )
-    //!! Add logic that reflects the change in BODY stat when using a cyberarm.
+    //!! Add logic that reflects the change in BODY stat when using a cyberarm. **Currently does nothing**
     .addStringOption((option) =>
       option
         .setName("target")

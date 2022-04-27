@@ -5,7 +5,7 @@ A discord bot for playing Cyberpunk R E D
 
 This project started as means for me to learn Javascript and Discord.js. I'm fully aware that it is a mess, but the parts that work, work, and the parts that don't will be worked on until they do. This a solo, newbie programmer's work, but if all goes well, it will be a useful tool for running Cyberpunk RED games in Discord.
 
-The more I work on this bot, the more I think that to get the most out of it, and make the process of GMing with it much more smooth, a connected web app that serves as a GM screen would be nice, as just using slash commands on discord for all the features it would need to be a really nice tool (such as character resource tracking, and netrunning management). At some point I will have to make a decision as to whether I begin developming this complimentary web app, or designing the slash commands to instead rely on inputs and not track as much character data.<br><br>
+The more I work on this bot, the more I think that to get the most out of it, and make the process of GMing with it much more smooth, a connected web app that serves as a GM screen would be nice, as just using slash commands on discord for all the features it would need to be a really nice tool (such as character resource tracking, and netrunning management). At some point I will have to make a decision as to whether I begin developing this complimentary web app, or designing the slash commands to instead rely on inputs and not track as much character data.<br><br>
 
 `` !! BEGINNING OF OPINION !! ``<br><br>
 For what it's worth, in making this bot I have learned a great deal about javascript, node, and Discord.js, which was the whole point, and really that's enough for me. Originally I only intended to take some mechanics that were a pain to reference using the manual and a dice rolling bot, some stat blocks and effects that were scattered throughout the manual, and integrate them in a simple Discord bot of my own making for mine and my friend's game. Since embarking on this project I have also learned a lot about the mechanics and design of R. Talsorian's Cyberpunk RED TTRPG, and I am not without my criticisms. 
@@ -27,24 +27,37 @@ We'll see how useful that is to use as a tool before continuing on to goals that
 
 ## To Do:
 
-- [ ] Modify Crit Injury Embed so that when Target is 'Head" crit injury is rolled from Head Injury Table
-- [ ] Add Bonus DMG Field to Crit Injury Embed
+- [x] Modify Crit Injury Embed so that when Target is 'Head" crit injury is rolled from Head Injury Table
+- [x] Add Bonus DMG Field to Crit Injury Embed
 - [ ] ``/throw`` command
+- [ ] ``/grapple`` command
 - [ ] ``/choke`` command
-- [ ] ``/martial-arts`` command
+- [ ] ``/martial-arts`` command - should be divided into subcommands for each Martial Art
 - [ ] ``/character`` command
   - [ ] ``create`` subcommand
   - [ ] ``update`` ``<skill> || <stat>`` subcommand
+  - [ ] ``status`` subcommand
 - [ ] ``/equip``  command
 - [ ] ``/buy`` command
+- [ ] ``/dmg`` command - calculate dmg after sp/cover modifiers
+- [ ] ``/black-ice``
+- [ ] ``/non-black-ice``
 
+## Working Commands
+### Combat
+- ``/initiative``
+- ``/evasion``
+- ``/ranged-attack``
+- ``/archery``
+- ``/melee-weapon-attack``
+- ``/unarmed-melee-attack``
 ### Netrunning
 `` !! These are notes for Netrunning features that need a lot more work before becoming fully realized. !! ``<br><br>
 
-#### ``/jack-in`` Command
+- ``/jack-in`` command<br>
 This command needs to be able to check if Netrunner is already jacked in. Otherwise working.
 
-#### ``/net-generate`` Command 
+- ``/net-generate`` command<br> 
 This feature needs a MAJOR OVERHAUL, while this can certainly work to generate a simple branchless NET Architecture, it needs to be much more robust to for more complex Architecture to be possible.
 
 Where multiple BlackICE programs can be generated, handling how  that works when saving Architectures that are generated to the DB is currently unsatisfactory since the multiple programs are not seperated and rendered as seperate objects within the 'floors.programs' array. Without a good way of doing this, more robust features such as having the programs enter combat or follow a runner through the Architecture won't work.
