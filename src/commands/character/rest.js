@@ -24,7 +24,7 @@ module.exports = {
       pc.hp[0] = pc.hp[0] + pc.stats.body[0];
       await pc.save();
 
-      interaction.reply("Rested for 24hrs.");
+      interaction.reply(`Rested for 24hrs. Regained ${pc.stats.body[0]} HP`);
     }
   },
 };
