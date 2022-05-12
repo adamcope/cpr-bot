@@ -1,0 +1,177 @@
+[
+  {
+    "ref": "asp",
+    "name": "A$p",
+    "progClass": "Anti-Personnel",
+    "thumbURL": "https://64.media.tumblr.com/035e176461d7804c38a36313d53dc378/tumblr_muwovuzG0i1relaado1_500.gif",
+    "per": 4,
+    "spd": 6,
+    "atk": 2,
+    "def": 2,
+    "rez": 15,
+    "effect": "DESTROY 1 PRGRM on NR:CD @ RANDOM.",
+    "actionLabel": "Spin to Win",
+    "actionId": "asp_action"
+  },
+  {
+    "ref": "giant",
+    "name": "G1ant",
+    "progClass": "Anti-Personnel",
+    "thumbURL": "https://64.media.tumblr.com/07cdad249cfb8bc0b2e8ac0795e10a63/tumblr_o881g1iNv51urr1ryo1_500.gif",
+    "per": 2,
+    "spd": 2,
+    "atk": 8,
+    "def": 4,
+    "rez": 25,
+    "effect":
+      "3d6 DMG => NR:BRAIN. NR JACKED OUT of RUN. NR suffers DMG of ALL REZZD PRGRMS encountered.",
+    "actionLabel": "BRAIN DMG",
+    "actionId": "giant_action"
+  },
+  {
+    "ref": "hellhound",
+    "name": "H3llhound",
+    "progClass": "Anti-Personnel",
+    "thumbURL": "https://thumbs.gfycat.com/PerkyBothAnchovy-size_restricted.gif",
+    "per": 6,
+    "spd": 6,
+    "atk": 6,
+    "def": 2,
+    "rez": 20,
+    "effect":
+      "2d6 DMG => NR:BRAIN. If [CD =/= Insulated] => NR:CD & CLOTHES catch FIRE.  2 DMG => HP per Turn until NR takes MEAT ACTION to put self out. [CANNOT STACK]",
+    "actionLabel": "BRAIN DMG",
+    "actionId": "hellhound_action"
+  },
+  {
+    "ref": "kraken",
+    "name": "Krak3n",
+    "progClass": "Anti-Personnel",
+    "thumbURL": "https://data.whicdn.com/images/277421270/original.gif",
+    "per": 6,
+    "spd": 2,
+    "atk": 8,
+    "def": 4,
+    "rez": 30,
+    "effect":
+      "3d6 DMG => NR:BRAIN. NR cannot MOVE deeper into the Architecture or JACK OUT safely until NEXT TURN (Can still perform unsafe JACK OUT).",
+    "actionLabel": "BRAIN DMG",
+    "actionId": "kraken_action"
+  },
+  {
+    "ref": "liche",
+    "name": "L1che",
+    "progClass": "Anti-Personnel",
+    "thumbURL": "https://64.media.tumblr.com/4891c221f100112063e96776561ddc6e/32a02a7d76e3e651-e8/s540x810/7031f289ccca8a030309806eaf4c41915e8284dc.gif",
+    "per": 8,
+    "spd": 2,
+    "atk": 6,
+    "def": 2,
+    "rez": 25,
+    "effect": "NR:INT, REF, & DEX -1d6 for 1 hr (minimum 1).",
+    "actionLabel": "DUMBIFY",
+    "actionId": "liche_action"
+  },
+  {
+    "ref": "raven",
+    "name": "Rav3n",
+    "progClass": "Anti-Personnel",
+    "thumbURL": "https://64.media.tumblr.com/4f77935cb7f2accbb6db1a0868c2eb96/tumblr_p16exoD0Xu1v8kl8yo1_500.gif",
+    "per": 6,
+    "spd": 4,
+    "atk": 4,
+    "def": 2,
+    "rez": 15,
+    "effect":
+      "1d6 DMG => NR:BRAIN & DREZZ 1 Defender PRGRM NR has REZZD @ random",
+    "actionLabel": "DREZZ and BRAIN DMG",
+    "actionId": "raven_action"
+  },
+  {
+    "ref": "scorpion",
+    "name": "Sc0rpion",
+    "progClass": "Anti-Personnel",
+    "thumbURL": "https://i.pinimg.com/originals/03/ee/3f/03ee3f8e3dfaf9a783eb67bc6013c466.gif",
+    "per": 2,
+    "spd": 6,
+    "atk": 2,
+    "def": 2,
+    "rez": 15,
+    "effect": "-1d6 => NR:MOVE for 1 hr (minimum 1).",
+    "actionLabel": "SLOOOOOOWWW",
+    "actionId": "scorpion_action"
+  },
+
+  {
+    "ref": "skunk",
+    "name": "SkVnk",
+    "progClass": "Anti-Personnel",
+    "thumbURL": "https://i.pinimg.com/originals/03/ee/3f/03ee3f8e3dfaf9a783eb67bc6013c466.gif",
+    "per": 2,
+    "spd": 4,
+    "atk": 4,
+    "def": 2,
+    "rez": 10,
+    "effect":
+      "Until this PRGRM is DREZZD, NR hit makes -2 Slide Checks. Can only affect 1 NR @ a time. [CAN STACK]",
+    "actionLabel": " ",
+    "actionId": " "
+  },
+  {
+    "ref": "wisp",
+    "name": "W1sp",
+    "progClass": "Anti-Personnel",
+    "thumbURL": "https://cdn.dribbble.com/users/2924953/screenshots/9518270/media/320a0c93166e35ba8a9195a2b99ac0e0.gif",
+    "per": 4,
+    "spd": 4,
+    "atk": 4,
+    "def": 2,
+    "rez": 15,
+    "effect":
+      "1d6 DMG => NR:BRAIN. -1 total NET ACTIONS on their next Turn (minumum 2).",
+    "actionLabel": "BRAIN DMG",
+    "actionId": "wisp_action"
+  },
+  {
+    "ref": "dragon",
+    "name": "Drag0n",
+    "progClass": "Anti-PRGRM",
+    "thumbURL": "https://i.pinimg.com/originals/d4/73/20/d47320a9e84d6ad754b150239bae8b5d.gif",
+    "per": 6,
+    "spd": 4,
+    "atk": 6,
+    "def": 6,
+    "rez": 30,
+    "effect": "6d6 DMG => PRGRM. If DMG would DREZZ, DESTROY.",
+    "actionLabel": "DESTR0Y!!",
+    "actionId": "dragon_action"
+  },
+  {
+    "ref": "killer",
+    "name": "K1ll3r",
+    "progClass": "Anti-PRGRM",
+    "thumbURL": "https://i.pinimg.com/originals/09/12/74/091274c73269b7b63b5a63707e0a9cc3.gif",
+    "per": 4,
+    "spd": 8,
+    "atk": 6,
+    "def": 2,
+    "rez": 10,
+    "effect": "4d6 DMG => PRGRM. If DMG would DREZZ, DESTROY.",
+    "actionLabel": "DESTR0Y!!",
+    "actionId": "killer_action"
+  },
+  {
+    "ref": "sabertooth",
+    "name": "Sab3rt00th",
+    "progClass": "Anti-PRGRM",
+    "thumbURL": "https://i.pinimg.com/originals/47/2e/1b/472e1ba5ba6d04fee5aac3ba124d64cb.gif",
+    "per": 8,
+    "spd": 6,
+    "atk": 6,
+    "def": 2,
+    "rez": 25,
+    "effect": "6d6 DMG => PRGRM. If DMG would DREZZ, DESTROY.",
+    "actionLabel": "DESTR0Y!!",
+    "actionId": "sabertooth_action"
+  }
+]

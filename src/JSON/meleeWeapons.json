@@ -1,7 +1,7 @@
 [
     {
         "ref": "light_melee_weapon",
-        "name": "",
+        "name": "Light Melee Weapon",
         "hands": "",
         "rof": 2,
         "concealable": true,
@@ -9,7 +9,7 @@
     },
     {
         "ref": "medium_melee_weapon",
-        "name": "",
+        "name": "Medium Melee Weapon",
         "hands": "",
         "rof": 2,
         "concealable": true,
@@ -17,7 +17,7 @@
     },
     {
         "ref": "heavy_melee_weapon",
-        "name": "",
+        "name": "Heavy Melee Weapon",
         "hands": "",
         "rof": 2,
         "concealable": false,
@@ -25,7 +25,7 @@
     },
     {
         "ref": "very_heavy_melee_weapon",
-        "name": "",
+        "name": "Very Heavy Melee Weapon",
         "hands": "",
         "rof": 1,
         "concealable": false,

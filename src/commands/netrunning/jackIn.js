@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js");
 const { bold, underscore, italic } = require("@discordjs/builders");
 const Character = require("../../models/playerCharacter.js");
 const Netarch = require("../../models/netSchema.js");
-const blackICE= require("../../modules/blackICE.js");
+
 
 module.exports = {
   data: new SlashCommandBuilder()

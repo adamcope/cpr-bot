@@ -2,22 +2,18 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const playerCharacter = new Schema({
+const simplifiedCharacter = new Schema({
   userID: String,
   guildID: String,
   username: String,
   characterName: String,
   characterImgUrl: String,
   hp: [Number, Number],
-  traumaStatus: String,
-  isStable: Boolean,
-  criticalInjuries: [String],
   humanity: [Number, Number],
   role: String,
-  abilities: [{ name: String, rank: Number }],
-  addictions: [String],
-  eb: Number,
-  ip: Number,
+  rank: Number,
+  criticalInjuries: [String],
+  cyberarm: Boolean,
   stats: {
     int: [Number, Number],
     ref: [Number, Number],
@@ -103,32 +99,129 @@ const playerCharacter = new Schema({
     body: { name: String, sp: Number, penalty: String },
     shield: { name: String, sp: Number, penalty: String },
   },
-  weapons: [
-    {
-      ref: String,
-      name: String,
+  weapons: {
+    medium_pistol: {
+      equipped: Boolean,
       ammo: Number,
-      magSize: String,
-      ammoLoaded: String,
-      rangeDV: [Number],
-      dmg: String,
-      standardMag: Number,
-      extendedMg: Number,
-      drumMag: Number,
-      rof: Number,
-      hands: Number,
-      isAutofire: Boolean,
-      afMultiplier: Number,
-      suppressiveFire: Boolean,
-      skillRef: String,
-      skillName: String,
       ammoType: String,
-      cost: Number,
     },
-  ],
-  ammo: [{ ref: String, ammoType: String, name: String, amount: Number, cost: Number }],
-  cyberwear: [{ ref: String, name: String, desc: String }],
-  inventory: [{ ref: String, name: String, amount: Number }],
+    heavy_pistol: {
+      equipped: Boolean,
+      ammo: Number,
+      ammoType: String,
+    },
+    very_heavy_pistol: {
+      equipped: Boolean,
+      ammo: Number,
+      ammoType: String,
+    },
+    smg: {
+      equipped: Boolean,
+      ammo: Number,
+      ammoType: String,
+    },
+    heavy_smg: {
+      equipped: Boolean,
+      ammo: Number,
+      ammoType: String,
+    },
+    assault_rifle: {
+      equipped: Boolean,
+      ammo: Number,
+      ammoType: String,
+    },
+    shotgun: {
+      equipped: Boolean,
+      ammo: Number,
+      ammoType: String,
+    },
+    sniper_rifle: {
+      equipped: Boolean,
+      ammo: Number,
+      ammoType: String,
+    },
+    bow: {
+      equipped: Boolean,
+      ammo: Number,
+      ammoType: String,
+    },
+    grenade_launcher: {
+      equipped: Boolean,
+      ammo: Number,
+      ammoType: String,
+    },
+    rocket_launcher: {
+      equipped: Boolean,
+      ammo: Number,
+      ammoType: String,
+    },
+  },
+  ammo: {
+    m_pistol: {
+      basic: Number,
+      ap: Number,
+      expansive: Number,
+      incendiary: Number,
+      rubber: Number,
+    },
+    h_pistol: {
+      basic: Number,
+      ap: Number,
+      expansive: Number,
+      incendiary: Number,
+      rubber: Number,
+    },
+    vh_pistol: {
+      basic: Number,
+      ap: Number,
+      expansive: Number,
+      incendiary: Number,
+      rubber: Number,
+    },
+    slug: {
+      basic: Number,
+      ap: Number,
+      expansive: Number,
+      rubber: Number,
+    },
+    shells: {
+      basic: Number,
+      incendiary: Number,
+    },
+    rifle: {
+      basic: Number,
+      ap: Number,
+      expansive: Number,
+      incendiary: Number,
+      rubber: Number,
+    },
+    arrow: {
+      basic: Number,
+      ap: Number,
+      biotoxin: Number,
+      expansive: Number,
+      incendiary: Number,
+      poison: Number,
+      rubber: Number,
+      sleep: Number,
+    },
+    grenade: {
+      ap: Number,
+      biotoxin: Number,
+      emp: Number,
+      expansive: Number,
+      flashbang: Number,
+      incendiary: Number,
+      poison: Number,
+      rubber: Number,
+      sleep: Number,
+      smoke: Number,
+      teargas: Number,
+    },
+    rocket: {
+      ap: Number,
+    },
+  },
 });
 
-module.exports = mongoose.model("Character", playerCharacter);
+module.exports = mongoose.model("Character", simplifiedCharacter);

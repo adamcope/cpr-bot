@@ -10,7 +10,7 @@ The more I work on this bot, the more I think that to get the most out of it, an
 `` !! BEGINNING OF OPINION !! ``<br><br>
 For what it's worth, in making this bot I have learned a great deal about javascript, node, and Discord.js, which was the whole point, and really that's enough for me. Originally I only intended to take some mechanics that were a pain to reference using the manual and a dice rolling bot, some stat blocks and effects that were scattered throughout the manual, and integrate them in a simple Discord bot of my own making for mine and my friend's game. Since embarking on this project I have also learned a lot about the mechanics and design of R. Talsorian's Cyberpunk RED TTRPG, and I am not without my criticisms. 
 
-CPR is needlessly complex in some areas, and truly broken in some others. A complete and integrated rendering of the game's mechanics either in this bot, or the amazing Foundry VTT module (which I only admire, and have nothing to do with), isn't possible without homebrew, judgement calls on the part of the tool designers, or both.  This isn't so much a deal breaker for me or others, as the game as written contains enough to ignore the inconsistencies and problems, and play a fun TTRPG with friends.
+A complete and integrated rendering of the game's mechanics either in this bot, or the amazing Foundry VTT module (which I only admire, and have nothing to do with), isn't possible without homebrew, judgement calls on the part of the tool designers, or both.  This isn't so much a deal breaker for me or others, as the game as written contains enough to ignore the inconsistencies and problems, and play a fun TTRPG with friends.
 
 The ambitiousness of this bot's design has grown in tandem with my discovery of the myriad mechanical intricacies to be found in the CPR core systems. I say systems because in no way does the game behave as a consistent or 'whole' system throughout its mechanics. Netrunning and the Tech class are obvious examples, but the Corpo class is its own head scratcher when it comes to rendering it into a Discord bot. Needless to say, this game is fairly rough around the edges.
 
@@ -37,11 +37,10 @@ We'll see how useful that is to use as a tool before continuing on to goals that
   - [ ] ``create`` subcommand
   - [ ] ``update`` ``<skill> || <stat>`` subcommand
   - [ ] ``status`` subcommand
-- [ ] ``/equip``  command
-- [ ] ``/buy`` command
+- [ ] ``/buy`` command !! PRIORITY
 - [ ] ``/dmg`` command - calculate dmg after sp/cover modifiers
-- [ ] ``/black-ice``
-- [ ] ``/non-black-ice``
+- [ ] ``/black-ice`` !! PRIORITY
+- [ ] ``/non-black-ice`` !! PRIORITY
 
 ## Working Commands
 ### Combat
@@ -51,6 +50,10 @@ We'll see how useful that is to use as a tool before continuing on to goals that
 - ``/archery``
 - ``/melee-weapon-attack``
 - ``/unarmed-melee-attack``
+
+### Notes
+
+- Dual wielding identical weapons seems to only serve the purpose of reloading half the times you would if single wielding the same weapon. Or perhaps if someone were able to successfully aim at one of your hands, wou would still have that same weapon in your other hand. This seems to imply that in the Time of the RED, you cannot squeeze two triggers at the same time.
 ### Netrunning
 `` !! These are notes for Netrunning features that need a lot more work before becoming fully realized. !! ``<br><br>
 

@@ -153,135 +153,51 @@
           "ref" : "heavy_pistol",
           "name" : "Heavy Pistol",
           "ammo" : 8,
-          "magSize" : "standardMag",
-          "ammoLoaded" : "Basic H pistol",
-          "rangeDV" : [ 
-              13, 
-              15, 
-              20, 
-              25, 
-              30, 
-              30, 
-              99
-          ],
-          "dmg" : "3d6",
-          "standardMag" : 8,
-          "extendedMag" : 14,
-          "drumMag" : 28,
-          "rof" : 2,
-          "hands" : 1,
-          "isAutofire" : false,
-          "afMultiplier" : 0,
-          "suppressiveFire" : false,
-          "skillRef" : "handgun",
-          "skillName" : "Handgun",
-          "ammoType" : "H pistol",
-          "cost" : 100
+          "ammoType": "H pistol"
       }, 
       {
           "ref" : "bow",
           "name" : "Bow",
           "ammo" : 30,
-          "magSize" : "standardMag",
-          "ammoLoaded" : "Basic Arrow",
-          "rangeDV" : [ 
-              15, 
-              13, 
-              15, 
-              17, 
-              20, 
-              22, 
-              99, 
-              99
-          ],
-          "dmg" : "4d6",
-          "standardMag" : 999,
-          "extendedMag" : 999,
-          "drumMag" : 999,
-          "rof" : 1,
-          "hands" : 2,
-          "isAutofire" : false,
-          "afMultiplier" : 0,
-          "suppressiveFire" : false,
-          "skillRef" : "archery",
-          "skillName" : "Archery",
-          "ammoType" : "Arrow",
-          "cost" : 100
+          "ammoType": "Arrow"
       }, 
       {
           "ref" : "smg",
           "name" : "SMG",
           "ammo" : 30,
-          "magSize" : "standardMag",
-          "ammoLoaded" : "Basic M pistol",
-          "rangeDV" : [ 
-              15, 
-              13, 
-              15, 
-              20, 
-              25, 
-              25, 
-              30, 
-              99
-          ],
-          "dmg" : "2d6",
-          "standardMag" : 30,
-          "extendedMag" : 40,
-          "drumMag" : 50,
-          "rof" : 1,
-          "hands" : 1,
-          "isAutofire" : true,
-          "afMultiplier" : 3,
-          "suppressiveFire" : true,
-          "skillRef" : "handgun",
-          "skillName" : "Handgun",
-          "ammoType" : "M pistol",
-          "cost" : 100
-      }
-  ],
-  "cyberwear" : [ 
-      {
-          "ref" : "neural_link",
-          "name" : "Neural Link",
-          "desc" : " "
-      }, 
-      {
-          "ref" : "cyber-deck",
-          "name" : "Cyberdeck",
-          "desc" : " "
+          "ammoType": "M pistol"
       }
   ],
   "ammo" : [ 
       {
           "ref" : "basic_arrow",
           "name" : "Basic Arrow",
-          "type" : "Arrow",
+          "ammoType" : "Arrow",
           "amount" : 30
       }, 
       {
           "ref" : "biotoxin_arrow",
           "name" : "Biotoxin Arrow",
-          "type" : "Arrow",
+          "ammoType" : "Arrow",
           "amount" : 10
       }, 
       {
           "ref" : "sleep_arrow",
           "name" : "Sleep Arrow",
-          "type" : "Arrow",
+          "ammoType" : "Arrow",
           "amount" : 10
       }, 
       {
           "ref" : "basic_m_pistol",
           "name" : "Basic M pistol",
-          "type" : "M pistol",
+          "ammoType" : "M pistol",
           "amount" : 60
       }, 
       {
           "ref" : "basic_h_pistol",
           "name" : "Basic H pistol",
-          "type" : "H pistol",
+          "ammoType" : "H pistol",
           "amount" : 24
       }
-  ],
-  "inventory" : []
+  ]
 }

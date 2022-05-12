@@ -4,6 +4,7 @@ const Character = require("../../models/playerCharacter.js");
 const { MessageEmbed } = require("discord.js");
 const { bold, underscore, italic } = require("@discordjs/builders");
 const rangedAttack = require("../../modules/rangedAttack.js");
+const lib = require("../../modules/library");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -33,6 +34,20 @@ module.exports = {
     )
     .addStringOption((option) =>
       option
+        .setName("arrow-type")
+        .setDescription("Select Arrow type. Must be equipped in Inventory.")
+        .addChoice("Basic", "Basic Arrow")
+        .addChoice("Armor-Piercing", "Armor-Piercing Arrow")
+        .addChoice("Biotoxin", "Biotoxin Arrow")
+        .addChoice("Expansive", "Expansive Arrow")
+        .addChoice("Incendiary", "Incendiary Arrow")
+        .addChoice("Poison", "Poison Arrow")
+        .addChoice("Rubber", "Rubber Arrow")
+        .addChoice("Sleep", "Sleep Arrow")
+        .setRequired(true)
+    )
+    .addStringOption((option) =>
+      option
         .setName("aim")
         .setDescription("Specify target.")
         .addChoice("Body", "Body")
@@ -49,11 +64,13 @@ module.exports = {
     const weaponInput = interaction.options.getString("weapon").split(" ");
     const distanceInput = interaction.options.getInteger("distance");
     const target = interaction.options.getString("aim");
+    const arrowType = interaction.options.getString("arrow-type");
+    const ammo = lib.ammo.find((x) => x.name == arrowType);
 
     const ra = rangedAttack(pc, weaponInput, distanceInput, target);
 
-    const quiver = pc.ammo.find((x) => x.name == ra.weapon.ammo.loaded);
-    const index = pc.ammo.findIndex((x) => x.name == ra.weapon.ammo.loaded);
+    const quiver = pc.ammo.find((x) => x.name == arrowType);
+    const index = pc.ammo.findIndex((x) => x.name == arrowType);
 
     if (!ra) {
       const notEquipped = new MessageEmbed()
@@ -69,6 +86,17 @@ module.exports = {
         .setColor("#7a1212")
         .setTitle(`${pc.characterName} - ${italic("Archery")}`)
         .setDescription(`Out of Ammo.`)
+        .setThumbnail(
+          `https://i.pinimg.com/originals/9a/b4/67/9ab46702d1f0669a0ae40464b25568f2.gif`
+        )
+        .setFooter({ text: `Player: @${pc.username}` });
+
+      await interaction.reply({ embeds: [outOfAmmo], ephemeral: true });
+    } else if (!quiver) {
+      const outOfAmmo = new MessageEmbed()
+        .setColor("#7a1212")
+        .setTitle(`${pc.characterName} - ${italic("Archery")}`)
+        .setDescription(`Ammo Not Equipped.`)
         .setThumbnail(
           `https://i.pinimg.com/originals/9a/b4/67/9ab46702d1f0669a0ae40464b25568f2.gif`
         )
@@ -154,12 +182,12 @@ module.exports = {
           },
           {
             name: `${underscore("Ammo")}`,
-            value: `${ra.weapon.ammo.loaded}`,
+            value: `${ammo.name}`,
             inline: true,
           },
           {
             name: `${underscore("Ammo Effect")}`,
-            value: `${ra.weapon.ammo.effect}`,
+            value: `${ammo.effect}`,
             inline: true,
           },
           {
@@ -237,12 +265,12 @@ module.exports = {
           },
           {
             name: `${underscore("Ammo")}`,
-            value: `${ra.weapon.ammo.loaded}`,
+            value: `${ammo.name}`,
             inline: true,
           },
           {
             name: `${underscore("Effect")}`,
-            value: `${ra.weapon.ammo.effect}`,
+            value: `${ammo.effect}`,
             inline: true,
           }
         )
