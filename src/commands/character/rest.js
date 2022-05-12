@@ -16,12 +16,15 @@ module.exports = {
       userID: `${interaction.member.id}`,
     });
 
-    //!! add function to check if character isStable === true, otherwise rest has no effect.
-    
-    pc.hp[0] = pc.hp[0] + pc.stats.body[0];
+    if (!pc.isStable) {
+      return interaction.reply(
+        "You must be stabilized before resting will heal you."
+      );
+    } else {
+      pc.hp[0] = pc.hp[0] + pc.stats.body[0];
+      await pc.save();
 
-    await pc.save();
-
-    interaction.reply("Rested for 24hrs.");
+      interaction.reply("Rested for 24hrs.");
+    }
   },
 };
