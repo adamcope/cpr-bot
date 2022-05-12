@@ -36,11 +36,11 @@ We'll see how useful that is to use as a tool before continuing on to goals that
 - [ ] ``/character`` command
   - [ ] ``create`` subcommand
   - [ ] ``update`` ``<skill> || <stat>`` subcommand
-  - [ ] ``status`` subcommand
-- [ ] ``/buy`` command !! PRIORITY
-- [ ] ``/dmg`` command - calculate dmg after sp/cover modifiers
-- [ ] ``/black-ice`` !! PRIORITY
-- [ ] ``/non-black-ice`` !! PRIORITY
+  - [x] ``status`` subcommand
+- [x] ``/equip`` command !! PRIORITY
+- [x] ``/dmg`` command - calculate dmg after sp/cover modifiers
+- [x] ``/black-ice`` !! PRIORITY
+- [x] ``/non-black-ice`` !! PRIORITY
 
 ## Working Commands
 ### Combat
@@ -50,17 +50,3 @@ We'll see how useful that is to use as a tool before continuing on to goals that
 - ``/archery``
 - ``/melee-weapon-attack``
 - ``/unarmed-melee-attack``
-
-### Notes
-
-- Dual wielding identical weapons seems to only serve the purpose of reloading half the times you would if single wielding the same weapon. Or perhaps if someone were able to successfully aim at one of your hands, wou would still have that same weapon in your other hand. This seems to imply that in the Time of the RED, you cannot squeeze two triggers at the same time.
-### Netrunning
-`` !! These are notes for Netrunning features that need a lot more work before becoming fully realized. !! ``<br><br>
-
-- ``/jack-in`` command<br>
-This command needs to be able to check if Netrunner is already jacked in. Otherwise working.
-
-- ``/net-generate`` command<br> 
-This feature needs a MAJOR OVERHAUL, while this can certainly work to generate a simple branchless NET Architecture, it needs to be much more robust to for more complex Architecture to be possible.
-
-Where multiple BlackICE programs can be generated, handling how  that works when saving Architectures that are generated to the DB is currently unsatisfactory since the multiple programs are not seperated and rendered as seperate objects within the 'floors.programs' array. Without a good way of doing this, more robust features such as having the programs enter combat or follow a runner through the Architecture won't work.
