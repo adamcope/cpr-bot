@@ -44,6 +44,16 @@ critInjuryInfo = [
   },
   {
     target: "body",
+    injury: "none",
+    effect: `none`,
+    quickFix: [{ skill: "N/A", dv: 0 }],
+    treatment: [{ skill: "N/A", dv: 0 }],
+    stat: "none",
+    mod: 0,
+    BDSP: 0,
+  },
+  {
+    target: "body",
     injury: "Dismembered Arm",
     effect: `The Dismembered Arm is gone. You drop any items in that dismembered arm's hand immediately.\n${bold(
       "Base Death Save Penalty is incereased by 1."
