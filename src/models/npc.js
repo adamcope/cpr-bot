@@ -16,7 +16,6 @@ const npc = new Schema({
   abilities: [{ name: String, rank: Number }],
   addictions: [String],
   eb: Number,
-  ip: Number,
   stats: {
     int: [Number, Number],
     ref: [Number, Number],
