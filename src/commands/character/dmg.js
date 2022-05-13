@@ -7,7 +7,7 @@ const { bold, underscore, italic } = require("@discordjs/builders");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("dmg")
-    .setDescription("Apply DMG to your character.")
+    .setDescription("Apply DMG to directly to your character's HP.")
     .addIntegerOption((option) =>
       option.setName("amount").setDescription("Amount of DMG to apply").setRequired(true)
     ),
