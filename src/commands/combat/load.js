@@ -208,7 +208,7 @@ module.exports = {
 
       if (weaponToReload && ammoToLoad) {
 
-        //!! Fix negative ammo bug !!
+        //?? Fix negative ammo bug
 
         //** returns ammo loaded in weapon to ammo inventory */
         pc.ammo[returnedAmmoIndex].amount = pc.weapons[weaponIndex].ammo + pc.ammo[returnedAmmoIndex].amount;
@@ -219,6 +219,15 @@ module.exports = {
 
         //** changes the name of the ammo loaded to the ammo input in the command */
         pc.weapons[weaponIndex].ammoLoaded = ammoInput
+
+        //!! Negative ammo Bandaid
+        if(pc.ammo[ammoToLoadIndex] < 0) {
+          pc.ammo[ammoToLoadIndex] = 0
+        }
+
+        if (pc.weapons[weaponIndex] < 0) {
+          pc.weapons[weaponIndex] = 0
+        }
 
         await pc.save();
         interaction.reply("Loaded!");
