@@ -11,10 +11,8 @@ const npc = new Schema({
   traumaStatus: String,
   isStable: Boolean,
   criticalInjuries: [String],
-  humanity: [Number, Number],
   role: String,
   abilities: [{ name: String, rank: Number }],
-  addictions: [String],
   eb: Number,
   stats: {
     int: [Number, Number],
